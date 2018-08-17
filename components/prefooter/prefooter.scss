@@ -8,60 +8,70 @@
 
 .ll-prefooter {
   position: relative;
-  overflow: hidden;
-  background-color: $battleship;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
 
   .container {
+    overflow: hidden;
     min-height: 75vw;
     padding-top: $padding-medium;
     padding-bottom: $padding-medium;
   }
 
   .prefooter__heading,
-  .prefooter__supertitle,
-  .prefooter__button {
+  .prefooter__nav {
     min-width: 50.01%;//This lil' hack forces a stack
     margin-right: auto;
     margin-left: auto;
   }
 
-  .prefooter__supertitle {
-    @extend %h6;
-    margin-bottom: rem-calc(18);
-  }
-
   .prefooter__heading {
-    @extend %h1;
+    @extend %h2;
+    font-weight: $text-med;
+    color: $white;
   }
 
-  .prefooter__content {
-    p {
-      @extend %small;
-      margin-bottom: 0;
+  .prefooter__nav {
+    position: relative;
+    margin-top: $padding-small;
+
+    &:before {
+      position: absolute;
+      left: calc(50% - #{rem-calc(25)} - #{$grid-gutter-width/2});
+      content: 'or';
+      width: rem-calc(50);
+      color: $coal;
+      font-size: rem-calc(22);
+      font-weight: $text-med;
+      text-align: center;
+      line-height: line-calc(36,22);
     }
-  }
-
-  .prefooter__button {
-    margin-top: rem-calc(30);
 
     button, *[class*="btn"] {
       @extend %roboto;
-      @extend %btn--shadow;
+      font-size: rem-calc(22);
       min-width: rem-calc(254);
     }
   }
 
-  h2, h3, h4, h5, h6, p, li {
-    color: $white;
+  .prefooter__button {
+    font-weight: $text-med;
+  }
+
+  @include screen-sm {
+
+    .prefooter__button:nth-child(2n) {
+      margin-top: $padding-medium;
+    }
+
   }
 
   @include screen-sm-up {
-
     .container {
       min-height: 50vh;
+    }
+
+    .prefooter__button {
+      margin-right: $grid-gutter-width * 2;
+      margin-left: $grid-gutter-width * 2;
     }
 
   }
@@ -69,13 +79,13 @@
   @include screen-lg-up {
 
     .container {
-      min-height: rem-calc(531);
+      min-height: rem-calc(461);
       padding-top: $padding-large;
       padding-bottom: $padding-large;
     }
 
-    .prefooter__button {
-      margin-top: rem-calc(40);
+    .prefooter__nav {
+      margin-top: $padding-medium;
     }
 
   }
