@@ -15,15 +15,6 @@
   margin-bottom: 0 !important;
   padding-top: rem-calc(58);
   text-align: left;
-  background-color: $battleship;
-  @include ragged-after;
-
-  &.big-headline .hero__heading {
-    margin-bottom: rem-calc(195/2);
-    font-size: rem-calc(82);
-    line-height: line-calc(70,82);
-    letter-spacing: rem-calc(5.96);
-  }
 
   + .entry__meta {
    padding-top: $padding-small;
@@ -31,58 +22,34 @@
 
   .container {
     flex-wrap: wrap;
-    min-height: inherit;
+    min-height: 100%;
   }
 
   .hero__button,
   .hero__heading,
-  .hero__content,
-  .hero__supertitle,
-  .hero__price {
+  .hero__supertitle {
     padding-left: 0;
     padding-right: 0;
   }
 
-  .hero__heading,
-  .hero__content,
-  .hero__supertitle,
-  .hero__price {
-    margin-right: auto;
-    margin-left: auto;
-    color: $white;
-  }
-
-  .hero__price {
-    @extend %large;
-    display: flex;
-    margin-bottom: rem-calc(8);
-    @extend %roboto;
-    text-transform: uppercase;
-
-    span {
-      @extend %roboto;
-      @extend %h4;
-      font-weight: $text-bold;
-      margin-right: rem-calc(6);
-    }
-  }
-
-  .hero__content {
-
-    p {
-      color: inherit;
-    }
-
+  .hero__feature__photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $powder;
   }
 
   .hero__supertitle {
     @extend %supertitle;
     @extend %roboto;
-    margin-bottom: rem-calc(30);
+    color: $silver;
+    margin-bottom: $padding-xsmall;
   }
 
   .hero__heading {
     @extend %h0;
+    color: $black;
   }
 
   .hero__button {
@@ -108,31 +75,33 @@
 
   @include screen-sm {
 
+    .hero__heading,
+    .hero__supertitle,
     .hero__button {
-      margin-left: auto;
       margin-right: auto;
+      margin-left: auto;
     }
 
   }
 
   @include screen-md-up {
-    min-height: rem-calc(637);
     height: 85vh;
 
     body.admin-bar & {
-      padding-top: rem-calc(90);
-    }
+      padding-top: rem-calc(60);
 
-    &.big-headline .hero__heading {
-      margin-bottom: rem-calc(195);
+      .container {
+        min-height: calc(100% - #{rem-calc(60)});
+      }
     }
 
     .hero__heading,
-    .hero__content,
-    .hero__supertitle,
-    .hero__price {
+    .hero__supertitle {
       min-width: 50.01%;//This lil' hack forces a stack
-      margin-right: 0;
+    }
+
+    .hero__supertitle {
+      margin-bottom: $padding-small;
     }
 
     .hero__button {
@@ -141,12 +110,11 @@
 
   }
 
+  @include screen-lg-up {
+    min-height: rem-calc(637);
+  }
+
   @include screen-xl-up {
-    min-height: rem-calc(637*1.25);
-
-    body.admin-bar & {
-      padding-top: rem-calc(74);
-    }
-
+    min-height: rem-calc(975);
   }
 }

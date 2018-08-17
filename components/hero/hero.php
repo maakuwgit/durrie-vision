@@ -9,7 +9,6 @@
 $defaults = [
   'supertitle'  => false,
   'heading'     => false,
-  'content'     => false,
   'button'      => false,
   'image'       => false,
   'video'       => false,
@@ -42,13 +41,12 @@ if( $classes ) $classes = ' ' . implode( " ", $classes );
  * @var array
  * @see args['id']
  */
-$id = $component_args['id'];
+$id   = $component_args['id'];
+$oid  = uniqid('hero__figure-');
 
 if( $component_data['supertitle'] ) {
   $supertitle      = $component_data['supertitle']['text'];
   $supertitle_tag  = $component_data['supertitle']['tag'];
-  $price           = $component_data['supertitle']['price'];
-  $suffix          = $component_data['supertitle']['suffix'];
 }else{
   $supertitle = false;
 }
@@ -58,7 +56,6 @@ if( $component_data['heading'] ) {
   $heading_tag     = $component_data['heading']['tag'];
 }
 
-$content         = $component_data['content'];
 $button          = $component_data['button'];
 
 if( $button ) {
@@ -81,11 +78,11 @@ if( $image ) {
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
 
-<header class="ll-hero<?php echo $classes; ?>"<?php echo ' id="'.$id.'"'; ?> data-component="hero"<?php echo $bg; ?>>
+<header class="ll-hero<?php echo $classes; ?>"<?php echo ' id="'.$id.'"'; ?> data-component="hero">
 
   <?php if( $bg ) : ?>
   <style>
-    #<?php echo $id; ?>:before {
+    #<?php echo $oid; ?>:before {
       position: absolute;
       content: '';
       top: 0;
@@ -99,15 +96,18 @@ if( $image ) {
 <?php endif; ?>
 
   <?php if ($image ) : ?>
+    <figure class="hero__feature__photo col col-md-7of12 col-lg-8of12 col-xl-8of12"<?php echo $bg; ?>>
 
-    <div class="hero__feature feature">
-      <?php
-      if( is_array($image) ) {
-        echo ll_format_image($image);
-      }else{
-        echo $image;
-      } ?>
-    </div><!-- .hero__feature.feature -->
+      <div class="hero__feature feature">
+        <?php
+        if( is_array($image) ) {
+          echo ll_format_image($image);
+        }else{
+          echo $image;
+        } ?>
+      </div><!-- .hero__feature.feature -->
+
+    </figure>
 
   <?php endif; ?>
 
@@ -126,41 +126,23 @@ if( $image ) {
     }
   ?>
 
-  <div class="container centered end row">
+  <div class="container flex-end row">
 
   <?php if( $supertitle ) : ?>
 
-    <<?php echo $supertitle_tag; ?> class="hero__supertitle col col-xs-10of12 col-sm-8of12 col-md-6of12 col-lg-6of12 col-xl-6of12">
+    <<?php echo $supertitle_tag; ?> class="hero__supertitle col col-md-4of12 col-lg-4of12 col-xl-4of12">
       <?php echo $supertitle; ?>
     </<?php echo $supertitle_tag; ?>>
     <!-- .hero__supertitle -->
 
   <?php endif; ?>
 
-  <?php if( $price ) : ?>
-
-    <div class="hero__price col col-xs-10of12 col-sm-8of12 col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <span><?php echo $price; ?></span><?php echo $suffix; ?>
-    </div>
-    <!-- .hero__price -->
-
-  <?php endif; ?>
-
   <?php if( $heading ) : ?>
 
-    <<?php echo $heading_tag; ?> class="hero__heading col col-xs-10of12 col-sm-8of12 col-md-6of12 col-lg-6of12 col-xl-6of12">
+    <<?php echo $heading_tag; ?> class="hero__heading col">
       <?php echo $heading; ?>
     </<?php echo $heading_tag; ?>>
     <!-- .hero__heading -->
-
-  <?php endif; ?>
-
-  <?php if( $content ) : ?>
-
-    <div class="hero__content col col-xs-10of12 col-sm-8of12 col-md-6of12 col-lg-6of12 col-xl-6of12">
-      <?php echo format_text($content); ?>
-    </div>
-    <!-- .hero__content -->
 
   <?php endif; ?>
 

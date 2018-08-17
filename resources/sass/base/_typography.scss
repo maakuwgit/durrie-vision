@@ -63,13 +63,24 @@ h1,.h1, h2, .h2, h3,.h3, h4, .h4 {
 }
 
 %h0 {
-  font-size: rem-calc(47);
+  font-size: rem-calc(56);
   font-weight: $text-reg;
-  line-height: line-calc(62, 47);
-  letter-spacing: -1.67px;
+  line-height: 1;
 
-  @include screen-sm-up {
+  @include screen-sm-only {
+  font-size: rem-calc(80);
+  line-height: line-calc(70, 80);
+  }
+
+  @include screen-md-only {
+    font-size: rem-calc(120);
+    letter-spacing: -0.8px;
+    line-height: line-calc(100, 120);
+  }
+
+  @include screen-md-up {
     font-size: rem-calc(200);
+    letter-spacing: -1.67px;
     line-height: line-calc(160, 200);
   }
 
@@ -201,8 +212,8 @@ h6,
 }
 
 %supertitle {
-  font-size: rem-calc(13);
-  line-height: line-calc(20, 13);
+  font-size: rem-calc(20);
+  line-height: 1;
   font-weight: $text-med;
 
   @include screen-sm-up {

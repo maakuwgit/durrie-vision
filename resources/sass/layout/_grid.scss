@@ -65,6 +65,10 @@
     align-content: center;
   }
 
+  &.flex-end {
+    align-content: flex-end;
+  }
+
   [class^="col"],
   [class*="col-"] {
     align-self: auto;

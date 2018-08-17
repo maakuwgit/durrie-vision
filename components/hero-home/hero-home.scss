@@ -22,7 +22,6 @@
   margin-bottom: 0 !important;
   padding-top: rem-calc(58);
   background-color: $battleship;
-  @include ragged-after('s');
 
   * {
     color: $white;

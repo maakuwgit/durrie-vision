@@ -9,7 +9,6 @@
 .ll-icon-grid {
   position: relative;
   @extend %section-padding;
-  @include ragged-after('s',true);
   background-color: $battleship;
 
   .icon-grid__heading {

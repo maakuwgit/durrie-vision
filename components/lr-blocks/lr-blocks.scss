@@ -9,7 +9,6 @@
 .ll-lr-blocks {
   position: relative;
   @extend %section-padding;
-  @include ragged-after('w',true);
   background-color: $white;
   padding-top: $padding-small;
 
