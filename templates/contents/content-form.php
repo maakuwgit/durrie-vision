@@ -8,18 +8,6 @@
   <?php gravity_form( $form_id, true, true ); ?>
 
 <?php endif; ?>
-
-<?php
-  $locations = array(
-    'heading'       => get_field('location_grid_heading'),
-    'content'       => get_field('location_grid_content'),
-    'num_locations' => get_field('location_grid_num_locations')
-  );
-
-  ll_include_component(
-    'location-grid',
-    $locations
-  );
-?>
 <!-- .form-skin -->
+
 </article>

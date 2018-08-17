@@ -103,9 +103,9 @@
     "location": [
         [
             {
-                "param": "post_template",
+                "param": "post_type",
                 "operator": "==",
-                "value": "templates\/template-form-template.php"
+                "value": "post"
             }
         ]
     ],
@@ -115,7 +115,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": 0,
     "description": "A definition list grid containing Single Location information. All cards should be dynamically generated from the Locations CPT.",
-    "modified": 1532464310
+    "modified": 1534541534
 }

@@ -191,6 +191,11 @@
                 "param": "post_template",
                 "operator": "!=",
                 "value": "templates\/template-home.php"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "templates\/template-fullpage-form.php"
             }
         ]
     ],
@@ -205,5 +210,5 @@
     ],
     "active": 1,
     "description": "100vw, 85vh <DIV> with the following options. The background image is styled to have an overlay tint, which can be controlled through the component.",
-    "modified": 1534465743
+    "modified": 1534540780
 }

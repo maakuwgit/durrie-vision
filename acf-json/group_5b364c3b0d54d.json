@@ -542,12 +542,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/template-dark.php"
-            },
-            {
-                "param": "page_type",
-                "operator": "!=",
-                "value": "posts_page"
+                "value": "templates\/template-form-template.php"
             }
         ]
     ],
@@ -562,5 +557,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534266229
+    "modified": 1534541372
 }

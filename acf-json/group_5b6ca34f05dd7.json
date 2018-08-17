@@ -3,30 +3,6 @@
     "title": "Inline Form",
     "fields": [
         {
-            "key": "field_5b6ca3525c784",
-            "label": "Image",
-            "name": "inline-form_image",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_5b6ca37e5c785",
             "label": "Form ID",
             "name": "inline-form_id",
@@ -44,16 +20,16 @@
             "prepend": "",
             "append": "",
             "min": "",
-            "max": "",
+            "max": 4,
             "step": ""
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_template",
                 "operator": "==",
-                "value": "post"
+                "value": "templates\/template-fullpage-form.php"
             }
         ]
     ],
@@ -65,5 +41,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1533846456
+    "modified": 1534541743
 }

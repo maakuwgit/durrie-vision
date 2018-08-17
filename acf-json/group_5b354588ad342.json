@@ -29,7 +29,7 @@
             {
                 "param": "post_template",
                 "operator": "==",
-                "value": "templates\/template-form-template.php"
+                "value": "templates\/template-fullpage-form.php"
             }
         ]
     ],
@@ -41,5 +41,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Sends a form id to the Form Template page template choose a form id which shows instead of content.",
-    "modified": 1531851391
+    "modified": 1534541781
 }
