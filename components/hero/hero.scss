@@ -7,5 +7,146 @@
  */
 
 .ll-hero {
+  position: relative;
+  min-height: rem-calc(320);
+  height: 42vh;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 0 !important;
+  padding-top: rem-calc(58);
+  text-align: left;
+  background-color: $battleship;
+  @include ragged-after;
 
+  &.big-headline .hero__heading {
+    margin-bottom: rem-calc(195/2);
+    font-size: rem-calc(82);
+    line-height: line-calc(70,82);
+    letter-spacing: rem-calc(5.96);
+  }
+
+  + .entry__meta {
+   padding-top: $padding-small;
+  }
+
+  .container {
+    flex-wrap: wrap;
+    min-height: inherit;
+  }
+
+  .hero__button,
+  .hero__heading,
+  .hero__content,
+  .hero__supertitle,
+  .hero__price {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .hero__heading,
+  .hero__content,
+  .hero__supertitle,
+  .hero__price {
+    margin-right: auto;
+    margin-left: auto;
+    color: $white;
+  }
+
+  .hero__price {
+    @extend %large;
+    display: flex;
+    margin-bottom: rem-calc(8);
+    @extend %roboto;
+    text-transform: uppercase;
+
+    span {
+      @extend %roboto;
+      @extend %h4;
+      font-weight: $text-bold;
+      margin-right: rem-calc(6);
+    }
+  }
+
+  .hero__content {
+
+    p {
+      color: inherit;
+    }
+
+  }
+
+  .hero__supertitle {
+    @extend %supertitle;
+    @extend %roboto;
+    margin-bottom: rem-calc(30);
+  }
+
+  .hero__heading {
+    @extend %h0;
+  }
+
+  .hero__button {
+    margin-top: $padding-small * 0.75;
+
+    a, button {
+      @extend %roboto;
+      @extend %btn--shadow;
+      padding: #{rem-calc(21)} #{rem-calc(32)};
+    }
+  }
+
+  .play-video-button {
+    @extend %icon-link;
+    margin-top: rem-calc(21);
+  }
+
+  &:after {
+    bottom: 0;
+    border-width: #{rem-calc(75)} 100vw 0 0;
+    border-color: transparent $white transparent transparent;
+  }
+
+  @include screen-sm {
+
+    .hero__button {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+
+  @include screen-md-up {
+    min-height: rem-calc(637);
+    height: 85vh;
+
+    body.admin-bar & {
+      padding-top: rem-calc(90);
+    }
+
+    &.big-headline .hero__heading {
+      margin-bottom: rem-calc(195);
+    }
+
+    .hero__heading,
+    .hero__content,
+    .hero__supertitle,
+    .hero__price {
+      min-width: 50.01%;//This lil' hack forces a stack
+      margin-right: 0;
+    }
+
+    .hero__button {
+      margin-top: $padding-medium * 0.75;
+    }
+
+  }
+
+  @include screen-xl-up {
+    min-height: rem-calc(637*1.25);
+
+    body.admin-bar & {
+      padding-top: rem-calc(74);
+    }
+
+  }
 }

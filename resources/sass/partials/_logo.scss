@@ -3,15 +3,41 @@
  */
 
 .logo {
-
 }
 
 .logo--header {
 
 }
 
+.logo-svg {
+  width: rem-calc(158);
+  height: rem-calc(32);
+  transform: scale(1.6139);
+  transform-origin: left;
+
+  @include screen-xl-up {
+    transform: scale(2);
+  }
+}
+
 .logo__brand {
-  float: left;
-  padding: 15px 15px;
-  @include font-size( 32 );
+  @extend h2;
+  display: flex;
+  width: rem-calc(174);
+  height: rem-calc(54);
+  flex-direction: column;
+  z-index: 2;
+  font-size: rem-calc(18);
+  font-weight: $text-light;
+  line-height: line-calc(28,22);
+  text-align: center;
+  text-transform: uppercase;
+  fill: $ebony;
+  color: $ebony;
+  background-size: rem-calc(73);
+  img {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
 }

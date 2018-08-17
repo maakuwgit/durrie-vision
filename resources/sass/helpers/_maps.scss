@@ -42,7 +42,7 @@ $breakpoints: (
  *
  * Element
  * p {
- *   @include font-size($p-fz);
+ *   font-size: rem-calc($p-fz);
  * }
  * _________________________________*/
 

@@ -18,7 +18,7 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
   }
 
   function start_lvl(&$output, $depth = 0, $args = array()) {
-    $output .= "\n<ul class=\" collapsed dropdown-menu\" id=\"dropdown-".$this->curItem."\"  data-content=\"collapse\">\n";
+    $output .= "\n<ul class=\" collapsed dropdown-menu wrapper\" id=\"dropdown-".$this->curItem."\"  data-content=\"collapse\">\n";
   }
 
   function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
@@ -26,9 +26,42 @@ class Roots_Nav_Walker extends Walker_Nav_Menu {
     $item_html = '';
     parent::start_el($item_html, $item, $depth, $args);
 
-    if ($item->is_dropdown && ($depth === 0)) {
+    $menu = wp_get_nav_menu_object($args->menu);
+
+    /*Check the ACFs if this is a bus */
+    $bus_hero    = get_field('bus-hero_image', $item->object . '_' . $item->object_id);
+    $bus_overlay = get_field('bus-hero_overlay_strength', $item->object . '_' . $item->object_id);
+
+    $bus = get_term($item->object_id);
+
+    $title = $bus->post_title;
+    $description = $item->post_content;
+
+    if ( $bus_hero ) {
+
+      $title = $bus->name;
+      $description = $bus->description;
+
+      $img = '<div class="feature"><img alt="" src="'.$bus_hero.'"></div>';
+
+      $content = '';
+
+      if ( $title ) {
+        $content .= '<a class="menu-item__title" href="' . $item->url . '">' . $title . '</a>';
+
+        if ( $description ) {
+          $content .= '<a class="menu-item__description">' . $description . '</a>';
+        }
+      }
+
+      $item_html  = '<li class="menu-item">';
+      $item_html .= '<figure class="menu-item-image" data-backgrounder>'.$img;
+      $item_html .= '<figcaption class="menu-item-image_caption">'.$content.'</figcaption>';
+      $item_html .= '</figure></li>';
+    }
+    elseif ($item->is_dropdown && ($depth === 0)) {
       $item_html = str_replace('<a', '<a class="dropdown-toggle" data-toggle="collapse" data-target="#dropdown-'.$item->ID.'"', $item_html);
-      $item_html = str_replace('</a>', '<b class="caret"></b></a>', $item_html);
+      $item_html = str_replace('</a>', '</a>', $item_html);
     }
     elseif (stristr($item_html, 'li class="divider')) {
       $item_html = preg_replace('/<a[^>]*>.*?<\/a>/iU', '', $item_html);
@@ -99,7 +132,7 @@ function roots_nav_menu_args($args = '') {
   }
 
   if (!$args['depth']) {
-    $roots_nav_menu_args['depth'] = 2;
+    $roots_nav_menu_args['depth'] = 3;
   }
 
   if (!$args['walker']) {

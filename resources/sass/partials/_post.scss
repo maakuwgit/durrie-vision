@@ -2,31 +2,103 @@
  * Post
  *   Used on single post pages
  */
+.hentry.no_related {
+  padding-bottom: $padding-medium;
+
+  @include screen-lg-up {
+    padding-bottom: $padding-large;
+  }
+}
 
 .post {
+  padding-top: $padding-medium;
+  padding-bottom: $padding-medium;
+
+  @include screen-lg-up {
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+  }
+
+  &.container {
+    max-width: initial;
+  }
 
 }
 
-.post__header {
-
-}
-
-.post__header__title {
-
+.post__hdg {
 }
 
 .post__content {
 
+  > {
+
+    *:not(blockquote) {
+      max-width: rem-calc(1130);//Since we want these to scale on XL+ screens, these need to be rems
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    p, li, time, td, th, dt, dd {
+      color: $silver;
+    }
+
+    p, ul {
+      margin-bottom: $padding-xsmall;
+
+      @include screen-md-up {
+        margin-bottom: $padding-small;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    ul, ol {
+      margin-left: rem-calc(18);
+    }
+
+    blockquote {
+      margin-top: $padding-large;
+      margin-bottom: $padding-large;
+    }
+
+  }
+
 }
 
-.post__footer {
+.post__title {
+  @extend %title;
 
 }
 
-.post__footer__nav {
+.post__image {
 
 }
 
-.posts__comments {
+.post__related_posts {
+  background-color: $ivory;
+
+  .card-grid__posts {
+    max-width: rem-calc(1170);
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
+.post__related_posts__title {
+  @extend %h5;
+  margin-top: $padding-small;
+  margin-bottom: $padding-xsmall;
+  color: $battleship;
+}
+
+@include screen-md-up {
+
+  .post__related_posts__title {
+    margin-top: $padding-medium;
+    margin-bottom: $padding-small;
+  }
 
 }

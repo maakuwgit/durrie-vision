@@ -1,0 +1,15 @@
+/**
+ * Single (Global)
+ */
+.single-post {
+
+  .hentry:first-child {
+    padding-top: rem-calc(100);
+  }
+
+  h1 {
+    margin-bottom: rem-calc(45);
+    color: $battleship;
+  }
+
+}

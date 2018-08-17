@@ -8,7 +8,8 @@
 }
 
 .entry__header {
-
+  padding-left: $grid-column-padding/2;
+  padding-right: $grid-column-padding/2;
 }
 
 .entry__header__title {
@@ -17,4 +18,41 @@
 
 .entry__summary {
 
+}
+
+.entry__meta {
+
+  .btn {
+    margin-left: $grid-column-padding/2;
+    margin-right: $grid-column-padding/2;
+  }
+
+}
+
+.entry__headline {
+  color: $grey;
+}
+
+.entry__filters__label {
+  display: block;
+  padding: #{rem-calc(11)} #{rem-calc(32)} #{rem-calc(10)};
+  border-radius: rem-calc(4);
+  color: $silver;
+  box-shadow: 0 #{rem-calc(2)} #{rem-calc(7)} rgba($black, .24);
+  background-color: $white;
+
+  .entry__filters__select {
+    height: rem-calc(50);
+    padding: 0;
+    border: none;
+    color: $aluminum;
+    line-height: initial;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:hover, &:focus {
+      box-shadow: none;
+      color: $aqua;
+    }
+  }
 }

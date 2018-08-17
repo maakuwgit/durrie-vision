@@ -1,0 +1,15 @@
+/**
+ * Dark Theme
+ */
+
+.page-template-template-dark {
+
+  .ll-hero {
+    @include ragged-after('s');
+  }
+
+  .ll-prefooter {
+    @include ragged-before('s');
+  }
+
+}

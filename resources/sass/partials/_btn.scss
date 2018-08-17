@@ -1,10 +1,64 @@
 /**
  * Button Styles
  */
-
-.btn {
+%btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: rem-calc(475);
+  border: solid 1px $black;
+  margin: auto 0;
+  padding: #{rem-calc(25)} #{rem-calc(75)};
+  border-radius: 0;
+  background-color: $black;
+  color: $white;
+  outline: none;
+  font-size: rem-calc(30);
+  line-height: line-calc(37, 30);
+  font-weight: $text-reg;
+  text-align: center;
+  box-shadow: none;
 
   &:hover, &:active, &:focus {
-
+    border-color: $silver;
+    background-color: $silver;
   }
+
+  @include screen-md-up {
+    font-size: rem-calc(40);
+    line-height: line-calc(50, 40);
+  }
+}
+
+%btn--shadow {
+  box-shadow: 0 0 #{rem-calc(15)} 0 rgba($black, 0.1);
+}
+
+%btn--outline {
+  @extend %btn;
+  color: $white;
+  border-color: $coal;
+  background-color: transparent;
+
+  &:hover, &:active, &:focus {
+    border-color: $ivory;
+    background-color: $aqua;
+  }
+}
+
+.btn,
+input[type="submit"],
+button {
+  @extend %btn;
+
+  &.btn--muted {
+    color: $silver;
+    svg {
+      fill: $silver;
+    }
+  }
+}
+
+.btn--outline {
+  @extend %btn--outline;
 }

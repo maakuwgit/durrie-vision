@@ -295,7 +295,7 @@
         {
             "key": "field_59b2afcb2a68f",
             "label": "Openings",
-            "name": "scehma_openings",
+            "name": "schema_openings",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -338,13 +338,13 @@
                         "id": ""
                     },
                     "choices": {
-                        "Su": "Sunday",
-                        "Mo": "Monday",
-                        "Tu": "Tuesday",
-                        "We": "Wednesday",
-                        "Th": "Thursday",
-                        "Fr": "Friday",
-                        "Sa": "Saturday"
+                        "Sun": "Sunday",
+                        "Mon": "Monday",
+                        "Tue": "Tuesday",
+                        "Wed": "Wednesday",
+                        "Thu": "Thursday",
+                        "Fri": "Friday",
+                        "Sat": "Saturday"
                     },
                     "default_value": [],
                     "allow_null": 0,
@@ -608,8 +608,24 @@
         },
         {
             "key": "field_59a99012f0ebd",
-            "label": "Instagram",
+            "label": "Fashion Instagram",
             "name": "social_instagram",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5b69b6d1167ca",
+            "label": "Strot Instagram",
+            "name": "social_instagram_2",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -806,6 +822,103 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_5b68b7c437674",
+            "label": "Newsletter",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "left",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b68b78537673",
+            "label": "Form ID",
+            "name": "newsletter_form_id",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 2,
+            "placeholder": 2,
+            "prepend": "",
+            "append": "",
+            "min": 1,
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_5b6aeb60ed5b1",
+            "label": "Archives",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_5b6aeb36ed5b0",
+            "label": "Doctor Archive Page",
+            "name": "doctor_archive_page",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
+        },
+        {
+            "key": "field_5b761ef83f049",
+            "label": "Procedure Archive Page",
+            "name": "procedure_archive_page",
+            "type": "post_object",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "id",
+            "ui": 1
         }
     ],
     "location": [
@@ -825,5 +938,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1513806765
+    "modified": 1534467864
 }

@@ -8,11 +8,11 @@
  * Example uses:
  *
  * Number:
- * @include font-size(14);
+ * font-size: rem-calc(14);
  * Converts font-size number to px and rem units
  *
  * Map:
- @ @include font-size($h1-font-sizes)
+ @ font-size: rem-calc($h1-font-sizes)
  * Sets font-size values (and optionally line-height values)
  * for each breakpoint value
  */
@@ -64,20 +64,177 @@
 }
 
 /**
+ * Flexi-box an element
+ */
+@mixin flexible($justify: center, $align-items: flex-start, $direction: row, $align-content: center) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  align-content: $align-content;
+  align-items: $align-items;
+}
+
+@mixin ragged-after($color:'w', $invert:false) {
+  &:after {
+    position: absolute;
+    right: 0;
+
+    @if $invert == false {
+      bottom: 0;
+    } @else {
+      bottom: rem-calc(-60);
+      transform:rotate(180deg);
+    }
+
+    left: 0;
+    z-index: 2;
+    content: '';
+    width: 100%;
+    height: rem-calc(60);
+    background-size: cover;
+    background-image: url(../img/graphic__ragged-edge-#{$color}.png);
+  }
+}
+
+@mixin ragged-before($color:'w', $invert:false) {
+  &:before {
+    position: absolute;
+    right: 0;
+    transform: rotate(180deg);
+
+    @if $invert == false {
+      top: 0;
+    } @else {
+      top: rem-calc(-60);
+      transform: rotate(0);
+    }
+
+    left: 0;
+    z-index: 1;
+    content: '';
+    width: 100%;
+    height: rem-calc(60);
+    background-size: cover;
+    background-image: url(../img/graphic__ragged-edge-#{$color}.png);
+  }
+}
+
+@mixin gradient-overlay() {
+  &:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    background: linear-gradient(124.5deg, rgba($black, 0) 0%, rgba($black, 1) 100%);
+  }
+}
+
+// Centered container element
+@mixin container-fixed($max-width: $container-width) {
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  width: 100%;
+  max-width: $max-width;
+}
+
+/**
+ * Input Effects
+ * Handles hover effects and such. Externalized so it can
+ * be applied to components as well
+ */
+@mixin input_effects {
+  box-shadow: 0 #{rem-calc(2)} #{rem-calc(6)} 0 $aqua;
+  outline: none;
+}
+
+/**
+ * Input styles
+ */
+@mixin input_base {
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  width: 100%;
+  padding: #{rem-calc(35)}
+           #{rem-calc(18)}
+           #{rem-calc(14)}
+           #{rem-calc(18)};
+  border: #{rem-calc(1)} solid $grey;
+  border-radius: 0;
+  font-size: rem-calc(15);
+  font-weight: $text-reg;
+  color: $grey;
+  line-height: line-calc(28,28);
+  background-color: $white;
+  box-shadow: 0 #{rem-calc(2)} #{rem-calc(6)} 0 rgba($black, 0.12);
+
+  @include screen-lg-up {
+
+    &:hover {
+      cursor: pointer;
+      @include input_effects;
+    }
+
+  }
+
+  &:focus {
+    @include input_effects;
+  }
+}
+
+@mixin slider-bar-wrapper {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  width: calc(100% - #{$padding-small * 2});
+  height: rem-calc(113);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: rem-calc(58);
+  padding-right: rem-calc(64);
+  border-radius: rem-calc(4);
+  background-color: $white;
+  box-shadow: 0 #{rem-calc(4)} #{rem-calc(10)} 0 rgba($black, 0.4);
+
+  @include screen-md-up {
+    max-width: rem-calc(743);/*Dev Note: using rems here so it scales on xxl*/
+    width: calc(66.666667% - #{$padding-small * 2});
+  }
+}
+
+@mixin slider-bar {
+  height: rem-calc(2);
+  margin-top: rem-calc(56.5);
+  z-index: 0;
+  background: linear-gradient(to right, rgba(172,172,229,0) 0%,
+                                        rgba(172,172,229,1) 10%,
+                                        rgba(172,172,229,1) 90%,rgba(172,172,229,0) 100%);
+}
+
+@mixin slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  appearance: none;
+  height: rem-calc(11);
+  width: rem-calc(11);
+  border-radius: 200px;
+  border: none;
+  z-index: 1;
+  background: linear-gradient(45deg, $battleship 0%, $aqua 100%);
+}
+
+
+/**
  * Background opacity
  */
 @mixin bg-opacity($color, $opacity: 0.3) {
   background: $color; /* The Fallback */
   background: rgba($color, $opacity);
-}
-
-// Centered container element
-@mixin container-fixed($gutter: $grid-gutter-width) {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left:  floor(($gutter / 2));
-  padding-right: ceil(($gutter / 2));
-  *zoom: 1;
 }
 
 /**
@@ -98,11 +255,38 @@
   }
 }
 
+
+
+
 /**
  * Breakpoints
  */
+@mixin screen-xxl {
+  @media (max-width: $screen-xxl-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-xxl-up {
+  @media (min-width: $screen-xxl) {
+    @content;
+  }
+}
+
 @mixin screen-xl {
   @media (max-width: $screen-xl-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-xl-up {
+  @media (min-width: $screen-xl) {
+    @content;
+  }
+}
+
+@mixin screen-xl-only {
+  @media (min-width: $screen-xl) and (max-width: $screen-xxl-maximum) {
     @content;
   }
 }
@@ -113,8 +297,32 @@
   }
 }
 
+@mixin screen-lg-up {
+  @media (min-width: $screen-lg) {
+    @content;
+  }
+}
+
+@mixin screen-lg-only {
+  @media (min-width: $screen-lg) and (max-width: $screen-xl-maximum) {
+    @content;
+  }
+}
+
 @mixin screen-md {
   @media (max-width: $screen-md-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-md-up {
+  @media (min-width: $screen-md) {
+    @content;
+  }
+}
+
+@mixin screen-md-only {
+  @media (min-width: $screen-md) and (max-width: $screen-lg-maximum) {
     @content;
   }
 }
@@ -125,14 +333,57 @@
   }
 }
 
+@mixin screen-sm-up {
+  @media (min-width: $screen-sm) {
+    @content;
+  }
+}
+
+@mixin screen-sm-only {
+  @media (min-width: $screen-sm) and (max-width: $screen-md-maximum) {
+    @content;
+  }
+}
+
 @mixin screen-xs {
   @media (max-width: $screen-xs-maximum) {
     @content;
   }
 }
 
+@mixin screen-xs-up {
+  @media (min-width: $screen-xs) {
+    @content;
+  }
+}
+
+@mixin screen-xs-only {
+  @media (min-width: $screen-xs) and (max-width: $screen-sm-maximum) {
+    @content;
+  }
+}
+
 @mixin screen-xxs {
   @media (max-width: $screen-xxs-maximum) {
+    @content;
+  }
+}
+
+@mixin screen-xxs-up {
+  @media (min-width: $screen-xxs) {
+    @content;
+  }
+}
+
+@mixin screen-xxs-only {
+  @media (min-width: $screen-xxs) and (max-width: $screen-xs-maximum) {
+    @content;
+  }
+}
+
+/*Specific to ShelfAware */
+@mixin screen-xs-to-lg {
+  @media (min-width: $screen-xs) and (max-width: $screen-lg-maximum) {
     @content;
   }
 }

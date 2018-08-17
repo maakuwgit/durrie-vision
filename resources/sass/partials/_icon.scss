@@ -1,7 +1,7 @@
 .icon {
   display: inline-block;
-  width: 1em;
-  height: 1em;
+  width: rem-calc(26);
+  height: rem-calc(26);
   stroke-width: 0;
   stroke: currentColor;
   fill: currentColor;
@@ -10,7 +10,12 @@
 //These are necessary
 //values come from icomoon
 .icon-LiftedLogic {
-  width: 6.89453125em;
+  width: rem-calc(102);
+  position: absolute;
+  align-self: center;
+  right: rem-calc(20);
+  clip: rect(0, #{rem-calc(102)}, #{rem-calc(16)}, #{rem-calc(75)});
+  transform: scale(1.5);
 }
 
 .icon-google-plus {
@@ -18,11 +23,11 @@
 }
 
 .icon-facebook {
-  width: 0.59375em;
+  width: rem-calc(10);
 }
 
 .icon-instagram {
-  width: 0.84375em;
+  width: rem-calc(16);
 }
 
 .icon-pinterest {
@@ -30,9 +35,13 @@
 }
 
 .icon-twitter {
-  width: 0.9375em;
+  width: rem-calc(23);
 }
 
 .icon-youtube {
-  width: 0.84375em;
+  width: rem-calc(22);
+}
+
+.icon-download {
+  height: rem-calc(24);
 }

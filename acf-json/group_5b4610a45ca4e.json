@@ -1,0 +1,57 @@
+{
+    "key": "group_5b4610a45ca4e",
+    "title": "All Icons",
+    "fields": [
+        {
+            "key": "field_5b4610ab632ad",
+            "label": "Icon",
+            "name": "icon",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "icon",
+                "id": ""
+            },
+            "choices": {
+                "icon-bison": "Bison",
+                "icon-calendar": "Calendar",
+                "icon-check": "Check Mark",
+                "icon-crosshairs": "Crosshairs",
+                "icon-location": "Location",
+                "icon-phone": "Phone",
+                "icon-search": "Search",
+                "icon-timer": "Timer",
+                "icon-user": "User",
+                "icon-wifi": "Wifi"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "This houses all the icon options. Other 'Icon' fields are clones of this",
+    "modified": 1533826656
+}

@@ -16,10 +16,19 @@
     },
 
 
-    // Fires after common.init, before .finalize and common.finalize
+// Fires after common.init, before .finalize and common.finalize
     init: function() {
 
-      var _this = this;
+      var hero = $(this.selector);
+      var btn = hero.find('.js-play-video');
+
+      $(btn).on('click', playVideo);
+
+      function playVideo(e) {
+        e.preventDefault();
+        $(btn).hide();
+        hero.find('.loop-video')[0].play();
+      }
 
     },
 

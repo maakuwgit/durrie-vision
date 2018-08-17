@@ -8,17 +8,23 @@
 
 html {
   position: relative;
-  min-height: 100%;
-  font-size: 62.5%;
+  min-height: 100vh;
+  font-size: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  @include screen-xl-up {
+    font-size: 125%;
+  }
 }
 
 body {
-  color: $text-dark;
-  background-color: white;
-  @include font-size(16);
-  line-height: 1.4;
+  color: $text-color;
+  background-color: $white;
+  //background-image: url(../img/background.png);
+  font-size: 16px;
+  font-size: rem-calc(16);
+  line-height: 27px;
+  line-height: 1.6875;
 
   /**
    * Set after content to use for easily checking
@@ -46,4 +52,140 @@ body {
   text-shadow: none;
   color: $selection;
   background: $selection-bg;
+}
+
+a {
+  color: currentColor;
+}
+
+blockquote {
+  position: relative;
+  max-width: rem-calc(530);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  color: $battleship;
+
+  p {
+    margin: 0 auto auto;
+    color: inherit;
+
+    &:before {
+      @extend %h1;
+      position: absolute;
+      content: "“";
+      margin-left: rem-calc(-150);
+      bottom: 0;
+    }
+
+  }
+
+  @include screen-xl-up {
+
+    p:before {
+      margin-left: rem-calc(-150 * 1.25);//The exact amount we scale up on XL screen
+    }
+
+  }
+
+  @include screen-md {
+    width: 100%;
+
+    p:before {
+      margin-left: rem-calc(-75);
+    }
+  }
+
+}
+
+p, address, li, td, dd {
+  color: $silver;
+}
+
+code {
+  white-space: normal;
+}
+
+form {
+  flex: 0 1 auto;
+  width: 100%;
+  align-self: flex-start;
+}
+
+h2 {
+  color: $ebony;
+}
+
+hr {
+  background-color: rgba($aqua, 0.1);
+  width: 80%;
+  margin-left: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  &[type="date"],
+  &[type="email"],
+  &[type="number"],
+  &[type="tel"],
+  &[type="text"] {
+   @include input_base;
+  }
+
+  @include placeholder-text {
+    font-weight: $text-black;
+    color: $ebony;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+label {
+  margin-top: rem-calc(30);
+  font-size: rem-calc(14);
+  font-weight: $text-black;
+  color: $ebony;
+  line-height: 18px;
+  line-height: 1.28571428571429;
+}
+
+main {
+  min-height: 66vh;
+
+  section {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+select {
+  @include input_base;
+  padding-right: rem-calc(36);
+  padding-left: rem-calc(8);
+  background-image: url('../img/svg/chevron-down.svg'), url('../img/svg/chevron-down-g.svg');
+  background-repeat: no-repeat;
+  background-position: calc(100% - #{rem-calc(10)}) center;
+  background-size: rem-calc(20);
+  @include screen-lg-up {
+    &:hover {
+      background-image: url('../img/svg/chevron-down-g.svg');
+    }
+  }
+}
+
+textarea {
+  @include input_base;
+
+  @include placeholder-text {
+    font-weight: $text-med;
+    color: $silver;
+  }
 }

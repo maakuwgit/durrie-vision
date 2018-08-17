@@ -1,66 +1,248 @@
 /**
  * Typography
  */
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
 
-// Sans serif classes
-%sans-serif {
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,500i,600,600i');
+
+%roboto {
+  font-family: $font-family;
+}
+
+.roboto {
+  @extend %roboto;
+}
+
+%raleway {
+  font-family: $font-family-alt;
+}
+
+.raleway {
+  @extend %raleway;
 }
 
 a {
-  color: $link-color;
-  text-decoration: $link-hover-decoration;
-  transition: all 0.10s ease-in-out;
-
+  text-decoration: $link-decoration;
   &:hover {
-    color: $link-hover-color;
     text-decoration: $link-hover-decoration;
   }
 }
 
-button {
-  transition: all 0.10s ease-in-out;
+address {
+  font-style: normal;
+  font-size: rem-calc(14);
+  line-height: line-calc(28, 14);
+
+  @include screen-sm-up {
+    font-size: rem-calc(16);
+    line-height: line-calc(32, 16);
+  }
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+blockquote {
+  font-size: rem-calc(22);
+  font-weight: $text-reg;
+  line-height: line-calc(26,22);
+
+  p {
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  cite {
+    font-size: rem-calc(16);
+    font-weight: $text-black;
+    font-style: normal;
+  }
+
 }
 
-code {
-  white-space: normal;
+h1,.h1, h2, .h2, h3,.h3, h4, .h4 {
+  margin: auto auto auto 0;
 }
 
-h1,.h1, h2, .h2, h3,.h3, h4, .h4, h5, .h5, h6, .h6 {
-  margin: 0.5em auto;
-  line-height: 1.2;
+%h0 {
+  font-size: rem-calc(47);
+  font-weight: $text-reg;
+  line-height: line-calc(62, 47);
+  letter-spacing: -1.67px;
+
+  @include screen-sm-up {
+    font-size: rem-calc(200);
+    line-height: line-calc(160, 200);
+  }
+
 }
 
-h1,
-.h1 {
-  font-size: 2.441em;
+.h0 {
+  @extend %h0;
+}
+
+%h1 {
+  font-size: rem-calc(39);
+  line-height: line-calc(46, 39);
+  letter-spacing: -0.5px;
+  font-weight: $text-med;
+
+  @include screen-sm-up {
+    font-size: rem-calc(60);
+    line-height: line-calc(70, 60);
+  }
+
+}
+
+h1, .h1 {
+  @extend %h1
+}
+
+%h2 {
+  font-size: rem-calc(36);
+  font-weight: $text-bold;
+  line-height: line-calc(43, 36);
+
+  @include screen-sm-up {
+    font-size: rem-calc(40);
+    line-height: line-calc(50, 40);
+  }
 }
 
 h2,
 .h2 {
-  font-size: 1.953em;
+  @extend %h2;
+}
+
+%h3 {
+  font-size: rem-calc(32);
+  font-weight: $text-med;
+  line-height: line-calc(37, 32);
+
+  @include screen-sm-up {
+    font-size: rem-calc(30);
+    line-height: line-calc(42, 30);
+  }
+
 }
 
 h3,
 .h3 {
-  font-size: 1.563em;
+  @extend %h3;
+}
+
+%h4 {
+  font-size: rem-calc(28);
+  line-height: line-calc(31, 28);
+  font-weight: $text-med;
+
+  @include screen-sm-up {
+    font-size: rem-calc(22);
+    line-height: line-calc(36, 22);
+  }
 }
 
 h4,
 .h4 {
-  font-size: 1.25em;
+  @extend %h4;
+}
+
+%h5 {
+  font-size: rem-calc(16);
+  line-height: line-calc(19, 16);
+  font-weight: $text-reg;
+
+  @include screen-sm-up {
+    font-size: rem-calc(20);
+    line-height: line-calc(30, 20);
+  }
 }
 
 h5,
 .h5 {
-  font-size: 1em;
+  @extend %h5;
+}
+
+%h6 {
+  font-size: rem-calc(24);
+  line-height: line-calc(30, 24);
+  font-weight: $text-reg;
+
+  @include screen-sm-up {
+    font-size: rem-calc(18);
+    line-height: line-calc(28, 18);
+  }
 }
 
 h6,
 .h6 {
-  font-size: 0.8em;
+  @extend %h6;
+}
+
+%small {
+  font-size: rem-calc(10.5);
+  line-height: line-calc(18, 10.5);
+
+  @include screen-sm-up {
+    font-size: rem-calc(14);
+    line-height: line-calc(22, 14);
+  }
+
+}
+
+%large {
+  font-size: rem-calc(10.5);
+  font-weight: $text-light;
+  line-height: line-calc(18, 10.5);
+
+  @include screen-sm-up {
+    font-size: rem-calc(18);
+    line-height: line-calc(32, 18);
+  }
+
+}
+
+%supertitle {
+  font-size: rem-calc(13);
+  line-height: line-calc(20, 13);
+  font-weight: $text-med;
+
+  @include screen-sm-up {
+    font-size: rem-calc(30);
+    line-height: line-calc(42, 18);
+  }
+
+}
+
+label {
+  font-size: rem-calc(10);
+  font-weight: $text-light;
+  line-height: line-calc(11.5, 10);
+
+  @include screen-sm-up {
+    font-size: rem-calc(14);
+    line-height: line-calc(22, 14);
+  }
+
+}
+
+%p {
+  font-size: rem-calc(12);
+  font-weight: $text-reg;
+  line-height: line-calc(19, 12);
+
+  @include screen-sm-up {
+    font-size: rem-calc(16);
+    line-height: line-calc(28, 16);
+  }
+}
+
+p, .p, li, td, dd {
+  @extend %p;
+}
+
+th, dt {
+  @extend %h4;
+}
+
+small, p.small, li.small, td.small, dd.small, dt.small, span.small {
+  @extend %small;
 }

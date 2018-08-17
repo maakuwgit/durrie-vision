@@ -21,6 +21,16 @@ function format_text( $content ) {
   return $content;
 }
 
+/*
+ * Formats a marked up image using an image array. The output work with the data-background feature
+ * Attributes can be sent through for id and classes, pretty much anything
+ */
+function ll_format_image( $hero, $args=false ) {
+  //Data-Src-[size] attributes are read by the common.js on resize to determine with size to show
+  return '<img' . ($args ? implode(' ', $args) : '') . ' alt="'.$hero['title'].'" src="'.$hero['sizes']['medium'].'"
+  srcset="'.$hero['sizes']['large'].' 2x, '.$hero['url'].' 3x" data-src-md="'.$hero['sizes']['medium'].'" data-src-lg="'.$hero['sizes']['large'].'" data-src-xl="'.$hero['url'].'">';
+}
+
 /**
  * var_dump variable
  * wrap it in a <pre> tag
@@ -143,26 +153,64 @@ function ll_get_forms_as_options() {
  * Example: _options_contact_social_facebook
  * @return array array of social media sites and links
  */
-function ll_get_social_list() {
+function ll_get_social_list($echo=true) {
 
   $social_media_sites = array(
-    'facebook' => get_field( 'social_facebook', 'option' ),
-    'twitter' => get_field( 'social_twitter', 'option' ),
-    'instagram' => get_field( 'social_instagram', 'option' ),
-    'google_plus' => get_field( 'social_google_plus', 'option' ),
-    'youtube' => get_field( 'social_youtube', 'option' ),
-    'linkedin' => get_field( 'social_linkedin', 'option' ),
-    'pinterest' => get_field( 'social_pinterest', 'option' ),
+    'instagram' => array(
+      'slug'  => 'instagram',
+      'url'   => get_field( 'social_instagram', 'option' ),
+      'title' => 'Instagram'
+    ),
+    'facebook' => array(
+      'slug'  => 'facebook',
+      'url'   => get_field( 'social_facebook', 'option' ),
+      'title' => 'Facebook'
+    ),
+    'twitter' => array(
+      'slug'  => 'twitter',
+      'url'   => get_field( 'social_twitter', 'option' ),
+      'title' => 'Twitter'
+    ),
+    'google_plus' => array(
+      'slug'  => 'google_plus',
+      'url'   => get_field( 'social_google_plus', 'option' ),
+      'title' => 'Google Plus'
+    ),
+    'youtube' => array(
+      'slug'  => 'youtube',
+      'url'   => get_field( 'social_youtube', 'option' ),
+      'title' => 'Youtube'
+    ),
+    'linkedin' => array(
+      'slug'  => 'linkedin',
+      'url'   => get_field( 'social_linkedin', 'option' ),
+      'title' => 'LinkedIn'
+    ),
+    'pinterest' => array(
+      'slug'  => 'pinterest',
+      'url'   => get_field( 'social_pinterest', 'option' ),
+      'title' => 'Pinterest'
+    )
   );
 
   $social_media_sites = ll_filter_array( $social_media_sites );
 
   if ( $social_media_sites ) {
-    echo '<ul class="social-list">';
-      foreach ( $social_media_sites as $social => $link ) {
-        echo '<li class="social-list__item"><a class="social-list__link '.$social.'" href="'.$link.'" target="_blank"><svg class="icon icon-'.$social.'"><use xlink:href="#icon-'.$social.'"></use></svg></a></li>';
+    $str = '<ul class="social-list">';
+      foreach ( $social_media_sites as $social ) {
+
+        if( $social['url'] ) {
+          $str .= '<li class="social-list__item"><a class="social-list__link '.$social['slug'].'" href="'.$social['url'].'" target="_blank"><svg class="icon icon-'.$social['slug'].'"><use xlink:href="#icon-'.$social['slug'].'"></use></svg></a></li>';
+        }
       }
-    echo '</ul>';
+
+    $str .= '</ul>';
+  }
+
+  if($echo) {
+    echo $str;
+  }else{
+    return ( $social_media_sites ? $str : false );
   }
 }
 
@@ -264,9 +312,9 @@ function ll_generate_schema_json() {
     }
   }
   /// OPENING HOURS
-  if (have_rows('scehma_openings', 'option')) {
+  if (have_rows('schema_openings', 'option')) {
     $schema['openingHoursSpecification'] = array();
-    while (have_rows('scehma_openings', 'option')) : the_row();
+    while (have_rows('schema_openings', 'option')) : the_row();
     $closed = get_sub_field('closed');
     $from   = $closed ? '00:00' : get_sub_field('from');
     $to     = $closed ? '00:00' : get_sub_field('to');
@@ -300,3 +348,5 @@ function ll_generate_schema_json() {
   echo '<script type="application/ld+json">' . json_encode($schema) . '</script>';
 }
 add_action( 'wp_head', 'll_generate_schema_json'  );
+
+add_filter( 'gform_confirmation_anchor', '__return_false' );

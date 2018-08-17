@@ -20,9 +20,40 @@
       window.userLoggedIn = false;
       window.adminBarHeight = 0;
 
+      //Dev Note: going to move this into the Backgrounder component for reusability
+      //BEOF Backgrounder
+      var vh,vw;
+      //Media Query (match the _variables.scss breakpoints)
+      var breakpoints = {};
+      breakpoints.xxs = 399;
+      breakpoints.xs  = 479;
+      breakpoints.sm  = 767;
+      breakpoints.md  = 991;
+      breakpoints.lg  = 1199;
+      breakpoints.xl  = 1599;
+
+      //Padding *Dev Note* Should match the _variables.scss padding
+      var padding_xsmall        = 18.5,
+          padding_small         = 37,
+          padding_medium        = 61,
+          padding_large         = 106,
+          padding_xlarge        = padding_small + padding_large;
+
+      var range_sliders  = $('input[type="range"]'),
+          prefooter     = '.ll-prefooter',
+          primary_nav   = 'body > header.navbar',
+          adminbar      = $('#wpadminbar'),
+          adminHeight   = ( adminbar.length > 0 ? adminbar.outerHeight() : 0 ),
+          hero          = 'main > :first-child.hdg',
+          sections      = $('main [data-component]');
+
       if ( $('#wpadminbar').length > 0 ) {
         window.userLoggedIn = true;
         window.adminBarHeight = '32px';
+      }
+
+      function rem_calc(num) {
+        return num/16;
       }
 
       /**
@@ -36,26 +67,6 @@
       }
 
       checkAdminBar();
-
-      $(function() {
-        $('a[href*="#"]:not(.js-no-scroll):not([href="#"])').click(function() {
-          if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
-            var target = $(this.hash);
-            var wpadminBarHeight = 0;
-            if ( $('#wpadminbar').length > 0 ) {
-              wpadminBarHeight = $('#wpadminbar').outerHeight();
-            }
-            var headerHeight = $('header.navbar').outerHeight();
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-            if (target.length) {
-              $('html, body').animate({
-                scrollTop: target.offset().top - ( headerHeight + wpadminBarHeight )
-              }, 1000);
-              return false;
-            }
-          }
-        });
-      });
 
       // JavaScript to be fired on all pages
       //Basic Collapse toggle for dropdowns and toggle menus
@@ -73,6 +84,11 @@
         var target = $(this).data('target');
         $(this).toggleClass('collapsed');
         $(target).toggleClass('collapsed');
+        if( $('header.navbar').hasClass('top') ) {
+          $('header').removeClass('top');
+        }else{
+          $('header').addClass('top');
+        }
       });
 
       /*
@@ -86,8 +102,25 @@
         var target = $(this).data('target');
         $(this).toggleClass('open');
         $('body').toggleClass('locked');
-        // $(target).toggleClass('collapsed');
-        $(target).slideToggle();
+        $(target).toggleClass('active');
+        //$(target).slideToggle();
+      });
+
+      /*
+       * Convert any element into a giant button
+       */
+      function clickthrough(e) {
+        var target = $(this).find('a:first-of-type');
+        e.preventDefault();
+        if(target && target.length > 0){
+          document.location.href = target.attr('href');
+        }else{
+          document.location.href = $(this).attr('data-clickthrough');
+        }
+      }
+
+      $('[data-clickthrough]').each(function(args){
+        $(this).on('click.clickthrough', clickthrough);
       });
 
       $(document).click(function(e) {
@@ -106,6 +139,221 @@
             });
         }
       });
+
+      function enterSection(e) {
+        var target = $(e.target.triggerElement());
+        target.addClass('enter');
+      }
+
+      function leaveSection(e) {
+        var target = $(e.target.triggerElement());
+        target.removeClass('enter');
+      }
+
+      //If theres a controller for ScrollMagic, spool it up!
+      if( typeof ScrollMagic !== 'undefined' ) {
+        var controller  = new ScrollMagic.Controller(),
+            offset      = 0;
+
+        if( $(hero) ) {
+          offset = $(hero).height() + $(primary_nav).height() + adminHeight ;
+
+          //Adding styles to the primary nav and pinning
+          if( $(primary_nav) ) {
+            var primary_pin = new ScrollMagic.Scene({
+              triggerElement: hero,
+              offset: offset
+            })
+            .on("enter", function () {
+              $(primary_nav).removeClass('top');
+            })
+            .on("leave", function () {
+              $(primary_nav).addClass('top');
+            })
+            .addTo(controller);
+          }
+
+          //Animate the Prefooter elements
+          if( $(prefooter) ) {
+            var prefooter_anim = new ScrollMagic.Scene({
+              triggerElement: prefooter,
+              offset: -1 * $(prefooter).height()/2
+            })
+            .setClassToggle(prefooter,'enter')
+            .addTo(controller);
+
+            var location_nav_anim = new ScrollMagic.Scene({
+              triggerElement: prefooter
+            })
+            .addTo(controller);
+          }
+
+          //Animate the Sections in a general fashion
+          if ( $(sections) ) {
+            for( s = 0; s < sections.length; s++ ) {
+              section = sections[s];
+
+              offset = 0;//$(section).height();
+
+              var section_animate = new ScrollMagic.Scene({
+                triggerElement: section,
+                offset: offset
+              })
+              .on("enter", enterSection)
+              .on("leave", leaveSection)
+              .addTo(controller);
+            }
+          }
+        }
+      }
+
+      //Dev Note: going to move this into the Backgrounder component for reusability
+      //BEOF Backgrounder
+
+      function setSize(){
+        vw = window.outerWidth;
+        vh = window.outerHeight;
+      }
+
+      /* Dev Note: need an xs, xxs size, as well as new xxl xxxl */
+      function getSize(){
+        var size = 'small';
+        if(vw >= breakpoints.xl){
+          size = 'xl';
+        }else if(vw >= breakpoints.lg && vw < breakpoints.xl) {
+          size = 'lg';
+        }else if(vw > breakpoints.sm && vw < breakpoints.lg) {
+          size = 'md';
+        }
+        return size;
+      }
+
+      /*
+       * Make Input type="range" Sliders update a number on slide
+       */
+      //Get the proper padding for the screensize, then return it for use
+      function getRangePad(){
+        var addPad = 0,
+            size   = getSize();
+
+        switch(size) {
+          case 'lg':
+          case 'xl':
+          case 'xxl':
+          case 'xxxl':
+            addPad = padding_medium * 2;
+          break;
+          default:
+            addPad = padding_xsmall * 3;
+          break;
+        }
+
+        return addPad;
+      }
+
+      //Any function calls needed to update range sliders
+      function updateRangeSliders(){
+        range_sliders.trigger('input');
+      }
+
+      // Make Input type="range" Sliders update a number on slide
+      range_sliders.each(function(){
+        //Reach up to the parent and add a wrapper and some fields for
+        // all of our numbers
+        $(this).parent()
+               .append('<span class="value_text">'+$(this).val()+'k</span>')
+               .append('<span class="min_text">'+$(this)[0].min+'</span>')
+               .append('<span class="max_text">'+$(this)[0].max+'k</span>')
+               .wrap('<div class="range_wrapper"></div>');
+
+        //Now add a listener to update the current value on change
+        $(this).on('input', function() {
+          var slider    = $(this),
+              target    = slider.siblings('.value_text'),
+              width     = slider.width(),
+              min       = slider.attr('min'),
+              max       = slider.attr("max"),
+              offset    = 0,
+              numPos    = (slider.val() - min) / (max - min),
+              newPos    = width * numPos + offset;
+
+          //Keep the number in bounds
+          if (numPos < 0) {
+            newPos = getRangePad() + target.width()*2;
+          } else if (numPos > 1) {
+            newPos = width + getRangePad() + target.width()/2;
+          } else {
+            newPos = width * numPos + offset + getRangePad() + target.width();
+            offset -= numPos;
+          }
+
+          target.html( $(this).val() + 'k' );
+          target.css({ left: newPos,
+                       marginLeft: offset + '%'});
+        });
+
+        //Finally, trigger an input so the number updates
+        $(this).trigger('input');
+
+      });
+
+      function refactor(e){
+        setSize();
+        var size = getSize();
+        //Dev Note: Create a date attr for the size and only call 'makeBg' oncer per size.
+        makeBg(size);
+        updateRangeSliders();
+      }
+
+      //Reads the "featured" image (class based) and sets the target background to whatever image is dynamically loaded then animates it in.
+      function makeBg(size){
+        if(!size){
+          size = getSize();
+        }
+
+        $('[data-backgrounder]').each(function(args){
+
+          var feat    = $(this).find('.feature');
+          var target  = feat;//See if there's a featured image here, if not, just use the parent
+          if(feat.length <= 0) {
+            target = $(this);
+          }
+
+          var img     = false;
+
+          if(feat.length > 0) {
+            img = $(feat).find('img');
+          }else{
+            img = $(this).find('img');
+          }
+
+          if(img.length > 0) {
+            var src = $(img).attr('src');
+            if($(img).attr('data-src-xl') && size === 'xl') {
+              src = $(img).attr('data-src-xl');
+            }
+            if($(img).attr('data-src-lg') && size === 'lg') {
+              src = $(img).attr('data-src-lg');
+            }
+            if($(img).attr('data-src-md') && size === 'md') {
+              src = $(img).attr('data-src-md');
+            }
+            if($(this).attr('style')){
+                if(feat.length > 0) {
+                  $(feat).css('background-color',$(this).css('background-color'));
+                  $(feat).delay(300).fadeOut(300);
+                }
+                $(this).css({'background-image': 'url('+src+')'});
+            }else{
+              $(this).css({'background-image':'url('+src+')', 'background-color':$(this).css('background-color')});
+              if(feat.length > 0) {
+                $(feat).delay(300).fadeOut(300);
+              }
+            }
+          }
+        });
+      }
+      //EOF
 
 
       // Magnific Popup
@@ -226,6 +474,43 @@
         }
 
       } // --end Address Autocomplete
+
+
+      $(function() {
+
+        $(window).on('resize.refactor', refactor);
+        refactor();
+
+        var hero = $('main >:first-child');
+        if( !hero.hasClass('hdg') ) {
+          $('.navbar').addClass('no-hero');
+        }
+
+        $('a[href*="#"]:not(.js-no-scroll):not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+            var target = $(this.hash);
+            var wpadminBarHeight = 0;
+            if ( $('#wpadminbar').length > 0 ) {
+              wpadminBarHeight = $('#wpadminbar').outerHeight();
+            }
+            var headerHeight = $('header.navbar').outerHeight();
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: target.offset().top - ( headerHeight + wpadminBarHeight )
+              }, 1000);
+              return false;
+            }
+          }
+        });
+
+        //Animate everything with this one class
+        $('body').addClass('loaded');
+        var setAnimated = setTimeout(function(){
+          $('body').addClass('animated');
+          //Dev Note:
+        }, 2000);
+      });
 
     },
 

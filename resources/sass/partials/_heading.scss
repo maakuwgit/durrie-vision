@@ -3,4 +3,55 @@
  */
 
 .hdg {
+  position: relative;
+  @include flexible(flex-start, flex-start, row, center);
+  min-height: 300px;
+  max-height: initial;
+  background-color: $silver;
+
+  .hdg__supertitle,
+  .hdg__title,
+  .hdg__content {
+    padding-left: 0;
+    color: $white;
+  }
+
+  .hdg__supertitle {
+    @extend %supertitle;
+  }
+
+  .hdg__title {
+    @extend %h0;
+  }
+
+  .hdg__content {
+    * {
+      font-weight: $text-med;
+    }
+
+    p, li, dt, dd {
+      color: $white;
+    }
+  }
+
+  .hdg__nav {
+    margin-top: rem-calc(115);
+  }
+
+  .hero_btn_link {
+    margin-top: rem-calc(36);
+  }
+
+  @include screen-md-up {
+    height: 69vh;
+    max-height: rem-calc(610);
+    min-height: 560px;
+    overflow: hidden;
+  }
+
+  @include screen-xl-up {
+    max-height: initial;
+    height: 80vh;
+  }
+
 }

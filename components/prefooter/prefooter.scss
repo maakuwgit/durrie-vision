@@ -7,5 +7,77 @@
  */
 
 .ll-prefooter {
+  position: relative;
+  overflow: hidden;
+  background-color: $battleship;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .container {
+    min-height: 75vw;
+    padding-top: $padding-medium;
+    padding-bottom: $padding-medium;
+  }
+
+  .prefooter__heading,
+  .prefooter__supertitle,
+  .prefooter__button {
+    min-width: 50.01%;//This lil' hack forces a stack
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .prefooter__supertitle {
+    @extend %h6;
+    margin-bottom: rem-calc(18);
+  }
+
+  .prefooter__heading {
+    @extend %h1;
+  }
+
+  .prefooter__content {
+    p {
+      @extend %small;
+      margin-bottom: 0;
+    }
+  }
+
+  .prefooter__button {
+    margin-top: rem-calc(30);
+
+    button, *[class*="btn"] {
+      @extend %roboto;
+      @extend %btn--shadow;
+      min-width: rem-calc(254);
+    }
+  }
+
+  h2, h3, h4, h5, h6, p, li {
+    color: $white;
+  }
+
+  @include screen-sm-up {
+
+    .container {
+      min-height: 50vh;
+    }
+
+  }
+
+  @include screen-lg-up {
+
+    .container {
+      min-height: rem-calc(531);
+      padding-top: $padding-large;
+      padding-bottom: $padding-large;
+    }
+
+    .prefooter__button {
+      margin-top: rem-calc(40);
+    }
+
+  }
 
 }

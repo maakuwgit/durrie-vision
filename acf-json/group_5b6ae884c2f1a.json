@@ -1,0 +1,50 @@
+{
+    "key": "group_5b6ae884c2f1a",
+    "title": "All Buttons",
+    "fields": [
+        {
+            "key": "field_5b6ae88c8dac1",
+            "label": "Styles",
+            "name": "button_type",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "btn",
+                "id": ""
+            },
+            "choices": {
+                "btn": "Default",
+                "btn--gold": "Gold",
+                "btn--white": "White",
+                "btn--smoke": "Smoke",
+                "btn--grey": "Grey",
+                "btn--silver": "Silver"
+            },
+            "allow_null": 1,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "",
+    "modified": 1533826636
+}

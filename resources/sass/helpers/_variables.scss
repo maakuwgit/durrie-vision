@@ -10,31 +10,55 @@
  * 1. Colors
  * _________________________________*/
 
- // Base colors
-$selection: #000;
-$selection-bg: #ccc;
+ // Base colors (ordered the greys by lightness from lightest to darkest)
 $white: white;
+$ivory: #e1e1e1;
+$powder: #F9F9F9;
+$silver: #B2B3B7;
+$aluminum: #9A9A9A;
+$aqua: #96C1CB;
+$grey: #DEDEDE;
+$battleship: #403F3F;
+$coal: #2A2B2C;
+$ebony: #1F2021;
 $black: black;
+
+// Markup Oriented
+$text-color: $silver;
+$selection: $white;
+$selection-bg: $aqua;
 
 // Official social colors
 $facebook: #3461a1;
 $twitter: #28aae1;
 $google: #d44a2c;
 
+// Success
+$success-color: green;
+
 // Danger
-$danger-color: #a94442;
+$danger-color: red;
 $danger-background: #f2dede;
-$danger-border: #ebccd1;
+$danger-border: red;
 
-// Theme colors
-$text-dark: #424242;
-$text-gray: gray;
-$primary-color: black;
+// Font Families
+$font-family: 'Roboto', sans-serif;
+$font-family-alt: 'Raleway', sans-serif;
 
+// Font Weights
+$text-thin: 100;
+$text-light: 300;
+$text-reg: 400;
+$text-med: 500;
+$text-bold: 700;
+$text-black: 900;
 
 /**
  * 2. Units, sections, etc.
  * _________________________________*/
+$rem-base: 16;
+$site-width: 1280px;
+$container-width: 1133px;
 
 // Aspect Ratios
 $ratio_3_2: 66.67%;
@@ -56,14 +80,16 @@ $width-1-6: 16.6666667%;
  * _________________________________*/
 
 // Media queries
+$screen-xxl:  1920px;
 $screen-xl:  1600px;
-$screen-lg:  1200px;
+$screen-lg:  1280px;
 $screen-md:  992px;
 $screen-sm:  768px;
 $screen-xs:  480px;
 $screen-xxs: 400px;
 
 // Media query variables
+$screen-xxl-maximum:  $screen-xxl - 1;
 $screen-xl-maximum:  $screen-xl - 1;
 $screen-lg-maximum:  $screen-lg - 1;
 $screen-md-maximum:  $screen-md - 1;
@@ -74,24 +100,38 @@ $screen-xxs-maximum: $screen-xxs - 1;
 $screen-sm-min: $screen-sm !default;
 $screen-md-min: $screen-md !default;
 $screen-lg-min: $screen-lg !default;
+$screen-xl-min: $screen-xl !default;
+$screen-xxl-min: $screen-xxl !default;
 
 // The point at which the navbar becomes uncollapsed
 // Choose from any of the "Media query variables"
 $screen-nav-mobile: $screen-md-maximum;
 
+//Padding Options
+$padding-xsmall: rem-calc(12.5);
+$padding-small: rem-calc(25);
+$padding-medium: rem-calc(50);
+$padding-large: rem-calc(100);
+$padding-xlarge: $padding-small + $padding-large;
+
+//Thumbnails
+$thumbnail-height: rem-calc(170);
+
 // The point at which the navbar becomes uncollapsed (do not modify)
 $grid-float-breakpoint: $screen-nav-mobile + 1;
 
 // Grid
-$grid-columns:      12;
-$grid-gutter-width: 30px;
+$grid-columns: 12;
+$grid-gutter-width: $padding-small;
+$grid-column-padding: $padding-xsmall;
 
 // Container widths
-$container-sm:    ($screen-sm - $grid-gutter-width);
-$container-md:    ($screen-md - $grid-gutter-width);
-$container-lg:    ($screen-lg - $grid-gutter-width);
+$container-sm:    (rem-calc($screen-sm) - $grid-gutter-width);
+$container-md:    (rem-calc($screen-md) - $grid-gutter-width);
+$container-lg:    (rem-calc($screen-lg) - $grid-gutter-width);
 
 // Links
-$link-color: darkblue;
-$link-hover-color: blue;
+$link-color: $text-color;
+$link-decoration: none;
+$link-hover-color: $aqua;
 $link-hover-decoration: none;

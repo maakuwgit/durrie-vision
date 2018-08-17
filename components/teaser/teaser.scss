@@ -7,5 +7,157 @@
  */
 
 .ll-teaser {
+  @extend %section-padding;
+  background-color: $battleship;
 
+  * {
+    color: $white;
+  }
+
+  .teaser__headline {
+    @extend %h0;
+    position: relative;
+    z-index: 1;
+    letter-spacing: rem-calc(4.51);
+    line-height: line-calc(60,47);
+  }
+
+  .teaser__subheadline {
+    padding-top: $padding-medium * 0.75;
+  }
+
+  h2.teaser__subheadline {
+    @extend %h4;
+    font-weight: $text-reg;
+  }
+
+  h3.teaser__subheadline {
+    @extend %h5;
+    font-weight: $text-reg;
+  }
+
+  .teaser__image0 {
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($black, 0.1);
+    }
+
+    img {
+      width: 100%;
+      box-shadow: 0 #{rem-calc(10)} #{rem-calc(14)} 0 rgba($black, 0.6);
+    }
+
+    + .teaser__headline {
+      margin-top: -1 * $padding-large;
+    }
+
+  }
+
+  .teaser__image1 {
+
+    img {
+      width: 100%;
+    }
+
+    .feature {
+      box-shadow: 0 #{rem-calc(13)} #{rem-calc(33)} 0 rgba($black, 0.3);
+    }
+  }
+
+  @include screen-md {
+
+    .teaser__wrapper {
+      justify-content: center;
+    }
+
+    .teaser__headline {
+
+      br {
+        display: none
+      }
+
+    }
+
+    .teaser__subheadline {
+      margin-left: auto;
+
+      br {
+        display: none
+      }
+
+    }
+
+  }
+
+  @include screen-md-only {
+
+    .teaser__subheadline {
+      padding-top: $padding-medium;
+      background-size: rem-calc(40);
+    }
+
+    .teaser__image1 {
+      img {
+        margin-bottom: -1 * $padding-medium;
+      }
+    }
+
+  }
+
+  @include screen-md-up {
+    .teaser__image0 {
+
+      + .teaser__headline {
+        margin-top: -1.25 * $padding-large;
+      }
+    }
+
+    .teaser__headline {
+      margin-bottom: $padding-medium;
+    }
+
+    .teaser__subheadline {
+      padding-top: $padding-large;
+      background: url(../img/logo_graphic_only-w.png) no-repeat;
+      background-size: rem-calc(70);
+      background-position: #{rem-calc(3)} 0;
+    }
+
+    .teaser__description {
+      text-align: right;
+
+      p {
+        max-width: rem-calc(440);
+        margin-left: auto;
+      }
+    }
+
+    .teaser__headline {
+      line-height: line-calc(82,62);
+    }
+  }
+
+  @include screen-lg-up {
+
+    .teaser__image0 {
+      &:before {
+        right: $padding-xsmall;
+        left: $padding-xsmall;
+      }
+    }
+
+    .teaser__image1 {
+      img {
+        margin-bottom: -1 * $padding-large;
+      }
+    }
+
+  }
 }

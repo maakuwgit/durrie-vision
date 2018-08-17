@@ -39,7 +39,7 @@ function ll_remove_dashboard_meta() {
   remove_meta_box( 'dashboard_recent_drafts', 'dashboard', 'side' );
   remove_meta_box( 'dashboard_recent_comments', 'dashboard', 'normal' );
   remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
-  remove_meta_box( 'dashboard_activity', 'dashboard', 'normal'); // since 3.8
+  remove_meta_box( 'dashboard_procedure', 'dashboard', 'normal'); // since 3.8
   remove_meta_box( 'rg_forms_dashboard', 'dashboard', 'normal' ); // gravity forms
   remove_meta_box( 'tribe_dashboard_widget', 'dashboard', 'normal' ); // modern tribe events calendar
   remove_meta_box( 'mandrill_widget', 'dashboard', 'normal' ); // mandrill
@@ -197,3 +197,38 @@ function ll_admin_enqueue_scripts() {
   wp_enqueue_script('admin-js', get_template_directory_uri() . '/assets/js/admin.js', 'jquery', '', true);
 }
 add_action('admin_enqueue_scripts', 'll_admin_enqueue_scripts');
+
+function ll_acf_google_map_api( $api ){
+  $maps_api = get_field( 'global_google_maps_api_key', 'option' );
+  $api['key'] = $maps_api;
+
+  return $api;
+
+}
+add_filter('acf/fields/google_map/api', 'll_acf_google_map_api');
+
+/*
+ * Show Custom Status if page is set as the Procedures Page
+ */
+function ll_procedure_post_state( $states ) {
+  global $post;
+  $show_custom_state = $post->ID == get_field( 'procedure_archive_page', 'option' );
+  if ( $show_custom_state ) {
+    $states[] = __( 'Procedures Page' );
+  }
+  return $states;
+}
+add_filter( 'display_post_states', 'll_procedure_post_state' );
+
+/*
+ * Show Custom Status if page is set as the Doctors Page
+ */
+function ll_doctor_post_state( $states ) {
+  global $post;
+  $show_custom_state = $post->ID == get_field( 'doctor_archive_page', 'option' );
+  if ( $show_custom_state ) {
+    $states[] = __( 'Doctor Page' );
+  }
+  return $states;
+}
+add_filter( 'display_post_states', 'll_doctor_post_state' );
