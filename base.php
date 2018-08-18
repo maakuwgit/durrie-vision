@@ -22,6 +22,8 @@
     </div><!-- /.content -->
   </div><!-- /.wrap -->
 
+  <?php get_template_part('templates/partials/sidebar'); ?>
+
   <?php get_template_part('templates/partials/footer'); ?>
 
   <?php wp_footer(); ?>

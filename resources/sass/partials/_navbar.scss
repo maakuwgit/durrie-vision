@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: rem-calc(75);
   margin: 0;
   padding: 0;
   border: 0;
@@ -49,6 +50,10 @@
       color: $aqua;
     }
 
+    .logo__brand {
+      margin-right: $padding-medium;
+    }
+
   }
 
   ul {
@@ -56,10 +61,6 @@
     justify-content: flex-end;
     align-items: center;
     list-style: none;
-  }
-
-  .logo__brand {
-    margin-right: $padding-medium;
   }
 
   .menu-item {
@@ -80,7 +81,7 @@
       @extend %raleway;
       display: inline-flex;
       align-items: center;
-      padding: #{rem-calc(16)};
+      padding: #{rem-calc(39)} #{rem-calc(16)};
       font-size: rem-calc(15);
       font-weight: $text-med;
       line-height: line-calc(18,16);
@@ -213,20 +214,20 @@
 
       &::before,
       &::after {
-        width: 22px;
-        height: 2px;
+        width: #{rem-calc(22)};
+        height: #{rem-calc(2)};
         background-color: $ebony;
       }
 
       &::before {
-        top: -2px;
+        top: #{rem-calc(-2)};
         transform: rotate(-45deg);
         transition: top 0.1s 0.12s ease-out,
         transform 0.1s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
       }
 
       &::after {
-        bottom: 2px;
+        bottom: #{rem-calc(2)};
         transform: rotate(45deg);
         transition: bottom 0.1s 0.12s ease-out,
         transform 0.1s 0.22s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -239,8 +240,8 @@
 }
 
 .navbar-toggle__box {
-  width: 23px;
-  height: calc(2px * 3 + 6px * 2);
+  width: #{rem-calc(23)};
+  height: calc(#{rem-calc(2)} * 3 + #{rem-calc(6)} * 2);
   display: inline-block;
   position: relative;
 }
@@ -248,15 +249,15 @@
 .navbar-toggle__inner {
   display: block;
   top: 50%;
-  margin-top: calc(2px / -2);
+  margin-top: calc(#{rem-calc(2)} / -2);
   transition: transform 0.1s 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19),
               background-color 0s 0.1s linear;
 
   &,
   &::before,
   &::after {
-    width: 23px;
-    height: 2px;
+    width: #{rem-calc(23)};
+    height: #{rem-calc(2)};
     background-color: $ebony;
     border-radius: 0;
     position: absolute;
@@ -269,14 +270,14 @@
   }
 
   &::before {
-    top: calc( 8px * -1);
+    top: calc( #{rem-calc(8)} * -1);
     transition: top 0.1s 0.1s ease-in,
     transform 0.1s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
 
   &::after {
-    width: 16px;
-    bottom: calc( 8px * -1);
+    width: #{rem-calc(23)};
+    bottom: calc( #{rem-calc(8)} * -1);
     transition: bottom 0.1s 0.1s ease-in,
     transform 0.1s 0s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   }
@@ -291,19 +292,27 @@ body.locked {
 
 .dropdown-menu {
   list-style: none;
+
+  .menu-item a {
+    @extend %roboto;
+    font-weight: $text-bold;
+
+    &:after {
+      content: '>';
+      margin-left: rem-calc(10);
+    }
+  }
 }
 
 .dropdown-toggle.collapsed {
-  background-color: $white;
-  box-shadow: 0 #{rem-calc(20)} #{rem-calc(10)} rgba($black, 0.1);
 }
 
 #primary-nav {
   z-index: 1;
   margin-left: auto;
 
-  + .menu-item {
-    margin-left: $padding-small;
+  &.active {
+    display: block;
   }
 
   @include screen-md {
@@ -381,34 +390,33 @@ body.locked {
       flex-wrap: nowrap;
       flex-direction: row;
       list-style: none;
-      background-color: $white;
 
       &:before {
         content: '';
         position: fixed;
         z-index: -1;
-        left: 0;
         right: 0;
-        height: rem-calc(89);
+        left: 0;
+        height: rem-calc(96);
+        border-top: solid 1px $aluminum;
         background-color: $white;
-        box-shadow: 0 #{rem-calc(7)} #{rem-calc(15)} 0 rgba($black, 0.25);
+        box-shadow: 0 #{rem-calc(2)} #{rem-calc(4)} 0 rgba($black, 0.1);
       }
 
       .menu-item {
         position: relative;
-        height: rem-calc(89);
-        flex: 1 1 auto;
+        flex: 0 1 auto;
         display: inline-flex;
         align-items: center;
         align-self: center;
-        justfy-content: center;
+        justify-content: center;
 
         a {
           display: inline-flex;
           align-items: center;
           align-self: center;
-          font-size: rem-calc(16);
-          line-height: line-calc(26,16);
+          font-size: rem-calc(20);
+          line-height: line-calc(30,20);
         }
 
         &.button {
@@ -421,7 +429,7 @@ body.locked {
         }
 
         &:not(.button) a {
-          padding: #{rem-calc(20)} #{rem-calc(10)};
+          padding: #{rem-calc(33)} #{rem-calc(40)};
         }
 
       }
@@ -480,4 +488,20 @@ body.locked {
       }
     }
   }
+}
+
+@include screen-md-up {
+   
+  .navbar-phone {
+    margin-left: $padding-small;
+  }
+
+}
+
+@include screen-md {
+
+  .navbar-phone {
+    display: none;
+  }
+
 }

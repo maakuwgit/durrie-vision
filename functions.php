@@ -13,6 +13,7 @@ $roots_includes = array(
   'lib/init.php',             // Initial theme setup and constants
   'lib/wrapper.php',          // Theme wrapper class
   'lib/sidebar.php',          // Sidebar class
+  'lib/widgets.php',          // Widgets class
   'lib/config.php',           // Configuration
   'lib/activation.php',       // Theme activation
   'lib/titles.php',           // Page titles

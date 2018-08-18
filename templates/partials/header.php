@@ -37,7 +37,7 @@
     ?>
 
     <?php if($phone) : ?>
-    <div class="menu-item flex">
+    <div class="menu-item flex navbar-phone">
       <a href="tel:+1<?php echo format_phone($phone,false,'');?>"><?php echo format_phone($phone,false,'.'); ?></a>
     </div>
     <?php endif; ?>
