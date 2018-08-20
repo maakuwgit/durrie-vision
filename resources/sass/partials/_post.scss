@@ -2,14 +2,6 @@
  * Post
  *   Used on single post pages
  */
-.hentry.no_related {
-  padding-bottom: $padding-medium;
-
-  @include screen-lg-up {
-    padding-bottom: $padding-large;
-  }
-}
-
 .post {
   padding-top: $padding-medium;
   padding-bottom: $padding-medium;
@@ -74,31 +66,5 @@
 }
 
 .post__image {
-
-}
-
-.post__related_posts {
-  background-color: $ivory;
-
-  .card-grid__posts {
-    max-width: rem-calc(1170);
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-
-.post__related_posts__title {
-  @extend %h5;
-  margin-top: $padding-small;
-  margin-bottom: $padding-xsmall;
-  color: $battleship;
-}
-
-@include screen-md-up {
-
-  .post__related_posts__title {
-    margin-top: $padding-medium;
-    margin-bottom: $padding-small;
-  }
 
 }
