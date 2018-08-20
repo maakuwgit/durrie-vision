@@ -17,6 +17,16 @@
   margin: 0 0 20px 15px;
 }
 
+.inline-list {
+  display: flex;
+  padding-left: initial;
+  list-style: none;
+
+  li {
+    display: inline-flex;
+  }
+}
+
 .block {
   &.button {
     display: block;

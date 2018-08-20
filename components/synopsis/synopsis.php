@@ -8,8 +8,7 @@
 
 $defaults = [
   'heading'   => false,
-  'content'   => false,
-  'links'     => false
+  'content'   => false
 ];
 
 $args = [

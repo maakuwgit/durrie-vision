@@ -16,14 +16,19 @@
                 "id": ""
             },
             "choices": {
-                "icon-bison": "Bison",
                 "icon-calendar": "Calendar",
                 "icon-check": "Check Mark",
-                "icon-crosshairs": "Crosshairs",
+                "icon-cataracts": "Cataracts",
+                "icon-cross_linking": "Corneal Cross-Linking",
+                "icon-kamra": "KAMRA",
+                "icon-lasik": "Lasik",
                 "icon-location": "Location",
                 "icon-phone": "Phone",
+                "icon-phakic": "PHAKIC",
+                "icon-prk": "PRK",
+                "icon-rle": "RLE",
                 "icon-search": "Search",
-                "icon-timer": "Timer",
+                "icon-smile": "SMILE",
                 "icon-user": "User",
                 "icon-wifi": "Wifi"
             },
@@ -53,5 +58,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "This houses all the icon options. Other 'Icon' fields are clones of this",
-    "modified": 1533826656
+    "modified": 1534788757
 }

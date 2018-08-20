@@ -7,5 +7,62 @@
  */
 
 .ll-blog-grid {
+  @extend %section-padding;
+
+  .entry__meta + & {
+    padding-top: 0;
+  }
+
+  .blog-grid__posts {
+    @extend %cards;
+  }
+
+  .blog-grid__blog {
+
+    .blog-grid__blog__title {
+      @extend %card__title;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .blog-grid__blog__meta {
+      @extend %card__meta;
+
+      p {
+        display: inline-flex;
+      }
+
+      .icon-calendar,
+      .published,
+      p {
+        margin-left: rem-calc(10);
+      }
+
+      .published {
+        margin-right: rem-calc(50);
+      }
+
+
+    }
+
+    .blog-grid__blog__nav {
+      @extend %card__nav;
+    }
+
+    .blog-grid__blog__body {
+      @extend %card__body;
+    }
+
+    .blog-grid__blog__feature__wrapper {
+      @extend %card__figure;
+    }
+
+  }
+
+  .blog-grid__blog_wrapper {
+    @extend %card;
+    max-width: rem-calc(346);
+    border: none;
+  }
 
 }

@@ -30,7 +30,8 @@
 }
 
 .entry__headline {
-  color: $grey;
+  @extend %h2;
+  color: $battleship;
 }
 
 .entry__filters__label {

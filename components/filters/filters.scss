@@ -8,13 +8,39 @@
 
 .ll-filters {
 
-  .card-grid__form {
-    padding-right: rem-calc(4);
-    padding-left: rem-calc(4);
-  }
-
   .entry__filters__label {
     margin-top: 0;
+  }
+
+  .filters__item {
+    position: relative;
+
+    label {
+      @extend %btn--outline;
+      border-color: $ivory;
+      font-size: rem-calc(14);
+      color: $battleship;
+      line-height: line-calc(22,14);
+      min-width: rem-calc(163);
+      margin-right: $grid-gutter-width/2;
+      margin-left: $grid-gutter-width/2;
+      padding: rem-calc(10);
+      cursor: pointer;
+
+      &.active {
+        @extend %btn;
+        font-size: rem-calc(14);
+        line-height: line-calc(22,14);
+        min-width: rem-calc(163);
+        margin-right: $grid-gutter-width/2;
+        margin-left: $grid-gutter-width/2;
+        padding: rem-calc(10);
+      }
+    }
+
+    input {
+      display: none;
+    }
   }
 
 }

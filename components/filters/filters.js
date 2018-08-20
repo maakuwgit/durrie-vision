@@ -23,17 +23,18 @@
 
       var search_str = window.location.search;
 
-      $(_this.selector()).find(' .card-grid__select').on('change', function(e){
-
-        var value = $(this)[0].selectedOptions[0].value;
-
-        window.location.href = './?'+value;
+      $(_this.selector()).find('input[name="filterables"]').on('change', function(e){
+        window.location.href = './?'+this.defaultValue;
       });
 
       if( search_str ) {
+        var slug = search_str.substr(1);
         $('.card__wrapper').hide();
-        $('.card-grid__select').find('option[value="'+search_str.substr(1)+'"]').attr('selected', 'selected');
-        $('.card__wrapper[data-terms="'+search_str.substr(1)+'"]').show();
+        $('.card-grid__select').find('option[value="'+slug+'"]').attr('selected', 'selected');
+        $('.card__wrapper[data-terms="'+slug+'"]').show();
+        $('label[for="'+slug+'"]').addClass('active').siblings().addClass('active');
+      }else{
+        $('label[for="all_posts"]').addClass('active').siblings().addClass('active');
       }
 
     },

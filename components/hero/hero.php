@@ -54,6 +54,8 @@ if( $component_data['supertitle'] ) {
 if( $component_data['heading'] ) {
   $heading         = $component_data['heading']['text'];
   $heading_tag     = $component_data['heading']['tag'];
+}else{
+  $heading = false;
 }
 
 $button          = $component_data['button'];

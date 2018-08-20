@@ -3,10 +3,7 @@
   $pfid = get_option( 'page_for_posts' );
 
   if( !is_archive() ){
-    $heading   = array(
-        'text'  => get_the_title($pfid),
-        'tag'   => 'h2'
-      );
+    $heading   = get_field('hero_heading', $pfid);
   }else{
     $heading      = array(
       'text' => $cat->name,
@@ -15,8 +12,9 @@
   }
 
   $hero = array(
+    'supertitle'  => get_field('hero_supertitle', $pfid ),
     'heading'     => $heading,
-    'image'       => get_the_post_thumbnail( $pfid )
+    'image'       => get_field('hero_image', $pfid )
   );
 
   ll_include_component(

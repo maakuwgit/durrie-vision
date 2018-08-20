@@ -7,13 +7,8 @@
  */
 
 .ll-procedures-grid {
-  margin-top: $padding-small;
-  margin-bottom: $padding-small;
-
-  @include screen-lg-up {
-    margin-top: $padding-medium;
-    margin-bottom: $padding-medium;
-  }
+  @extend %section-padding;
+  padding-top: 0;
 
   .procedure-grid__heading {
 
@@ -28,6 +23,14 @@
 
   .procedure-grid__procedure__body {
     @extend %card__body;
+
+    p {
+      @extend %small;
+    }
+  }
+
+  .procedure-grid__procedure__meta {
+    @extend %card__meta;
   }
 
   .procedure-grid__procedure__title {
@@ -38,27 +41,8 @@
     @extend %card__cta;
   }
 
-  .procedure-grid__procedure__thumbnail {
-    position: relative;
-    height: rem-calc(73);
-    width: rem-calc(73);
-    margin-top: rem-calc(16);
-    margin-bottom: rem-calc(9);
-    border-radius: 200px;
-
-    &:before {
-      content: '';
-      position: absolute;
-      border-radius: 200px;
-      width: rem-calc(89);
-      height: rem-calc(89);
-      top: rem-calc(-8);
-      right: rem-calc(-8);
-      bottom: rem-calc(-8);
-      left: rem-calc(-8);
-      z-index: -1;
-      background-color: $white;
-    }
+  .procedure-grid__procedure__icon {
+    @extend %card__icon;
   }
 
   .procedure-grid__nav {

@@ -38,11 +38,11 @@ $terms          = get_terms( $tax );
 <?php if ( ll_empty( $component_data ) ) return; ?>
 <nav class="entry__meta ll-filters<?php echo implode( " ", $classes ); ?>"<?php echo ( $component_id ? ' id="'.$component_id.'"' : '' ) ?> data-component="filters">
 
-  <div class="container row between centered">
+  <div class="container row start centered">
 
-    <div class="col-lg-4of12 entry__header">
+    <div class="entry__header col col-md-3of12 col-lg-2of12">
 
-      <h5 class="entry__headline">Filter by Category</h5>
+      <h5 class="entry__headline">Filter</h5>
       <!-- .entry__headline -->
 
     </div>
@@ -50,29 +50,23 @@ $terms          = get_terms( $tax );
 
     <?php if ($terms) : ?>
 
-    <form class="card-grid__form col-lg-4of12" action="./">
+    <form class="card-grid__form col col-md-9of12 col-lg-10of12" action="./">
 
-      <div class="entry__filters">
+      <ul class="filters__list inline-list">
 
-      <label class="entry__filters__label">Filter by Category
+        <li class="filters__item">
+          <label for="all_posts">All Posts</label>
+          <input type="radio" id="all_posts" name="filterables" class="entry__meta_category" value="">
+        </li>
 
-        <select class="entry__filters__select card-grid__select">
-          <option class="entry__meta_category" value="">Unfiltered</option>
-        <?php foreach($terms as $filter) : ?>
+      <?php foreach($terms as $filter) : ?>
+        <li class="filters__item">
+          <label for="<?php echo $filter->slug; ?>"><?php echo $filter->name; ?></label>
+          <input type="radio" id="<?php echo $filter->slug; ?>" name="filterables" class="entry__meta_category" value="<?php echo $filter->slug; ?>">
+        </li>
+      <?php endforeach; ?>
 
-          <option class="entry__meta_category" value="<?php echo $filter->slug; ?>"><?php echo $filter->name; ?></option>
-            <!-- .entry__meta_category -->
-
-        <?php endforeach; ?>
-        </select>
-        <!-- .entry__filters__select -->
-
-      </label>
-      <!-- .entry__filters__label -->
-
-      </div>
-      <!-- .col-lg-4of12 entry__filters -->
-
+      </ul>
     </form>
     <!-- .card-grid__form -->
 

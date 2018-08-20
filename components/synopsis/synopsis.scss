@@ -10,20 +10,6 @@
   @extend %section-padding;
   margin-bottom: $padding-small;
 
-  .page-template-template-dark & {
-    background-color: $battleship;
-
-    * {
-      color: $white;
-    }
-
-  }
-
-  [class*="btn"]{
-    @extend %roboto;
-    box-shadow: 0 #{rem-calc(4)} #{rem-calc(14)} 0 rgba($black, 0.3);
-  }
-
   .synopsis__col,
   .synopsis__description {
     padding-left: 0;
@@ -46,10 +32,6 @@
 
   }
 
-  .synopsis__nav {
-    margin-top: $padding-medium * 0.75;
-  }
-
   @include screen-sm {
     .synopsis__description {
       margin-top: $padding-large;
@@ -69,14 +51,6 @@
 
       }
 
-    }
-
-    .synopsis__nav {
-      margin-top: $padding-large * 0.75;
-
-      [class*="btn"]{
-        min-width: rem-calc(300);
-      }
     }
 
   }

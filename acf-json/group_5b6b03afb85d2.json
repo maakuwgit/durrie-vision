@@ -15,8 +15,8 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": 1,
-            "placeholder": 1,
+            "default_value": 0,
+            "placeholder": 0,
             "prepend": "",
             "append": "",
             "min": 0,
@@ -41,5 +41,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Used on pages with no Hero to accommodate the gradient overlay effect",
-    "modified": 1533740028
+    "modified": 1534794954
 }
