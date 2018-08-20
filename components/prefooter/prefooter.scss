@@ -31,13 +31,13 @@
 
   .prefooter__nav {
     position: relative;
-    margin-top: $padding-small;
 
     &:before {
       position: absolute;
       left: calc(50% - #{rem-calc(25)} - #{$grid-gutter-width/2});
       content: 'or';
       width: rem-calc(50);
+      margin-top: rem-calc(24);
       color: $coal;
       font-size: rem-calc(22);
       font-weight: $text-med;
@@ -53,15 +53,9 @@
   }
 
   .prefooter__button {
+    flex: 1 1 auto;
+    margin-top: $padding-small;
     font-weight: $text-med;
-  }
-
-  @include screen-sm {
-
-    .prefooter__button:nth-child(2n) {
-      margin-top: $padding-medium;
-    }
-
   }
 
   @include screen-sm-up {
@@ -76,7 +70,17 @@
 
   }
 
-  @include screen-lg-up {
+  @include screen-md {
+    .prefooter__nav {
+
+      &:before {
+        margin-top: rem-calc(12);
+      }
+    }
+
+  }
+
+  @include screen-md-up {
 
     .container {
       min-height: rem-calc(461);
@@ -84,8 +88,9 @@
       padding-bottom: $padding-large;
     }
 
-    .prefooter__nav {
+    .prefooter__button {
       margin-top: $padding-medium;
+      flex: 0 1 auto;
     }
 
   }
