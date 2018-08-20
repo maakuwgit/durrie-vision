@@ -59,17 +59,17 @@ if ( ! function_exists('register_procedure_taxonomies') ) {
 
     // Add new taxonomy, make it hierarchical (like categories)
     $labels = array(
-      'name'                => _x( 'Treatments', 'taxonomy general name' ),
-      'singular_name'       => _x( 'Treatment', 'taxonomy singular name' ),
-      'search_items'        => __( 'Search Treatments' ),
-      'all_items'           => __( 'All Treatments' ),
-      'parent_item'         => __( 'Parent Treatment' ),
-      'parent_item_colon'   => __( 'Parent Treatment:' ),
-      'edit_item'           => __( 'Edit Treatment' ),
-      'update_item'         => __( 'Update Treatment' ),
-      'add_new_item'        => __( 'Add New Treatment' ),
-      'new_item_name'       => __( 'New Treatment Name' ),
-      'menu_name'           => __( 'Treatments' )
+      'name'                => _x( 'Conditions', 'taxonomy general name' ),
+      'singular_name'       => _x( 'Condition', 'taxonomy singular name' ),
+      'search_items'        => __( 'Search Conditions' ),
+      'all_items'           => __( 'All Conditions' ),
+      'parent_item'         => __( 'Parent Condition' ),
+      'parent_item_colon'   => __( 'Parent Condition:' ),
+      'edit_item'           => __( 'Edit Condition' ),
+      'update_item'         => __( 'Update Condition' ),
+      'add_new_item'        => __( 'Add New Condition' ),
+      'new_item_name'       => __( 'New Condition Name' ),
+      'menu_name'           => __( 'Conditions' )
     );
 
     $args = array(
@@ -78,10 +78,10 @@ if ( ! function_exists('register_procedure_taxonomies') ) {
       'show_ui'             => true,
       'show_admin_column'   => true,
       'query_var'           => true,
-      'rewrite'             => array( 'slug' => 'treatment' )
+      'rewrite'             => array( 'slug' => 'condition' )
     );
 
-    register_taxonomy( 'treatment', array( 'procedure' ), $args ); // Must include custom post type name
+    register_taxonomy( 'condition', array( 'procedure' ), $args ); // Must include custom post type name
 
     // Add new taxonomy, make it hierarchical (like categories)
     $labels = array(

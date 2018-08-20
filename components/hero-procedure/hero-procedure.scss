@@ -1,0 +1,74 @@
+/**
+ * hero-procedure Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-hero-procedure {
+  position: relative;
+  min-height: rem-calc(320);
+  margin-bottom: 0 !important;
+  padding-top: rem-calc(94);
+
+  .hero-procedure__feature__photo {
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    right: 0;
+  }
+
+  .hero-procedure__heading {
+    margin-top: $padding-medium;
+    margin-bottom: $padding-small;
+    color: $black;
+  }
+
+  .hero-procedure__anchor_nav {
+
+    ul {
+      margin-bottom: $padding-medium;
+    }
+
+    li {
+      font-size: rem-calc(14);
+      color: $battleship;
+      line-height: line-calc(22,14);
+
+      a {
+        color: inherit;
+      }
+    }
+  }
+
+  @include screen-md {
+
+    .hero-procedure__heading {
+
+      br {
+        display: none;
+      }
+
+    }
+
+  }
+
+  @include screen-md-up {
+
+    .hero-procedure__heading {
+      margin-top: rem-calc(122);
+      margin-bottom: rem-calc(72);
+
+    }
+
+    .hero-procedure__anchor_nav {
+
+      ul {
+        margin-bottom: 0;
+      }
+    }
+
+  }
+
+}

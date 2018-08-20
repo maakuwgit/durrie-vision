@@ -1,15 +1,23 @@
 {
-    "key": "group_5b2409ce70d4f",
+    "key": "group_5b7ae7654b404",
     "title": "Hero",
     "fields": [
         {
-            "key": "field_5b6ae714a6ac5",
-            "label": "Supertitle",
-            "name": "hero_supertitle",
+            "key": "field_5b7ae76552c46",
+            "label": "Heading",
+            "name": "hero_heading",
             "type": "group",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b7ae76552bf4",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -18,7 +26,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5b6ae714a6ac6",
+                    "key": "field_5b7ae7655811d",
                     "label": "Text",
                     "name": "text",
                     "type": "textarea",
@@ -33,11 +41,11 @@
                     "default_value": "",
                     "placeholder": "",
                     "maxlength": "",
-                    "rows": 1,
+                    "rows": 4,
                     "new_lines": "br"
                 },
                 {
-                    "key": "field_5b6ae714a6ac7",
+                    "key": "field_5b7ae76558175",
                     "label": "Tag",
                     "name": "tag",
                     "type": "button_group",
@@ -61,10 +69,10 @@
             ]
         },
         {
-            "key": "field_5b240b1db71bf",
-            "label": "Heading",
-            "name": "hero_heading",
-            "type": "group",
+            "key": "field_5b7ae76552cde",
+            "label": "Anchors",
+            "name": "hero_anchors",
+            "type": "repeater",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -73,53 +81,54 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5b240b1db71c0",
-                    "label": "Text",
-                    "name": "text",
-                    "type": "textarea",
+                    "key": "field_5b7ae7bf3d150",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "80",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "maxlength": "",
-                    "rows": 1,
-                    "new_lines": "br"
+                    "placeholder": "Target Label",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 },
                 {
-                    "key": "field_5b240b1db71c1",
-                    "label": "Tag",
-                    "name": "tag",
-                    "type": "button_group",
-                    "instructions": "",
+                    "key": "field_5b7ae7ca3d151",
+                    "label": "Target",
+                    "name": "target",
+                    "type": "text",
+                    "instructions": "No spaces, no capitalization and totally unique.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "20",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "h1": "H1",
-                        "h2": "H2"
-                    },
-                    "allow_null": 0,
-                    "default_value": "h2",
-                    "layout": "horizontal",
-                    "return_format": "value"
+                    "default_value": "",
+                    "placeholder": "#target_name",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
                 }
             ]
         },
         {
-            "key": "field_5b240b6ab71c5",
+            "key": "field_5b7ae76552d44",
             "label": "Image",
             "name": "hero_image",
             "type": "image",
@@ -127,7 +136,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333334",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -143,7 +152,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_5b250ea4c5a3c",
+            "key": "field_5b7ae76552d94",
             "label": "Overlay",
             "name": "overlay_strength",
             "type": "number",
@@ -151,33 +160,17 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "26.6666667",
+                "width": "10",
                 "class": "",
                 "id": ""
             },
-            "default_value": 1,
-            "placeholder": 1,
+            "default_value": 0,
+            "placeholder": 0,
             "prepend": "",
             "append": "",
             "min": 0,
             "max": 1,
             "step": "0.1"
-        },
-        {
-            "key": "field_5b240b90b71c6",
-            "label": "Looping Video",
-            "name": "hero_video",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "40",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
         }
     ],
     "location": [
@@ -185,17 +178,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "page"
-            },
-            {
-                "param": "post_template",
-                "operator": "!=",
-                "value": "templates\/template-home.php"
-            },
-            {
-                "param": "post_template",
-                "operator": "!=",
-                "value": "templates\/template-fullpage-form.php"
+                "value": "procedure"
             }
         ]
     ],
@@ -209,6 +192,6 @@
         "featured_image"
     ],
     "active": 1,
-    "description": "100vw, 85vh <DIV> with the following options. The background image is styled to have an overlay tint, which can be controlled through the component.",
-    "modified": 1534771271
+    "description": "The Single Procedure Hero. Heading, feature image and a list of anchors",
+    "modified": 1534782311
 }

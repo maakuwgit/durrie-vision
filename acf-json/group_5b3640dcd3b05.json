@@ -42,7 +42,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Ready to schedule  your free consultation?",
             "placeholder": "Ready to schedule  your free consultation?",
             "maxlength": "",
             "rows": 2,
@@ -114,6 +114,13 @@
                 "operator": "==",
                 "value": "templates\/template-home.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "procedure"
+            }
         ]
     ],
     "menu_order": 2,
@@ -124,5 +131,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "Centered text with a background image, optional button",
-    "modified": 1534522341
+    "modified": 1534775381
 }

@@ -7,19 +7,15 @@ if( have_rows( 'components' ) ) {
     the_row();
 
     switch( get_row_layout() ) {
-      case 'hero' :
-        //The Blog Archive and Blog Single pages
-        $hero = array(
-          'supertitle'  => get_sub_field('hero_supertitle'),
-          'heading'     => get_sub_field('hero_heading'),
-          'image'       => get_sub_field('hero_image'),
-          'video'       => get_sub_field('hero_video'),
-          'overlay'     => get_sub_field('overlay_strength')
+      case 'blog-grid' :
+        //
+        $posts = array(
+          'num_posts'   => get_sub_field('blog-grid_num_posts'),
         );
 
         $components .= ll_include_component(
-          'hero',
-          $hero,
+          'blog-grid',
+          $posts,
           array(),
           true
         );
@@ -38,6 +34,23 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'call-to-action',
           $cta,
+          array(),
+          true
+        );
+      break;
+      case 'hero' :
+        //The Blog Archive and Blog Single pages
+        $hero = array(
+          'supertitle'  => get_sub_field('hero_supertitle'),
+          'heading'     => get_sub_field('hero_heading'),
+          'image'       => get_sub_field('hero_image'),
+          'video'       => get_sub_field('hero_video'),
+          'overlay'     => get_sub_field('overlay_strength')
+        );
+
+        $components .= ll_include_component(
+          'hero',
+          $hero,
           array(),
           true
         );
@@ -204,6 +217,20 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'photo-stack-w-content',
           $stack,
+          array(),
+          true
+        );
+      break;
+      case 'procedures-grid' :
+        //
+        $procedures = array(
+          'heading'     => get_sub_field('procedures_heading'),
+          'num_cards'  => get_sub_field('num_cards')
+        );
+
+        $components .= ll_include_component(
+          'procedures-grid',
+          $procedures,
           array(),
           true
         );

@@ -7,5 +7,61 @@
  */
 
 .ll-procedures-grid {
+  margin-top: $padding-small;
+  margin-bottom: $padding-small;
 
+  @include screen-lg-up {
+    margin-top: $padding-medium;
+    margin-bottom: $padding-medium;
+  }
+
+  .procedure-grid__heading {
+
+    h2 {
+      margin-bottom: rem-calc(20);
+    }
+  }
+
+  .procedure-grid__procedure {
+    @extend %card;
+  }
+
+  .procedure-grid__procedure__body {
+    @extend %card__body;
+  }
+
+  .procedure-grid__procedure__title {
+    @extend %card__title;
+  }
+
+  .procedure-grid__procedure__cta {
+    @extend %card__cta;
+  }
+
+  .procedure-grid__procedure__thumbnail {
+    position: relative;
+    height: rem-calc(73);
+    width: rem-calc(73);
+    margin-top: rem-calc(16);
+    margin-bottom: rem-calc(9);
+    border-radius: 200px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      border-radius: 200px;
+      width: rem-calc(89);
+      height: rem-calc(89);
+      top: rem-calc(-8);
+      right: rem-calc(-8);
+      bottom: rem-calc(-8);
+      left: rem-calc(-8);
+      z-index: -1;
+      background-color: $white;
+    }
+  }
+
+  .procedure-grid__nav {
+    @extend %card__nav;
+  }
 }

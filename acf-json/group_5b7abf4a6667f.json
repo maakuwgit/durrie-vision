@@ -1,32 +1,11 @@
 {
-    "key": "group_5b4e48b2683ad",
-    "title": "Teaser",
+    "key": "group_5b7abf4a6667f",
+    "title": "Procedures Grid",
     "fields": [
         {
-            "key": "field_5b4e4938a6347",
-            "label": "Icon",
-            "name": "teaser_icon",
-            "type": "clone",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_5b4610a45ca4e"
-            ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_5b71c14f4e9e2",
+            "key": "field_5b7ac012e6aba",
             "label": "Heading",
-            "name": "teaser_heading",
+            "name": "procedures_heading",
             "type": "group",
             "instructions": "",
             "required": 0,
@@ -39,7 +18,7 @@
             "layout": "block",
             "sub_fields": [
                 {
-                    "key": "field_5b71c14f4e9e3",
+                    "key": "field_5b7ac012e6abb",
                     "label": "Text",
                     "name": "text",
                     "type": "textarea",
@@ -58,7 +37,7 @@
                     "new_lines": "br"
                 },
                 {
-                    "key": "field_5b71c14f4e9e4",
+                    "key": "field_5b7ac012e6abc",
                     "label": "Tag",
                     "name": "tag",
                     "type": "button_group",
@@ -75,17 +54,17 @@
                         "h3": "H3"
                     },
                     "allow_null": 0,
-                    "default_value": "h2",
+                    "default_value": "h3",
                     "layout": "horizontal",
                     "return_format": "value"
                 }
             ]
         },
         {
-            "key": "field_5b4e48b26e116",
-            "label": "Content",
-            "name": "teaser_content",
-            "type": "wysiwyg",
+            "key": "field_5b7abf4a6bfe7",
+            "label": "Number of Procedures to Show",
+            "name": "num_cards",
+            "type": "range",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -94,29 +73,32 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "default_value": 9,
+            "min": -1,
+            "max": 12,
+            "step": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
         [
             {
-                "param": "post_type",
+                "param": "page_type",
                 "operator": "==",
-                "value": "procedure"
+                "value": "posts_page"
             }
         ]
     ],
     "menu_order": 0,
-    "position": "acf_after_title",
+    "position": "normal",
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
-    "active": 1,
-    "description": "Single column with an icon, headline and WYSIWIG for copy. All elements justify center \/ align center",
-    "modified": 1534775756
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 0,
+    "description": "A card grid containing blog post information. All cards should be the same height. The whole card should be clickable to follow the link.",
+    "modified": 1534771296
 }
