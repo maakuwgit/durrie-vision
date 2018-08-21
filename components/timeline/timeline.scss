@@ -10,108 +10,140 @@
   @extend %section-padding;
 
   .timeline__milestones {
-    margin: auto;
+    position: relative;
 
-    &:before {
-      content: '•••••••••••••••••••••••••••••••••••••••••••••••••••••••';
-      white-space: nowrap;
+    &:after {
       position: absolute;
-      overflow: hidden;
-      font-size: rem-calc(30);
-      color: $white;
-      text-shadow: 0 0 #{rem-calc(3)} rgba($black, 0.3);
-      letter-spacing: rem-calc(10);
-      z-index: -1;
+      content: '';
+      width: 1px;
+      height: 100%;
+      left: calc(50% - 0.5px);
+      background-color: $grey;
     }
+
   }
 
   .timeline__milestone {
     flex-direction: column;
-    align-self: flex-start;
+
+    &:nth-child(even) {
+      text-align: left;
+      align-self: flex-end;
+      margin-top: $padding-medium;
+      padding-left: $padding-medium;
+
+      .timeline__milestone__year:before {
+        left: calc( -1 * (#{$padding-medium} + #{rem-calc(6.5)}));
+      }
+    }
+
+    &:nth-child(odd) {
+      text-align: right;
+      align-self: flex-start;
+      margin-top: -1 * $padding-medium;
+      padding-right: $padding-medium;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      .timeline__milestone__year:before {
+        right: calc( -1 * (#{$padding-medium} + #{rem-calc(6.5)}));
+      }
+    }
   }
 
   .timeline__milestone__year {
-    @extend %coin;
-    width: rem-calc(75);
-    height: rem-calc(75);
-    margin-bottom: rem-calc(20);
-    margin-left: rem-calc(69);
-    padding: rem-calc(28);
-    font-size: rem-calc(14);
-    line-height: 18px;
-    line-height: 1.28571428571429;
-    background-color: $aqua;
-    background-image: linear-gradient(135deg, $battleship 0%, $aqua 100%);
+    @extend %h3;
+    position: relative;
+    font-weight: $text-light;
+    color: $coal;
+    margin-bottom: rem-calc(10);
+
+    &:before {
+      position: absolute;
+      content: '';
+      z-index: 1;
+      height: rem-calc(12);
+      width: rem-calc(12);
+      background-color: $grey;
+      border-radius: 200px;
+      border: solid #{rem-calc(3)} $white;
+      line-height: rem-calc(12);
+    }
   }
 
   .timeline__milestone__content {
     @extend %p;
-    width: rem-calc(213);
-    height: rem-calc(121);
-    padding: rem-calc(14);
-    box-shadow: 0 0 #{rem-calc(4)} 0 rgba($black, 0.17);
 
-    strong {
-      @extend %h4;
-      margin-bottom: rem-calc(3);
-      color: $aqua;
+    * {
+      max-width: rem-calc(400);
     }
 
     p {
       margin-top: 0;
-      margin-bottom: 0;
+      margin-bottom: rem-calc(10);
+      font-size: rem-calc(10);
+      line-height: line-calc(18,10);
+      font-weight: $text-light;
+      color: $battleship;
     }
   }
 
-  @include screen-md {
+  .timeline__milestone__content__title {
+    @extend %h6;
+    font-weight: $text-reg;
+    color: $ebony;
+    margin-bottom: rem-calc(10);
+  }
 
-    .timeline__milestones:before {
-      content: '';
-    }
+  .timeline__milestone__content__events {
 
-    .timeline__milestone__year,
-    .timeline__milestone__content {
-      margin: auto;
-    }
+    li {
+      @extend %label;
+      margin-bottom: rem-calc(5);
+      margin-left: rem-calc(30);
+      font-weight: $text-bold;
+      color: $coal;
 
-    .timeline__milestone__year {
-      margin: #{$padding-small} auto;
+      &:before {
+        position: absolute;
+        display: inline-flex;
+        content: 'DV';
+        color: $white;
+        border-radius: 200px;
+        margin-left: rem-calc(-30);
+        padding: rem-calc(3);
+        font-size: rem-calc(10);
+        background-color: $coal;
+        width: rem-calc(20);
+        height: rem-calc(20);
+        align-content: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: $text-light;
+      }
     }
   }
 
   @include screen-md-up {
 
-    .timeline__milestones {
-      width: 83.333333333333%;
-      height: rem-calc(357);
+    .timeline__milestone:nth-child(odd) {
 
-      &:before {
-        left: calc(8.333333333334% + #{rem-calc(213/2)});
-        top: calc(50% - #{rem-calc(26.5)});
-        width: calc(83.333333333333% - #{rem-calc(213)});
+      * {
+        margin-right: 0;
+        margin-left: auto;
       }
 
     }
 
-    .timeline__milestone {
-      &:nth-child(3),
-      &:first-child {
+    .timeline__milestone__content {
 
-        .timeline__milestone__year {
-          order: 2;
-          margin-top: rem-calc(20);
-          margin-bottom: initial;
-        }
-
-        .timeline__milestone__content {
-          order: 1;
-        }
-
+      p {
+        font-size: rem-calc(14);
+        line-height: line-calc(26,14);
       }
 
-      &:nth-child(even) {
-        align-self: flex-end;
-      }
     }
   }
 

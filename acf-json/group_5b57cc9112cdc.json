@@ -18,7 +18,7 @@
             "collapsed": "field_5b57ce1a2177c",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "+ Milestone",
             "sub_fields": [
                 {
@@ -78,6 +78,46 @@
                     "maxlength": "",
                     "rows": "",
                     "new_lines": ""
+                },
+                {
+                    "key": "field_5b7c6295073bc",
+                    "label": "Events",
+                    "name": "events",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "field_5b7c62a6073bd",
+                    "min": 0,
+                    "max": 0,
+                    "layout": "row",
+                    "button_label": "+ Event",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b7c62a6073bd",
+                            "label": "event",
+                            "name": "event",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
                 }
             ]
         }
@@ -113,5 +153,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "",
-    "modified": 1532482249
+    "modified": 1534878708
 }

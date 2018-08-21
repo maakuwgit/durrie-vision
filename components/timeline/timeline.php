@@ -50,7 +50,7 @@ $milestones  = $component_data['milestones'];
 
       <?php foreach( $milestones as $milestone ) : ?>
 
-      <div class="timeline__milestone col col-md-6of12 col-lg-3of12 col-xl-3of12 col-xxl-3of12 flex">
+      <div class="timeline__milestone col col-md-6of12 col-lg-6of12 col-xl-6of12">
 
         <dt class="timeline__milestone__year">
           <?php echo $milestone['year']; ?>
@@ -58,8 +58,18 @@ $milestones  = $component_data['milestones'];
         <!-- .timeline__milestone__year -->
 
         <dd class="timeline__milestone__content">
-          <strong><?php echo $milestone['title']; ?></strong>
-          <?php echo format_text( $milestone['caption'] ); ?>
+          <strong class="timeline__milestone__content__title"><?php echo $milestone['title']; ?></strong>
+          <div class="timeline__milestone__content__caption"><?php echo format_text( $milestone['caption'] ); ?></div>
+
+          <?php if ( $milestone['events'] ) : ?>
+          <ul class="timeline__milestone__content__events no-bullet">
+
+            <?php foreach( $milestone['events'] as $event ) : ?>
+            <li><?php echo $event['event']; ?></li>
+            <?php endforeach; ?>
+
+          </ul>
+          <?php endif; ?>
         </dd>
         <!-- .timeline__milestone__content -->
 

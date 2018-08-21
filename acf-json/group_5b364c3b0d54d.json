@@ -171,37 +171,6 @@
                     "min": "",
                     "max": ""
                 },
-                "5b6ca3daddbd7": {
-                    "key": "5b6ca3daddbd7",
-                    "name": "image-slider",
-                    "label": "Image Slider",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b6ca3daddbd8",
-                            "label": "Image Slider",
-                            "name": "image-slider",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5b4e21ed365a6"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "5b7c3018b7326": {
                     "key": "5b7c3018b7326",
                     "name": "counters",
@@ -223,6 +192,37 @@
                             },
                             "clone": [
                                 "group_5b7c2f4c4f713"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b4e57cd85a32": {
+                    "key": "5b4e57cd85a32",
+                    "name": "doctor_grid",
+                    "label": "Doctor Grid",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b4e57cd85a33",
+                            "label": "Doctor Grid",
+                            "name": "doctor_grid",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b46001ba2f3d"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -285,6 +285,37 @@
                             },
                             "clone": [
                                 "group_5b4e310539be0"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b6ca3daddbd7": {
+                    "key": "5b6ca3daddbd7",
+                    "name": "image-slider",
+                    "label": "Image Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b6ca3daddbd8",
+                            "label": "Image Slider",
+                            "name": "image-slider",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b4e21ed365a6"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -481,37 +512,6 @@
                     "min": "",
                     "max": ""
                 },
-                "5b4e57cd85a32": {
-                    "key": "5b4e57cd85a32",
-                    "name": "doctor_grid",
-                    "label": "Doctor Grid",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b4e57cd85a33",
-                            "label": "Doctor Grid",
-                            "name": "doctor_grid",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5b46001ba2f3d"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "5b364c9422e0d": {
                     "key": "5b364c9422e0d",
                     "name": "photo-stack-w-content",
@@ -607,12 +607,43 @@
                 },
                 "5b57d2f98f4f9": {
                     "key": "5b57d2f98f4f9",
+                    "name": "timeline",
+                    "label": "Timeline",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b57d2f98f4fa",
+                            "label": "Timeline",
+                            "name": "timeline",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b57cc9112cdc"
+                            ],
+                            "display": "seamless",
+                            "layout": "",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b7c62f819778": {
+                    "key": "5b7c62f819778",
                     "name": "teaser",
                     "label": "Teaser",
                     "display": "block",
                     "sub_fields": [
                         {
-                            "key": "field_5b57d2f98f4fa",
+                            "key": "field_5b7c62f819779",
                             "label": "Teaser",
                             "name": "teaser",
                             "type": "clone",
@@ -681,5 +712,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534875007
+    "modified": 1534878505
 }
