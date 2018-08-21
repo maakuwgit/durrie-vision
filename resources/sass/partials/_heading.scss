@@ -3,14 +3,18 @@
  */
 
 .hdg {
+  margin-top: rem-calc(172);
 
   .hdg__title {
-    @extend %h1;
-    padding-left: 0;
-    color: $white;
+    @extend %h3;
+    margin-bottom: $padding-small;
+    margin-left: auto;
   }
 
-  .hdg__picture {
+  @include screen-md-up {
+    .hdg__title {
+      margin-bottom: $padding-medium;
+    }
 
   }
 }

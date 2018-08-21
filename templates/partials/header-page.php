@@ -6,6 +6,10 @@
 
   <div class="row">
 
+    <h1 class="hdg__title col col-md-10of12 col-lg-8of12 col-xl-8of12 col-xxl-8of12">
+      <?php the_title(); ?>
+    </h1>
+
   <?php if ($image) : ?>
     <picture class="hdg__picture col col-md-10of12 col-lg-8of12 col-xl-8of12 col-xxl-8of12">
 
