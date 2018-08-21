@@ -188,17 +188,17 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'member_grid' :
+      case 'doctor_grid' :
         //About Us”
         $members = array(
-          'heading'     => get_sub_field('member_grid_heading'),
-          'content'  => get_sub_field('member_grid_content'),
-          'num_members' => get_sub_field('member_number')
+          'heading'     => get_sub_field('doctors_grid_image'),
+          'content'  => get_sub_field('doctors_grid_content'),
+          'num_members' => get_sub_field('num_doctors')
         );
 
         $components .= ll_include_component(
-          'member-grid',
-          $members,
+          'doctor-grid',
+          $doctors,
           array(),
           true
         );
@@ -266,12 +266,11 @@ if( have_rows( 'components' ) ) {
         );
       break;
       case 'teaser' :
-        //Home, About
+        //About Us, Meet the Doctors, Financing
         $teaser = array(
+          'icon'      => get_sub_field('icon'),
           'heading'     => get_sub_field('teaser_heading'),
-          'subheading'  => get_sub_field('teaser_subheading'),
-          'content'      => get_sub_field('teaser_content'),
-          'images'      => get_sub_field('teaser_images')
+          'content'      => get_sub_field('teaser_content')
         );
 
         $components .= ll_include_component(

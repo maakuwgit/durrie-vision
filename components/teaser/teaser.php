@@ -42,6 +42,11 @@ $id            = ' id="' . $component_args['id'] . '"';
 $heading     = $component_data['heading'];
 $content     = $component_data['content'];
 $icon        = $component_data['icon'];
+
+if( is_array($icon) ) {
+  $icon = $icon['icon'];
+}
+
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
@@ -53,8 +58,8 @@ $icon        = $component_data['icon'];
 
     <div class="teaser__icon col col-sm-8of12 col-md-8of12 col-lg-8of12 col-xl-8of12">
 
-      <svg class="icon <?php echo $icon['icon']; ?>">
-        <use xlink:href="#<?php echo $icon['icon']; ?>">
+      <svg class="icon <?php echo $icon; ?>">
+        <use xlink:href="#<?php echo $icon; ?>">
       </svg>
 
     </div><!-- .teaser__icon -->

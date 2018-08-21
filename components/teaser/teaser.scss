@@ -10,8 +10,17 @@
   @extend %section-padding;
 
   .teaser__icon {
-    svg {
-      fill: $aqua;
+    .icon {
+      width: rem-calc(40);
+      height: rem-calc(40);
+      margin-bottom: rem-calc(10);
+      fill: #8bd2e1;
+
+      &.icon-dv {
+        width: rem-calc(45);
+        height: rem-calc(45);
+        margin-bottom: rem-calc(25);
+      }
     }
   }
 

@@ -1,0 +1,77 @@
+/**
+ * doctor-grid Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-doctor-grid {
+  @extend %section-padding;
+
+  .container:first-child {
+    padding-bottom: $padding-medium;
+  }
+
+  .doctor-grid__list {
+    margin-left: calc(-1 * #{$grid-column-padding});
+    margin-right: calc(-1 * #{$grid-column-padding});
+    width: calc( 100% + #{$grid-column-padding*2} );
+  }
+
+  .doctor-grid__item {
+    margin-bottom: $padding-medium;
+  }
+
+  .doctor-grid__thumb__figure {
+  }
+
+  .doctor-grid__thumb__image {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 1 auto;
+    min-height: rem-calc(355);
+    align-items: center;
+    list-style: none;
+    background-size: cover;
+    background-color: $aluminum;
+  }
+
+  .doctor-grid__thumb__title {
+    @extend %h5;
+    margin-top: rem-calc(24);
+    margin-bottom: rem-calc(12);
+  }
+
+  .doctor-grid__thumb__position {
+    @extend %h6;
+    margin-bottom: rem-calc(22);
+  }
+
+  .doctor-grid__thumb__excerpt {
+
+    p {
+      margin: 0;
+    }
+
+  }
+
+  @include screen-md-up {
+
+    .doctor-grid__thumb__caption,
+    .doctor-grid__thumb__image {
+      width: calc( 100% - #{$grid-column-padding*2} );
+      margin-right: $grid-column-padding;
+      margin-left: $grid-column-padding;
+    }
+
+    .container:first-child {
+      padding-bottom: $padding-large;
+    }
+
+    .doctor-grid__item {
+      margin-bottom: $padding-large;
+    }
+
+  }
+}

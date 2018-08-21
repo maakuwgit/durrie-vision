@@ -421,14 +421,14 @@
                 },
                 "5b4e57cd85a32": {
                     "key": "5b4e57cd85a32",
-                    "name": "member_grid",
-                    "label": "Member Grid",
+                    "name": "doctor_grid",
+                    "label": "Doctor Grid",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b4e57cd85a33",
-                            "label": "Member Grid",
-                            "name": "member_grid",
+                            "label": "Doctor Grid",
+                            "name": "doctor_grid",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -619,5 +619,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534771422
+    "modified": 1534857582
 }
