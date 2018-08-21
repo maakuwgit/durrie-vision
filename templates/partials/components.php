@@ -38,19 +38,18 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'hero' :
-        //Default Template, Form Template, Archives
-        $hero = array(
-          'supertitle'  => get_sub_field('hero_supertitle'),
-          'heading'     => get_sub_field('hero_heading'),
-          'image'       => get_sub_field('hero_image'),
-          'video'       => get_sub_field('hero_video'),
-          'overlay'     => get_sub_field('overlay_strength')
+      case 'counters' :
+        //Finanacing
+        $counters = array(
+          'heading'     => get_sub_field('counters_heading'),
+          'subheading'  => get_sub_field('counters_subheading'),
+          'content'     => get_sub_field('counters_content'),
+          'columns'     => get_sub_field('counters_columns')
         );
 
         $components .= ll_include_component(
-          'hero',
-          $hero,
+          'counters',
+          $counters,
           array(),
           true
         );
@@ -64,6 +63,23 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'fullwidth-image',
           $image,
+          array(),
+          true
+        );
+      break;
+      case 'hero' :
+        //Default Template, Form Template, Archives
+        $hero = array(
+          'supertitle'  => get_sub_field('hero_supertitle'),
+          'heading'     => get_sub_field('hero_heading'),
+          'image'       => get_sub_field('hero_image'),
+          'video'       => get_sub_field('hero_video'),
+          'overlay'     => get_sub_field('overlay_strength')
+        );
+
+        $components .= ll_include_component(
+          'hero',
+          $hero,
           array(),
           true
         );

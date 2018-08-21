@@ -8,4 +8,41 @@
 
 .ll-counters {
 
+  .counters__heading {
+    color: $coal;
+  }
+
+  .counters__subheading {
+    @extend %p;
+    margin-bottom: rem-calc(4);
+    font-weight: $text-bold;
+    color: $battleship;
+  }
+
+
+  .counters__column__title {
+    @extend %h3;
+    margin-top: $padding-small;
+    margin-bottom: rem-calc(10);
+    color: $coal;
+  }
+
+  .counters__column__description {
+    @extend %p;
+    color: $battleship;
+    font-weight: $text-light;
+    margin-bottom: $padding-small;
+  }
+
+  @include screen-md-up {
+
+    .counters__column__title {
+      margin-top: $padding-medium;
+    }
+
+    .counters__column__description {
+      margin-bottom: $padding-medium;
+    }
+  }
+
 }

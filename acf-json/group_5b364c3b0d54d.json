@@ -202,6 +202,37 @@
                     "min": "",
                     "max": ""
                 },
+                "5b7c3018b7326": {
+                    "key": "5b7c3018b7326",
+                    "name": "counters",
+                    "label": "Counters",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b7c3018b7327",
+                            "label": "Counters",
+                            "name": "counters",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b7c2f4c4f713"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "5b7c26eddebd6": {
                     "key": "5b7c26eddebd6",
                     "name": "fullwidth-image",
@@ -650,5 +681,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534863120
+    "modified": 1534865915
 }
