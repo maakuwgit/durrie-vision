@@ -171,37 +171,6 @@
                     "min": "",
                     "max": ""
                 },
-                "5b4e5635adf3f": {
-                    "key": "5b4e5635adf3f",
-                    "name": "icon-grid",
-                    "label": "Icon Grid",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b4e5635adf40",
-                            "label": "Icon Grid",
-                            "name": "icon-grid",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5b4e310539be0"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "5b6ca3daddbd7": {
                     "key": "5b6ca3daddbd7",
                     "name": "card-slider",
@@ -223,6 +192,68 @@
                             },
                             "clone": [
                                 "group_5b72f43029982"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b7c26eddebd6": {
+                    "key": "5b7c26eddebd6",
+                    "name": "fullwidth-image",
+                    "label": "Fullwidth Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b7c26eddebd7",
+                            "label": "Fullwidth Image",
+                            "name": "fullwidth-image",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b7c269719d9a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b4e5635adf3f": {
+                    "key": "5b4e5635adf3f",
+                    "name": "icon-grid",
+                    "label": "Icon Grid",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b4e5635adf40",
+                            "label": "Icon Grid",
+                            "name": "icon-grid",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b4e310539be0"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -619,5 +650,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534857582
+    "modified": 1534863120
 }

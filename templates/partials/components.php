@@ -39,7 +39,7 @@ if( have_rows( 'components' ) ) {
         );
       break;
       case 'hero' :
-        //The Blog Archive and Blog Single pages
+        //Default Template, Form Template, Archives
         $hero = array(
           'supertitle'  => get_sub_field('hero_supertitle'),
           'heading'     => get_sub_field('hero_heading'),
@@ -51,6 +51,19 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'hero',
           $hero,
+          array(),
+          true
+        );
+      break;
+      case 'fullwidth-image' :
+        //
+        $image = array(
+          'image' => get_sub_field('fullwidth_image')
+        );
+
+        $components .= ll_include_component(
+          'fullwidth-image',
+          $image,
           array(),
           true
         );

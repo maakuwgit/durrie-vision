@@ -70,80 +70,78 @@ $doctors = new WP_Query( $margs );
 
   </div><!-- .container.row.centered -->
 
-  <div class="container">
-    <ul class="doctor-grid__list no-bullet row">
-
   <?php
     $num_doctors = wp_count_posts('doctor');
     $num_doctors = $num_doctors->publish;
 
     while ( $doctors->have_posts() ) : $doctors->the_post();
 
-    $positions  = get_the_terms(get_the_ID(), 'doctor_position');
-    $offices    = get_the_terms(get_the_ID(), 'offices');
+    $positions  = get_the_terms(get_the_ID(), 'position');
+    $expertises    = get_the_terms(get_the_ID(), 'expertise');
 
   ?>
-    <li class="doctor-grid__item col col-sm-6of12 col-md-6of12 col-lg-4of12 col-xl-4of12 col-xxl-4of12">
 
-      <figure id="<?php echo basename(get_permalink()); ?>" class="doctor-grid__thumb__figure relative">
-        <a href="<?php the_permalink(); ?>" data-magnific></a>
+  <div class="container row between centered doctor-grid__item" data-clickthrough>
+    <a class="doctor-grid__anchor col col-sm-6of12 col-offset-md-1of12 col-md-5of12 col-offset-lg-1of12 col-lg-4of12 col-offset-xl-1of12 col-xl-4of12" href="<?php the_permalink(); ?>">About ></a>
 
-        <div class="doctor-grid__thumb__image" data-backgrounder>
-          <div class="feature">
-            <?php the_post_thumbnail(); ?>
-          </div>
-        </div><!-- .doctor-grid__thumb_image -->
+    <figure id="<?php echo basename(get_permalink()); ?>" class="doctor-grid__thumb__figure relative col col-sm-6of12 col-md-6of12 col-lg-7of12 col-xl-7of12">
+      <a href="<?php the_permalink(); ?>" data-magnific></a>
 
-        <figcaption class="doctor-grid__thumb__caption">
+      <div class="doctor-grid__image" data-backgrounder>
+        <div class="feature">
+          <?php the_post_thumbnail(); ?>
+        </div>
+      </div><!-- .doctor-grid__thumb_image -->
 
-          <span class="doctor-grid__thumb__title h4 block"><?php the_title(); ?></span>
+    </figure>
 
-        <?php if( $positions && ! is_wp_error( $positions ) ) : ?>
+    <div class="doctor-grid__image__caption col col-sm-6of12 col-offset-md-1of12 col-md-5of12 col-offset-lg-1of12 col-lg-4of12 col-offset-xl-1of12 col-xl-4of12">
 
-          <span class="doctor-grid__thumb__position block">
+      <span class="doctor-grid__caption__title block"><?php the_title(); ?></span>
 
-          <?php
-            $position_names = [];
+    <?php if( $positions && ! is_wp_error( $positions ) ) : ?>
 
-            foreach( $positions as $position ) {
-              $position_names[] = $position->name;
-            }
+      <span class="doctor-grid__caption__position block">
 
-            $position_list = join(', ', $position_names);
+      <?php
+        $position_names = [];
 
-            echo $position_list;
-          ?>
+        foreach( $positions as $position ) {
+          $position_names[] = $position->name;
+        }
 
-          </span><!-- .doctor-grid__thumb__position -->
+        $position_list = join(', ', $position_names);
 
-        <?php endif; ?>
+        echo $position_list;
+      ?>
 
-        <?php if( has_excerpt() ) : ?>
+      </span><!-- .doctor-grid__thumb__position -->
 
-          <div class="doctor-grid__thumb__excerpt">
+    <?php endif; ?>
 
-          <?php the_excerpt(); ?>
+    <?php if( $expertises && ! is_wp_error( $expertises ) ) : ?>
 
-          </div><!-- .doctor-grid__thumb__excerpt -->
+      <span class="doctor-grid__caption__expertise block">
 
-        <?php endif; ?>
+      <?php
+        $expertise_names = [];
 
-        </figcaption><!-- .doctor-grid__thumb__caption -->
+        foreach( $expertises as $expertise ) {
+          $expertise_names[] = $expertise->name;
+        }
 
-      </figure>
+        $expertise_list = join(', ', $expertise_names);
 
-    </li><!-- .doctor-grid__item -->
+        echo $expertise_list;
+      ?>
 
-  <?php endwhile; ?>
-  <?php wp_reset_postdata(); ?>
-    </ul><!-- .doctor-grid__list.no-bullet.row -->
+      </span><!-- .doctor-grid__thumb__expertise -->
 
-  <?php if( $num_doctors > $showposts && $showposts != -1 ) : ?>
-    <nav class="doctor-grid__nav text-center">
-      <a class="btn" href="<?php echo get_bloginfo('url') . '/doctor'; ?>">View All Members</a>
-    </nav><!-- .doctor-grid__nav -->
-  <?php endif; ?>
+    <?php endif; ?>
+    </div><!-- .doctor-grid__thumb__caption -->
 
   </div><!-- .container -->
+  <?php endwhile; ?>
+  <?php wp_reset_postdata(); ?>
 
 </section>

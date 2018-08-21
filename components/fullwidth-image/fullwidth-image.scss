@@ -7,5 +7,11 @@
  */
 
 .ll-fullwidth-image {
+  @extend %section-padding;
+  height: 50vh;
+  min-height: rem-calc(320);
 
+  @include screen-xl-up {
+    min-height: rem-calc(640);
+  }
 }

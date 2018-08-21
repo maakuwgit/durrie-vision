@@ -9,24 +9,20 @@
 .ll-doctor-grid {
   @extend %section-padding;
 
-  .container:first-child {
-    padding-bottom: $padding-medium;
-  }
-
-  .doctor-grid__list {
-    margin-left: calc(-1 * #{$grid-column-padding});
-    margin-right: calc(-1 * #{$grid-column-padding});
-    width: calc( 100% + #{$grid-column-padding*2} );
+  .doctor-grid__anchor {
+    @extend %h1;
+    display: none;
+    position: absolute;
+    right: 0;
+    color: $black;
+    background-color: $white;
   }
 
   .doctor-grid__item {
     margin-bottom: $padding-medium;
   }
 
-  .doctor-grid__thumb__figure {
-  }
-
-  .doctor-grid__thumb__image {
+  .doctor-grid__image {
     display: flex;
     flex-wrap: wrap;
     flex: 0 1 auto;
@@ -37,36 +33,34 @@
     background-color: $aluminum;
   }
 
-  .doctor-grid__thumb__title {
-    @extend %h5;
-    margin-top: rem-calc(24);
-    margin-bottom: rem-calc(12);
-  }
-
-  .doctor-grid__thumb__position {
+  .doctor-grid__caption__title {
     @extend %h6;
-    margin-bottom: rem-calc(22);
+    margin-bottom: rem-calc(5);
+    color: $coal;
   }
 
-  .doctor-grid__thumb__excerpt {
-
-    p {
-      margin: 0;
-    }
-
+  .doctor-grid__caption__position,
+  .doctor-grid__caption__expertise {
+    @extend %label;
+    margin-bottom: 0;
+    color: $battleship;
   }
 
   @include screen-md-up {
 
-    .doctor-grid__thumb__caption,
-    .doctor-grid__thumb__image {
-      width: calc( 100% - #{$grid-column-padding*2} );
-      margin-right: $grid-column-padding;
-      margin-left: $grid-column-padding;
+    .doctor-grid__item:hover {
+      .doctor-grid__anchor {
+        opacity: 1;
+      }
     }
 
-    .container:first-child {
-      padding-bottom: $padding-large;
+    .doctor-grid__anchor {
+      display: flex;
+      opacity: 0;
+    }
+
+    .doctor-grid__image {
+      min-height: rem-calc(438);
     }
 
     .doctor-grid__item {

@@ -11,7 +11,7 @@
   min-height: rem-calc(320);
   height: 42vh;
   flex-direction: column;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 0 !important;
   padding-top: rem-calc(94);
   text-align: left;
@@ -49,6 +49,7 @@
 
   .hero__heading {
     @extend %h0;
+    margin-bottom: rem-calc(-8);
     color: $black;
   }
 
@@ -88,16 +89,16 @@
     height: 85vh;
 
     body.admin-bar & {
-      padding-top: rem-calc(60);
-
-      .container {
-        min-height: calc(100% - #{rem-calc(60)});
-      }
+      padding-top: rem-calc(94);
     }
 
     .hero__heading,
     .hero__supertitle {
       min-width: 50.01%;//This lil' hack forces a stack
+    }
+
+    .hero__heading {
+      margin-bottom: rem-calc(-12);
     }
 
     .hero__supertitle {

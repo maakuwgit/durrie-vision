@@ -7,9 +7,16 @@
 */
 
 $defaults = [
+  'image' => false
+];
+
+$args = [
+  'id'      => uniqid('fullwidth-image-'),
+  'classes' => array()
 ];
 
 $component_data = ll_parse_args( $component_data, $defaults );
+$component_args = ll_parse_args( $component_args, $args );
 ?>
 
 <?php
@@ -27,10 +34,15 @@ $classes        = $component_args['classes'] ?: array();
  * @var array
  * @see args['id']
  */
-$component_id   = $component_args['id'];
+$id     = $component_args['id'];
+$image  = $component_data['image'];
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
-<div class="ll-fullwidth-image <?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="fullwidth-image">
+<figure class="ll-fullwidth-image<?php echo implode( " ", $classes ); ?>"<?php echo ' id="'.$id.'"'; ?> data-component="fullwidth-image" data-backgrounder>
 
-</div>
+  <div class="feature">
+    <?php echo ll_format_image($image); ?>
+  </div>
+
+</figure>
