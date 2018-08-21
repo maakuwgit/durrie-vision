@@ -124,6 +124,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 0,
-    "description": "Similar to the Left\/Right Block, only with one side being a list of features.",
-    "modified": 1534867209
+    "description": "WYSIWIGS 3-up in a standard grid",
+    "modified": 1534873031
 }

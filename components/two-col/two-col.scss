@@ -7,5 +7,52 @@
  */
 
 .ll-two-col {
+  @extend %section-padding;
+
+  .two-col__column {
+
+    p, li {
+      @extend %small;
+      line-height: 1.85714285714286;
+      font-weight: $text-light;
+      color: $battleship;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 0;
+
+      li {
+        position: relative;
+
+        &:before {
+          position: absolute;
+          content: '•';
+          margin-top: rem-calc(4);
+          left: -1 * $grid-gutter-width;
+          font-size: rem-calc(12);
+        }
+      }
+    }
+
+  }
+
+  @include screen-md {
+
+    .two-col__column {
+
+      br {
+        display: none;
+      }
+    }
+
+  }
+
+  @include screen-md-up {
+    + .ll-two-col {
+      margin-top: -1 * $padding-small;
+    }
+  }
 
 }

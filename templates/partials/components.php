@@ -327,8 +327,8 @@ if( have_rows( 'components' ) ) {
       case 'two-col' :
         //Home, About, all Locations
         $blocks = array(
-          'l_content' => get_sub_field('two_col_left_content'),
-          'r_content' => get_sub_field('two_col_right_content')
+          'column_1' => get_sub_field('two_col_column_1'),
+          'column_2' => get_sub_field('two_col_column_2')
         );
 
         $components .= ll_include_component(
