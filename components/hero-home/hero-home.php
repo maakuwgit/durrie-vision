@@ -7,8 +7,6 @@
 */
 
 $defaults = [
-  'use_image'     => false,
-  'heading_image' => false,
   'heading'       => false,
   'button'        => false,
   'image'         => false,
@@ -44,8 +42,6 @@ if( $classes ) $classes = ' ' . implode( " ", $classes );
  */
 $id = $component_args['id'];
 
-$use_image         = $component_data['use_image'];
-
 if( $component_data['heading'] ) {
   $heading         = $component_data['heading']['text'];
   $heading_tag     = $component_data['heading']['tag'];
@@ -53,16 +49,9 @@ if( $component_data['heading'] ) {
 
 $button          = $component_data['button'];
 
-if( $button ) {
-  $icon            = $component_data['button']['icon'];
-
-}else {
-  $icon            = '';
-}
 $video           = $component_data['video'];
 $overlay         = $component_data['overlay'];
 $image           = $component_data['image'];
-$himage          = $component_data['heading_image'];
 
 if( $image ) {
   $bg = ' data-backgrounder';
@@ -118,62 +107,43 @@ if( $image ) {
     }
   ?>
 
-  <div class="container between row">
+  <div class="hero-home__container container row centered center text-center">
 
-  <?php if( $use_image && $himage ) : ?>
+  <?php if( $heading ) : ?>
 
-    <h1 class="hero-home__heading hero-home__heading col col-sm-7of12 col-md-8of12 col-lg-7of12 col-xl-7of12">
-      <img alt="<?php echo $heading; ?>" src="<?php echo $himage; ?>">
-    </h1>
-
-  <?php else : ?>
-
-    <?php if( $heading ) : ?>
-
-    <<?php echo $heading_tag; ?> class="hero-home__heading col col-sm-7of12 col-md-8of12 col-lg-7of12 col-xl-7of12">
-      <?php echo $heading; ?>
-    </<?php echo $heading_tag; ?>>
-    <!-- .hero-home__heading -->
-
-    <?php endif; ?>
+  <<?php echo $heading_tag; ?> class="hero-home__heading col">
+    <?php echo $heading; ?>
+  </<?php echo $heading_tag; ?>>
+  <!-- .hero-home__heading -->
 
   <?php endif; ?>
 
-  <?php if( $button ) : ?>
+  <?php if ( $video ) : ?>
+    <nav class="hero-home__nav col">
 
-    <?php if( $button['link'] ) : ?>
-    <nav class="hero-home__button col col-sm-5of12 col-md-5of12 col-lg-4of12 col-xl-4of12">
-
-      <a class="icon-link" href="<?php echo $button['link']['url'];?>"><?php echo $button['link']['title'];?>
-
-        <?php if( $icon ) : ?>
-          <svg class="icon <?php echo $icon; ?>">
-            <use xlink:href="#<?php echo $icon; ?>"></use>
-          </svg>
-        <?php endif; ?>
-
+      <a class="play-video-button js-play-video">
+        <svg class="icon icon-play">
+          <use xlink:href="#icon-play"></use>
+        </svg>
+        <span class="iflex">Play Video</span>
       </a>
+
+    </nav>
+    <!-- .hero-home__nav -->
+  <?php endif; ?>
+
+</div>
+
+  <div class="container row centered center text-center">
+
+  <?php if( $button ) : ?>
+    <nav class="hero-home__button col">
+
+      <a href="<?php echo $button['url'];?>"><?php echo $button['title'];?></a>
 
     </nav>
     <!-- .hero-home__button -->
-    <?php endif; ?>
-
   <?php endif; ?>
-
-    <nav class="hero-home__nav col text-center">
-
-      <a class="hero-home__next_btn">Scroll</a>
-
-    <?php if ( $video ) : ?>
-      <a class="play-video-button js-play-video">
-        <svg class="icon icon-triangle-right iflex">
-          <use xlink:href="#icon-triangle-right"></use>
-        </svg>
-        <span class="iflex">Watch Video</span>
-      </a>
-    <?php endif; ?>
-
-    </nav>
 
   </div>
   <!-- .container -->
