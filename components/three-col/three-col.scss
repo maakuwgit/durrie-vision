@@ -7,5 +7,54 @@
  */
 
 .ll-three-col {
+  @extend %section-padding;
+
+  .three-col__row {
+
+  }
+
+  .three-col__column {
+
+    p, li {
+      font-weight: $text-light;
+      color: $battleship;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 0;
+
+      li {
+        position: relative;
+
+        &:before {
+          position: absolute;
+          content: '•';
+          margin-top: rem-calc(4);
+          left: -1 * $grid-gutter-width;
+          font-size: rem-calc(12);
+        }
+      }
+    }
+
+  }
+
+  @include screen-md {
+
+    .three-col__column {
+
+      br {
+        display: none;
+      }
+    }
+
+  }
+
+  @include screen-md-up {
+    + .ll-three-col {
+      margin-top: -1 * $padding-small;
+    }
+  }
 
 }

@@ -68,8 +68,8 @@ h1,.h1, h2, .h2, h3,.h3, h4, .h4 {
   line-height: 1;
 
   @include screen-sm-only {
-  font-size: rem-calc(80);
-  line-height: line-calc(70, 80);
+    font-size: rem-calc(80);
+    line-height: line-calc(70, 80);
   }
 
   @include screen-md-only {
@@ -91,8 +91,8 @@ h1,.h1, h2, .h2, h3,.h3, h4, .h4 {
 }
 
 %h1 {
-  font-size: rem-calc(39);
-  line-height: line-calc(46, 39);
+  font-size: rem-calc(45);
+  line-height: line-calc(52, 45);
   letter-spacing: -0.5px;
   font-weight: $text-med;
 
@@ -108,9 +108,9 @@ h1, .h1 {
 }
 
 %h2 {
-  font-size: rem-calc(36);
+  font-size: rem-calc(30);
   font-weight: $text-bold;
-  line-height: line-calc(43, 36);
+  line-height: line-calc(37, 30);
 
   @include screen-sm-up {
     font-size: rem-calc(40);
@@ -124,9 +124,9 @@ h2,
 }
 
 %h3 {
-  font-size: rem-calc(32);
+  font-size: rem-calc(22);
   font-weight: $text-med;
-  line-height: line-calc(37, 32);
+  line-height: line-calc(31, 22);
 
   @include screen-sm-up {
     font-size: rem-calc(30);
@@ -141,8 +141,8 @@ h3,
 }
 
 %h4 {
-  font-size: rem-calc(28);
-  line-height: line-calc(31, 28);
+  font-size: rem-calc(16);
+  line-height: line-calc(26, 16);
   font-weight: $text-med;
 
   @include screen-sm-up {
@@ -157,8 +157,8 @@ h4,
 }
 
 %h5 {
-  font-size: rem-calc(16);
-  line-height: line-calc(19, 16);
+  font-size: rem-calc(15);
+  line-height: line-calc(22, 15);
   font-weight: $text-reg;
 
   @include screen-sm-up {
@@ -173,8 +173,8 @@ h5,
 }
 
 %h6 {
-  font-size: rem-calc(24);
-  line-height: line-calc(30, 24);
+  font-size: rem-calc(13);
+  line-height: line-calc(21, 13);
   font-weight: $text-reg;
 
   @include screen-sm-up {

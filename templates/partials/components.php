@@ -309,6 +309,21 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'three-col' :
+        //Home, About, all Locations
+        $columns = array(
+          'column_1' => get_sub_field('three_col_content_1'),
+          'column_2' => get_sub_field('three_col_content_2'),
+          'column_3' => get_sub_field('three_col_content_3')
+        );
+
+        $components .= ll_include_component(
+          'three-col',
+          $columns,
+          array(),
+          true
+        );
+      break;
       case 'two-col' :
         //Home, About, all Locations
         $blocks = array(

@@ -18,6 +18,12 @@
   margin: auto;
   font-size: rem-calc(14);
   line-height: line-calc(22,14);
+
+  &:before {
+    content: initial;
+    position: initial;
+    margin: initial;
+  }
 }
 
 .social-list__link {

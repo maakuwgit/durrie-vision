@@ -80,14 +80,14 @@
                 },
                 "5b555f7bc65fc": {
                     "key": "5b555f7bc65fc",
-                    "name": "three-col-w-heading",
-                    "label": "3 Column w\/ Heading",
+                    "name": "three-col",
+                    "label": "3 Column Content",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b555f7bc65fd",
-                            "label": "3 Column w\/ Heading",
-                            "name": "three-col-w-heading",
+                            "label": "3 Column Content",
+                            "name": "three-col",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -681,5 +681,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534865915
+    "modified": 1534867250
 }

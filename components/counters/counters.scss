@@ -9,6 +9,7 @@
 .ll-counters {
 
   .counters__heading {
+    margin-bottom: $padding-small;
     color: $coal;
   }
 
@@ -19,6 +20,18 @@
     color: $battleship;
   }
 
+  .counters__content {
+
+    p {
+      margin-top: 0;
+      font-weight: $text-light;
+      color: $battleship;
+    }
+  }
+
+  .counters__column__list {
+    margin-bottom: $padding-small;
+  }
 
   .counters__column__title {
     @extend %h3;
@@ -35,6 +48,14 @@
   }
 
   @include screen-md-up {
+
+    .counters__heading {
+      margin-bottom: $padding-medium;
+    }
+
+    .counters__column__list {
+      margin-bottom: $padding-medium;
+    }
 
     .counters__column__title {
       margin-top: $padding-medium;

@@ -55,6 +55,7 @@ if( $component_data['heading'] ) {
   $heading = false;
 }
 
+$content = $component_data['content'];
 $columns = $component_data['columns'];
 
 $colspan = ( $columns > 0 ? 12/sizeof($columns) : 12 );
@@ -68,7 +69,7 @@ $col_css = ' class="col col-md-'.$colspan.'of12 col-lg-'.$colspan.'of12 col-xl-'
 
     <?php if( $heading ) : ?>
 
-      <<?php echo $heading_tag; ?> class="counters__heading col">
+      <<?php echo $heading_tag; ?> class="counters__heading col col-offset-md-1of12 col-md-10of12 col-offset-lg-2of12 col-lg-8of12 col-offset-xl-2of12 col-lg-8of12">
         <?php echo $heading; ?>
       </<?php echo $heading_tag; ?>>
       <!-- .counters__heading -->
@@ -77,7 +78,7 @@ $col_css = ' class="col col-md-'.$colspan.'of12 col-lg-'.$colspan.'of12 col-xl-'
 
     <?php if( $subheading ) : ?>
 
-      <<?php echo $subheading_tag; ?> class="counters__subheading col col-md-4of12 col-lg-4of12 col-xl-4of12">
+      <<?php echo $subheading_tag; ?> class="counters__subheading col col-offset-md-1of12 col-md-10of12 col-offset-lg-2of12 col-lg-8of12 col-offset-xl-2of12 col-lg-8of12">
         <?php echo $subheading; ?>
       </<?php echo $subheading_tag; ?>>
       <!-- .counters_subheading -->
@@ -86,10 +87,10 @@ $col_css = ' class="col col-md-'.$colspan.'of12 col-lg-'.$colspan.'of12 col-xl-'
 
     <?php if( $content ) : ?>
 
-      <div class="counters-content">
-        <?php echo ll_format_text($content); ?>
+      <div class="counters__content col col-offset-md-1of12 col-md-10of12 col-offset-lg-2of12 col-lg-8of12 col-offset-xl-2of12 col-lg-8of12 end">
+        <?php echo format_text($content); ?>
       </div>
-      <!-- .counters-content -->
+      <!-- .counters__content -->
 
     <?php endif; ?>
 
@@ -117,4 +118,4 @@ $col_css = ' class="col col-md-'.$colspan.'of12 col-lg-'.$colspan.'of12 col-xl-'
   </div>
   <!-- .container -->
 
-</aside>
+</section>
