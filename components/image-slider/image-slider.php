@@ -7,6 +7,7 @@
 */
 
 $defaults = [
+  'slides'      => false
 ];
 
 $component_data = ll_parse_args( $component_data, $defaults );
@@ -27,10 +28,33 @@ $classes        = $component_args['classes'] ?: array();
  * @var array
  * @see args['id']
  */
-$component_id   = $component_args['id'];
+$id               = ( $component_args['id'] ? $component_args['id'] : uniqid('image-slider-') );
+
+/**
+ * ACF values pulled into the component from the components.php partial.
+ */
+$slides     = $component_data['slides'];
+$supertitle = $component_data['supertitle'];
+$heading    = $component_data['heading'];
+$subheading = $component_data['subheading'];
+
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
-<div class="ll-image-slider <?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="image-slider">
+<section class="ll-image-slider<?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="image-slider">
 
-</div>
+  <div class="image-slider__slides">
+
+    <?php foreach( $slides as $slide ) : ?>
+
+    <div class="image-slider__slide" id="#<?php echo $slide['image']['name']; ?>" data-modal="<?php echo $slide['image']['url']; ?>">
+        <?php echo ll_format_image($slide['image']); ?>
+
+    </div><!-- .image-slider__slide -->
+
+    <?php endforeach; ?>
+  </div><!-- .image-slider__slides -->
+
+  <div class="image-slider__nav container between"></div><!-- .image-slider__nav -->
+
+</section>

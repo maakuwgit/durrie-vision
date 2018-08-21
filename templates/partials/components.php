@@ -144,15 +144,14 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'card-slider' :
-        //All buses
+      case 'image-slider' :
+        //Financing
         $slides = array(
-          'heading'     => get_sub_field('card_slider_heading'),
-          'slides'      => get_sub_field('card_slider_slides')
+          'slides'      => get_sub_field('image_slider_slides')
         );
 
         $components .= ll_include_component(
-          'card-slider',
+          'image-slider',
           $slides,
           array(),
           true

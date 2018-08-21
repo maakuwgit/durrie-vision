@@ -173,13 +173,13 @@
                 },
                 "5b6ca3daddbd7": {
                     "key": "5b6ca3daddbd7",
-                    "name": "card-slider",
-                    "label": "Card Slider",
+                    "name": "image-slider",
+                    "label": "Image Slider",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b6ca3daddbd8",
-                            "label": "Card Slider",
+                            "label": "Image Slider",
                             "name": "image-slider",
                             "type": "clone",
                             "instructions": "",
@@ -191,7 +191,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_5b72f43029982"
+                                "group_5b4e21ed365a6"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -681,5 +681,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534867250
+    "modified": 1534875007
 }

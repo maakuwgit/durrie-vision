@@ -31,6 +31,9 @@
 
   .procedure-grid__procedure__meta {
     @extend %card__meta;
+    p {
+      width: 100%;
+    }
   }
 
   .procedure-grid__procedure__title {

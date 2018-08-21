@@ -1,6 +1,6 @@
 {
     "key": "group_5b4e21ed365a6",
-    "title": "Hero Slider",
+    "title": "Image Slider",
     "fields": [
         {
             "key": "field_5b4e21f2dadd3",
@@ -53,12 +53,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "bus"
-            },
-            {
-                "param": "post_taxonomy",
-                "operator": "!=",
-                "value": "ownership:new"
+                "value": "post"
             }
         ]
     ],
@@ -68,7 +63,7 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": 0,
     "description": "A SlickSlider with a series of images. Images should not be auto-height.",
-    "modified": 1532544076
+    "modified": 1534874921
 }

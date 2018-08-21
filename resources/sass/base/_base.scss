@@ -158,12 +158,12 @@ label {
 
 main {
   min-height: 66vh;
-
+/* Dev Note: this is problematic on Financing. Is it still relevant?
   section {
     &:last-of-type {
       margin-bottom: 0;
     }
-  }
+  }*/
 }
 
 select {

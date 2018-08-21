@@ -20,7 +20,34 @@
     init: function() {
 
       var _this = this;
+      var gallery = $("."+_this.className),
+          nextArrow = '',
+          prevArrow = '';
 
+
+        prevArrow += '<button type="button" class="image-slider__slick-prev">';
+        prevArrow += '&#x25C0;';
+        prevArrow += '</button>';
+
+        nextArrow += '<button type="button" class="image-slider__slick-next">';
+        nextArrow += '&#x25B6;';
+        nextArrow += '</button>';
+
+        gallery.each(function(){
+
+          $(this).find('.image-slider__slides').slick({
+            infinite: true,
+            prevArrow: prevArrow,
+            nextArrow: nextArrow,
+            centerMode: true,
+            variableWidth: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            appendArrows: gallery.find('.image-slider__nav'),
+            dots: false
+          });
+
+        });
     },
 
 
