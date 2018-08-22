@@ -15,6 +15,10 @@
 
   .three-col__column {
 
+    h2, h3 {
+      margin-bottom: rem-calc(8);
+    }
+
     p, li {
       font-weight: $text-light;
       color: $battleship;

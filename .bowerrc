@@ -1,3 +1,4 @@
 {
-  "directory": "resources/vendor"
+  "directory": "resources/vendor",
+  "registry": "https://registry.bower.io"
 }

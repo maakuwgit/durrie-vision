@@ -181,6 +181,37 @@ select {
   }
 }
 
+/*Dev Note: these cannot be stacked!*/
+progress[value] {
+  height: 1px;
+  margin-top: calc(1rem - 0.5px);
+  margin-bottom: calc(1rem - 0.5px);
+  background: $grey;
+  box-shadow: none;
+  border-radius: 0;
+}
+progress[value]::-webkit-progress-bar,
+progress[value]::-moz-progress-bar {
+  background-color: $grey;
+  border-radius: 0;
+}
+progress[value]::-webkit-progress-value {
+  background: $ivory;
+}
+
+select {
+  @include input_base;
+  padding-right: 3.5rem;
+  background-image: url('../img/svg/chevron-down-w.svg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  @include screen-lg-up {
+    &:hover {
+      background-image: url('../img/svg/chevron-down-y.svg');
+    }
+  }
+}
+
 textarea {
   @include input_base;
 

@@ -7,7 +7,7 @@
  */
 
 .ll-timeline {
-  @extend %section-padding;
+  @extend %section-margins;
 
   .timeline__milestones {
     position: relative;

@@ -16,7 +16,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'blog-grid',
           $posts,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -34,7 +38,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'call-to-action',
           $cta,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -50,7 +58,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'counters',
           $counters,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -63,7 +75,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'fullwidth-image',
           $image,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -80,7 +96,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'hero',
           $hero,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -95,7 +115,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'lr-blocks',
           $block,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -111,7 +135,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'lr-w-background',
           $block,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -145,7 +173,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'image-grid',
           $images,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -158,7 +190,12 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'image-slider',
           $slides,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            ),
+            'nav_id'  => uniqid('image-slider__nav-')
+          ),
           true
         );
       break;
@@ -172,7 +209,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'inline-form',
           $form,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -187,7 +228,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'location-grid',
           $locations,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -202,7 +247,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'location-map',
           $locations,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -217,7 +266,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'logo-grid',
           $logos,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -232,7 +285,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'doctor-grid',
           $doctors,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -250,7 +307,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'photo-stack-w-content',
           $stack,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -264,7 +325,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'procedures-grid',
           $procedures,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -281,7 +346,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'three-col-w-heading',
           $blocks,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -294,7 +363,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'timeline',
           $milestones,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -309,7 +382,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'teaser',
           $teaser,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -324,7 +401,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'three-col',
           $columns,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -338,7 +419,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'two-col',
           $blocks,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;
@@ -355,7 +440,11 @@ if( have_rows( 'components' ) ) {
         $components .= ll_include_component(
           'two-col-w-icons',
           $images,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;

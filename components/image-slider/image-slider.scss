@@ -8,66 +8,224 @@
 
 .ll-image-slider {
   position: relative;
-  margin-bottom: $padding-medium;
+  @extend %section-padding;
+
+  .image-slider__nav {
+    max-width: $container-width;
+    width: 100%;
+    > .wrapper {
+      width: inherit;
+    }
+
+    progress {
+      min-width: 60%;
+      width: calc(100% - #{rem-calc(210)});
+      margin-right: rem-calc(16);
+      @include screen-xl-up {
+        width: 100%;
+      }
+    }
+    [data-slick-details] {
+      margin-right: rem-calc(20);
+      @include screen-lg-up {
+        margin-right: rem-calc(50);
+      }
+    }
+  }
 
   .image-slider__slides {
+    width: 100%;
+
+    &.slick-initialized {
+
+      .image-slider__slide {
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        &:focus {
+          cursor: ew-resize;
+        }
+
+      }
+
+    }
+
+    &:not(.slick-initialized) {
+
+      .image-slider__slide {
+
+        img {
+          width: 100%;
+        }
+
+      }
+
+    }
+
+  }
+
+  .slick-slider {
     position: relative;
     display: block;
-    width: 100vw;
-    overflow: hidden;
     box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    .row & {
+      &[class^="col"]:not([class*="xxs-"]):not([class*="xs-"]):not([class*="sm-"]):not([class*="md-"]):not([class*="lg-"]):not([class*="xl-"]),
+      &[class*="col-"]:not([class*="xxs-"]):not([class*="xs-"]):not([class*="sm-"]):not([class*="md-"]):not([class*="lg-"]):not([class*="xl-"]) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
     user-select: none;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -khtml-user-select: none;
+    user-select: none;
+    touch-action: pan-y;
+    .slick-track,
+    .slick-list {
+      transform: translate3d(0, 0, 0);
+    }
+    .slick-list {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      padding-left: 0 !important;
+      &:focus {
+        outline: none;
+      }
+      &.dragging {
+        cursor: pointer;
+      }
+    }
+    .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      &:before,
+      &:after {
+        display: table;
+        content: '';
+      }
+      &:after {
+        clear: both;
+      }
+      .slick-loading & {
+        visibility: hidden;
+      }
+    }
   }
 
-  .image-slider__slide {
-
-    &:hover {
-      cursor: pointer;
+  /* Slide */
+  .slick-slide {
+    display: none;
+    float: left;
+    outline: none;
+    height: auto;
+    &.slick-active {
+      .feature {
+        display: block !important;
+        background-color: transparent !important;
+      }
     }
-
-    &:focus {
-      cursor: ew-resize;
+    &.slick-loading img {
+      display: none;
     }
-
-    img {
-      width: 100%;
+    &.dragging img {
+      pointer-events: none;
+    }
+    [dir='rtl'] & {
+      float: right;
+    }
+    .slick-initialized & {
+      display: block;
+    }
+    .slick-vertical & {
+      display: block;
       height: auto;
+      border: none;
+    }
+    img {
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+      opacity: 0;
     }
   }
 
-  .slick-track {
-    position: relative;
-    top: 0;
-    left: 0;
+  /* Arrows */
+  .slick-arrow.slick-hidden {
+    display: none;
+  }
+
+  /* Progress Bar */
+  [data-slick-progress] {
+    order: 2;
+  }
+
+  /* Numbers */
+  [data-slick-details] {
     display: block;
+    order: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-bottom: 1px;
+  }
+
+  /* Nav */
+  [data-slick-nav] > div {
+    width: 100%;
     margin-left: auto;
-    margin-right: auto;
-  }
-
-  .image-slider__slick-prev,
-  .image-slider__slick-next {
-    position: absolute;
-    top: -262.5px;
-    width: rem-calc(33);
-    height: rem-calc(33);
-    padding: rem-calc(11);
-    font-size: rem-calc(10);
-    line-height: 1.5;
-  }
-
-  .image-slider__slick-prev {
-    left: 0;
-    text-align: left;
-  }
-
-  .image-slider__slick-next {
-    right: 0;
-    text-align: right;
-  }
-
-  @include screen-lg-up {
-    margin-bottom: $padding-large;
+    margin-right: 0;
+    padding-top: $grid-gutter-width;
+    padding-bottom: $padding-small;
+    padding-right: 0;
+    padding-left: 0;
+    @include screen-lg-up {
+      padding-top: rem-calc(80);
+      padding-bottom: rem-calc(80);
+    }
+    @include flexible(start);
+    button, .button {
+      display: flex !important;
+      background: none;
+      border: none;
+      outline: none;
+      @include screen-lg-up {
+        &:hover {
+          color: $aqua;
+          svg {
+            fill: $aqua;
+          }
+        }
+      }
+      &:focus {
+        outline: none;
+        color: $aqua;
+        svg {
+          fill: $aqua;
+        }
+      }
+      svg {
+        width: rem-calc(32);
+        height: rem-calc(32);
+        fill: $silver;
+      }
+      &:first-of-type {
+        order: 3;
+      }
+      &:last-of-type {
+        order: 4;
+      }
+    }
   }
 }

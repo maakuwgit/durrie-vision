@@ -10,7 +10,17 @@ $defaults = [
   'slides'      => false
 ];
 
+
+$default_args = [
+  'id'      => uniqid('image-slider-'),
+  'classes' => false,
+  'nav_id'  => uniqid('image-slider__nav-')
+];
+
+
 $component_data = ll_parse_args( $component_data, $defaults );
+$component_args = ll_parse_args( $component_args, $args );
+
 ?>
 
 <?php
@@ -20,7 +30,8 @@ $component_data = ll_parse_args( $component_data, $defaults );
  * @var array
  * @see args['classes']
  */
-$classes        = $component_args['classes'] ?: array();
+$classes        = $component_args['classes'];
+if( $classes ) $classes = ' ' . implode( " ", $classes );
 
 /**
  * ID to apply to the main component container.
@@ -28,7 +39,8 @@ $classes        = $component_args['classes'] ?: array();
  * @var array
  * @see args['id']
  */
-$id               = ( $component_args['id'] ? $component_args['id'] : uniqid('image-slider-') );
+$id      = $component_args['id'];
+$nav_id  = $component_args['nav_id'];
 
 /**
  * ACF values pulled into the component from the components.php partial.
@@ -41,20 +53,35 @@ $subheading = $component_data['subheading'];
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
-<section class="ll-image-slider<?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="image-slider">
+<section class="ll-image-slider slick-carousel<?php echo $classes; ?>"<?php echo $id; ?> data-component="image-slider">
 
-  <div class="image-slider__slides">
+  <div class="container row">
 
+    <div class="image-slider__slides" data-slider-nav="<?php echo $nav_id; ?>">
     <?php foreach( $slides as $slide ) : ?>
 
-    <div class="image-slider__slide" id="#<?php echo $slide['image']['name']; ?>" data-modal="<?php echo $slide['image']['url']; ?>">
+    <div class="image-slider__slide col" id="#<?php echo $slide['image']['name']; ?>" data-modal="<?php echo $slide['image']['url']; ?>">
         <?php echo ll_format_image($slide['image']); ?>
 
     </div><!-- .image-slider__slide -->
 
     <?php endforeach; ?>
-  </div><!-- .image-slider__slides -->
+    </div><!-- .image-slider__slides -->
 
-  <div class="image-slider__nav container between"></div><!-- .image-slider__nav -->
+  </div>
+
+  <?php if( sizeof($slides) > 1 ) : ?>
+  <aside class="image-slider__nav">
+    <div class="container row">
+      <nav id="<?php echo $nav_id; ?>" class="slick-nav col" data-slick-nav>
+        <div>
+          <small class="aluminum flex" data-slick-details>01/01</small>
+          <progress value="1" max="2" data-slick-progress></progress>
+        </div>
+      </nav>
+    </div>
+  </aside>
+  <!-- .image-slider__nav -->
+  <?php endif; ?>
 
 </section>

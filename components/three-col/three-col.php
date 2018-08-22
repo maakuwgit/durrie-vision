@@ -9,9 +9,8 @@
 $defaults = [
   'column_1'       => false,
   'column_2'       => false,
-  'column_3'       => false
+  'column_3'       => false,
 ];
-
 
 $default_args = [
   'id' => uniqid('three-col-'),
@@ -52,7 +51,7 @@ $column_3 = $component_data['column_3'];
 
   <?php if( $column_1 ) : ?>
 
-    <div class="three-col__column col col-lg-3of12 col-xl-3of12">
+    <div class="three-col__column col col-md-6of12 col-lg-4of12 col-xl-4of12">
       <?php echo format_text($column_1);?>
     </div>
     <!-- .three-col__column -->
@@ -61,7 +60,7 @@ $column_3 = $component_data['column_3'];
 
   <?php if( $column_2 ) : ?>
 
-    <div class="three-col__column col col-md-6of12 col-lg-offset-1of12 col-lg-4of12 col-xl-offset-1of12 col-xl-4of12">
+    <div class="three-col__column col col-md-6of12 col-lg-4of12 col-xl-4of12">
       <?php echo format_text($column_2);?>
     </div>
     <!-- .three-col__column -->
@@ -70,7 +69,7 @@ $column_3 = $component_data['column_3'];
 
   <?php if( $column_3 ) : ?>
 
-    <div class="three-col__column col col-md-6of12 col-lg-offset-1of12 col-lg-4of12 col-xl-offset-1of12 col-xl-4of12">
+    <div class="three-col__column col col-md-6of12 col-lg-4of12 col-xl-4of12">
       <?php echo format_text($column_3);?>
     </div>
     <!-- .three-col__column -->
