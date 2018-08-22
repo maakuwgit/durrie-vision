@@ -50,7 +50,7 @@ $content            = $component_data['content'];
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
-<section class="ll-lr-blocks<?php echo ' ' . $style . implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="lr-blocks">
+<section class="ll-lr-blocks lefty<?php echo ' ' . $style . implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="lr-blocks">
 
   <div class="container row stretch center">
 

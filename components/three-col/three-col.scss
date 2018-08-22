@@ -20,8 +20,12 @@
     }
 
     p, li {
-      font-weight: $text-light;
-      color: $battleship;
+
+      &:not([class]) {
+        font-weight: $text-light;
+        color: $battleship;
+      }
+      
       margin-top: 0;
     }
 

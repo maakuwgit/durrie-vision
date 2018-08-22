@@ -37,7 +37,15 @@
       line-height: line-calc(22,14);
 
       a {
+        display: inline-flex;
+        padding-top: rem-calc(4);
+        padding-bottom: rem-calc(4);
         color: inherit;
+
+      }
+       
+      &:last-child a {
+        padding-bottom: 0;
       }
     }
   }

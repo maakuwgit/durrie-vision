@@ -3,6 +3,27 @@
     "title": "Sticky Blocks",
     "fields": [
         {
+            "key": "field_5b7dc8c993337",
+            "label": "Background Color",
+            "name": "lr_blocks_background_color",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5b7d87814d316"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_5b364973c32de",
             "label": "Image",
             "name": "lr_blocks_image",
@@ -63,5 +84,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "An image on the left, text on the left. The image matches the height of the content. The background color is global. Clicking the arrow jumps to the next LR Block",
-    "modified": 1534951422
+    "modified": 1534970091
 }
