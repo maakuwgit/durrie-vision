@@ -132,14 +132,11 @@ if( $image ) {
     <!-- .hero-home__nav -->
   <?php endif; ?>
 
-</div>
-
-  <div class="container row centered center text-center">
 
   <?php if( $button ) : ?>
-    <nav class="hero-home__button col">
+    <nav class="hero-home__cta col">
 
-      <a href="<?php echo $button['url'];?>"><?php echo $button['title'];?></a>
+      <a class="hero-home__button" href="<?php echo $button['url'];?>"><?php echo $button['title'];?></a>
 
     </nav>
     <!-- .hero-home__button -->

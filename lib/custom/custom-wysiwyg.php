@@ -32,6 +32,12 @@ function ll_format_tinymce( $data ) {
           'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
           'wrapper'  => false
         ),
+        array(
+          'title'    => 'Raleway',
+          'classes'  => 'raleway',
+          'selector' => 'h1, h2, h3, h4, h5, h6, p, a, span, li, time, dt, dd',
+          'wrapper'  => false
+        ),
       ),
     ),
     array(
@@ -202,32 +208,8 @@ function ll_format_tinymce( $data ) {
           'wrapper'  => false
         ),
         array(
-          'title'    => 'White Button',
-          'classes'  => 'btn--white',
-          'selector' => 'a, button',
-          'wrapper'  => false
-        ),
-        array(
-          'title'    => 'Silver Button',
-          'classes'  => 'btn--silver',
-          'selector' => 'a, button',
-          'wrapper'  => false
-        ),
-        array(
-          'title'    => 'Grey Button',
-          'classes'  => 'btn--grey',
-          'selector' => 'a, button',
-          'wrapper'  => false
-        ),
-        array(
-          'title'    => 'Smoke Button',
-          'classes'  => 'btn--smoke',
-          'selector' => 'a, button',
-          'wrapper'  => false
-        ),
-        array(
-          'title'    => 'Gold Button',
-          'classes'  => 'btn--gold',
+          'title'    => 'Outlined Button',
+          'classes'  => 'btn--outline',
           'selector' => 'a, button',
           'wrapper'  => false
         )
@@ -239,6 +221,12 @@ function ll_format_tinymce( $data ) {
         array(
           'title'    => 'No Bullets',
           'classes'  => 'no-bullet',
+          'selector' => 'ul, ol',
+          'wrapper'  => false
+        ),
+        array(
+          'title'    => 'Inline List',
+          'classes'  => 'inline-list',
           'selector' => 'ul, ol',
           'wrapper'  => false
         ),

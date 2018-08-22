@@ -76,18 +76,20 @@
 }
 
 %icon-link {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   font-size: rem-calc(16);
-  font-weight: $text-reg;
+  font-weight: $text-bold;
   line-height: line-calc(24,16);
 
   svg {
-    width: rem-calc(51);
-    height: rem-calc(51);
+    width: rem-calc(23);
+    height: rem-calc(23);
+    border: solid #{rem-calc(3)} white;
+    border-radius: 200px;
     fill: white;
-    margin-left: rem-calc(38);
+    margin-right: rem-calc(10);
   }
 }
 
@@ -139,14 +141,34 @@
   font-weight: $text-bold;
 }
 
-.text-book,
-.h1.text-book,
-.h2.text-book,
-.h3.text-book,
-.h4.text-book,
-.h5.text-book,
-.h6.text-book {
+.text-reg,
+.h1.text-reg,
+.h2.text-reg,
+.h3.text-reg,
+.h4.text-reg,
+.h5.text-reg,
+.h6.text-reg {
   font-weight: $text-reg;
+}
+
+.text-thin,
+.h1.text-thin,
+.h2.text-thin,
+.h3.text-thin,
+.h4.text-thin,
+.h5.text-thin,
+.h6.text-thin {
+  font-weight: $text-thin;
+}
+
+.text-light,
+.h1.text-light,
+.h2.text-light,
+.h3.text-light,
+.h4.text-light,
+.h5.text-light,
+.h6.text-light {
+  font-weight: $text-light;
 }
 
 /* List Styles */

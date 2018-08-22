@@ -26,7 +26,10 @@
 
       function playVideo(e) {
         e.preventDefault();
-        $(btn).hide();
+        $(btn).animate({'opacity':0}, 300, function(){
+          $(this).css('pointer-events','none');
+        });
+
         hero.find('.loop-video')[0].play();
       }
 

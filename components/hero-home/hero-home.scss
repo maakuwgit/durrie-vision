@@ -9,7 +9,7 @@
 .ll-hero-home {
   position: relative;
   min-height: rem-calc(320);
-  height: 42vh;
+  height: auto;
   overflow: hidden;
   padding-top: rem-calc(58);
   background-color: $battleship;
@@ -24,40 +24,49 @@
 
   .hero-home__heading {
     @extend %h2;
+    margin-top: $padding-large;
     font-weight: $text-reg;
     color: $white;
-    text-shadow: 0  #{rem-calc(2)} #{rem-calc(7)} rgba($black, 0.5);
+    text-shadow: 0  #{rem-calc(2)} #{rem-calc(14)} rgba($black, 0.5);
   }
 
   .play-video-button {
+    @extend %icon-link;
     margin-top: rem-calc(21);
+    svg {
+      box-shadow: 0 0 2px white inset, 0 0 2px white inset, 0 0 2px white inset, 0 0 2px white inset, 0 0 2px white inset, 0 0 2px white inset, 0 0 2px white inset;//This adds a tiny bit of anti-aliasing to the play button.
+    }
   }
 
   .hero-home__nav {
-    padding-bottom: $padding-small;
+    padding-bottom: $padding-large;
   }
 
-  @include screen-sm {
+  .hero-home__cta {
+    margin-bottom: $padding-medium;
+  }
 
-    .hero-home__nav {
-      padding-bottom: 0;
-    }
-
-    .hero-home__button {
-      margin-top: rem-calc(16);
-    }
+  .hero-home__button {
+    @extend %h4;
   }
 
   @include screen-md-up {
     min-height: rem-calc(637);
-    height: 85vh;
 
     body.admin-bar & {
       padding-top: rem-calc(90);
     }
 
+    .hero-home__heading {
+      margin-top: $padding-large * 2;
+    }
+
     .hero-home__nav {
-      padding-bottom: $padding-medium;
+      padding-bottom: $padding-large * 2;
+    }
+
+    .hero-home__cta {
+      margin-bottom: $padding-large;
     }
 
   }
@@ -67,10 +76,6 @@
 
     body.admin-bar & {
       padding-top: rem-calc(74);
-    }
-
-    .hero-home__nav {
-      padding-bottom: $padding-large * 2;
     }
 
   }
