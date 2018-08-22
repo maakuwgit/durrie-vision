@@ -41,7 +41,7 @@ if ( $component_data['fallback'] ) {
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
 <div class="loop-video-container <?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="loop-video" <?php echo $style; ?>>
-  <video class="loop-video" muted loop playsinline poster="<?php echo $component_data['fallback']; ?>">
+  <video class="loop-video" muted loop autoplay playsinline poster="<?php echo $component_data['fallback']; ?>">
     <source src="<?php echo $component_data['video']; ?>">
   </video>
 </div>

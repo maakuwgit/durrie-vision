@@ -18,8 +18,8 @@
       order: 2;
       margin-left: auto;
       margin-right: 0;
-      padding-left: $grid-gutter-width * 2;
-      padding-right: 0;
+      padding-left: $padding-large;
+      padding-right: $padding-large;
     }
 
   }
@@ -40,7 +40,9 @@
     }
 
     h1, h2, h3, h4, h5, h6, p, li, dt, dd, time {
-      color: $battleship;
+      &:not([class]) {
+        color: $battleship;
+      }
     }
 
     *:last-child {
@@ -49,6 +51,23 @@
 
     p {
       margin-bottom: rem-calc(22);
+
+      &:not([class]) {
+        font-weight: $text-light;
+      }
+
+      [class*="btn"] {
+        @extend %roboto;
+        display: inline-flex;
+        min-width: rem-calc(254);
+        margin-top: $padding-small;
+        margin-right: $padding-xsmall;
+        box-shadow: 0 #{rem-calc(10)} #{rem-calc(14)} 0 rgba($black, 0.6);
+      }
+
+      a {
+        display: inline-block;
+      }
     }
 
     li {
@@ -62,36 +81,20 @@
       }
     }
 
-    a {
-      display: inline-block;
-    }
-
-    [class*="btn"] {
-      @extend %roboto;
-      display: inline-flex;
-      min-width: rem-calc(254);
-      margin-top: $padding-small;
-      margin-right: $padding-xsmall;
-      box-shadow: 0 #{rem-calc(10)} #{rem-calc(14)} 0 rgba($black, 0.6);
-    }
   }
 
   @include screen-lg-up {
 
     .lr-blocks__content {
       min-height: rem-calc(397);
-      padding-top: $padding-large;
-      padding-bottom: $padding-large;
-
-      > * {
-        width: 100%;
-      }
 
     }
 
-    [class*="btn"] {
-      margin-top: $padding-medium;
-      margin-right: $padding-small;
+    p {
+      [class*="btn"] {
+        margin-top: $padding-medium;
+        margin-right: $padding-small;
+      }
     }
 
   }

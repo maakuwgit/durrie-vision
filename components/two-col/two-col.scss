@@ -11,7 +11,19 @@
 
   .two-col__column {
 
-    p, li {
+    *:first-child {
+      margin-top: 0;
+    }
+
+    h2, h3 {
+      margin-bottom: $padding-small;
+
+      &:not([class]) {
+        color: $coal;
+      }
+    }
+
+    p:not([class]), li {
       @extend %small;
       line-height: 1.85714285714286;
       font-weight: $text-light;

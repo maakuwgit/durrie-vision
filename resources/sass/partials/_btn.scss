@@ -31,7 +31,25 @@
 }
 
 %btn--shadow {
-  box-shadow: 0 0 #{rem-calc(15)} 0 rgba($black, 0.1);
+  box-shadow: 0 0 #{rem-calc(15)} rgba($black, 0.1);
+}
+
+%btn--coin {
+  @extend %btn--shadow;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $white;
+  width: rem-calc(50);
+  height: rem-calc(50);
+  border-radius: 200px;
+  font-size: rem-calc(10);
+  color: $black;
+
+  svg {
+    width: 33.333334%;
+    height: 100%;
+  }
 }
 
 %btn--outline {
@@ -61,4 +79,8 @@ button {
 
 .btn--outline {
   @extend %btn--outline;
+}
+
+.btn--coin {
+  @extend %btn--coin;
 }

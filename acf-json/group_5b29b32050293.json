@@ -1,29 +1,7 @@
 {
     "key": "group_5b29b32050293",
-    "title": "Left \/ Right Image Blocks",
+    "title": "Sticky Blocks",
     "fields": [
-        {
-            "key": "field_5b3699521cc37",
-            "label": "Style",
-            "name": "lr_blocks_style",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "lefty": "Left Side Image",
-                "righty": "Right Side Image"
-            },
-            "allow_null": 0,
-            "default_value": "",
-            "layout": "vertical",
-            "return_format": "value"
-        },
         {
             "key": "field_5b364973c32de",
             "label": "Image",
@@ -84,6 +62,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 0,
-    "description": "An image on the right and text on the left. The image matches the height of the content. The background color is global. The side of the image can be changed.",
-    "modified": 1533835121
+    "description": "An image on the left, text on the left. The image matches the height of the content. The background color is global. Clicking the arrow jumps to the next LR Block",
+    "modified": 1534951422
 }

@@ -7,11 +7,12 @@
 */
 
 $defaults = [
-  'heading'       => false,
-  'button'        => false,
-  'image'         => false,
-  'video'         => false,
-  'overlay'       => 1
+  'heading'         => false,
+  'button'          => false,
+  'image'           => false,
+  'video'           => false,
+  'video_external'  => false,
+  'overlay'         => 0
 ];
 
 $args = [
@@ -50,6 +51,7 @@ if( $component_data['heading'] ) {
 $button          = $component_data['button'];
 
 $video           = $component_data['video'];
+$video_external  = $component_data['video_external'];
 $overlay         = $component_data['overlay'];
 $image           = $component_data['image'];
 
@@ -118,10 +120,10 @@ if( $image ) {
 
   <?php endif; ?>
 
-  <?php if ( $video ) : ?>
+  <?php if ( $video_external ) : ?>
     <nav class="hero-home__nav col">
 
-      <a class="play-video-button js-play-video">
+      <a class="play-video-button" href="<?php echo $video_external; ?>" target="_blank">
         <svg class="icon icon-play">
           <use xlink:href="#icon-play"></use>
         </svg>

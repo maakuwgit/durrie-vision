@@ -118,15 +118,20 @@ if( have_rows( 'components' ) ) {
       case 'icon-grid' :
         //About Us”
         $icons = array(
-          'heading' => get_sub_field('icon_grid_heading'),
-          'content' => get_sub_field('icon_grid_content'),
-          'icons'   => get_sub_field('icon_grid_icons')
+          'layout'    => get_sub_field('icon_grid_layout'),
+          'heading'   => get_sub_field('icon_grid_heading'),
+          'content'   => get_sub_field('icon_grid_content'),
+          'icons'     => get_sub_field('icon_grid_icons')
         );
 
         $components .= ll_include_component(
           'icon-grid',
           $icons,
-          array(),
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
           true
         );
       break;

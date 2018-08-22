@@ -1,0 +1,58 @@
+{
+    "key": "group_5b7d878149a44",
+    "title": "All Colors",
+    "fields": [
+        {
+            "key": "field_5b7d87814d316",
+            "label": "Color",
+            "name": "color",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33334",
+                "class": "icon",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "powder": "Powder",
+                "ivory": "Ivory",
+                "silver": "Silver",
+                "aluminum": "Aluminum",
+                "aqua": "Aquamarine",
+                "grey": "Grey",
+                "battleship": "Battleship",
+                "coal": "Coal",
+                "ebony": "Ebony",
+                "black": "Black"
+            },
+            "default_value": [],
+            "allow_null": 1,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 0,
+    "description": "This houses all the icon options. Other 'Icon' fields are clones of this",
+    "modified": 1534953840
+}

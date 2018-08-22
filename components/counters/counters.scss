@@ -7,9 +7,9 @@
  */
 
 .ll-counters {
+  @extend %section-margins;
 
   .counters__heading {
-    margin-bottom: $padding-small;
     color: $coal;
   }
 
@@ -30,7 +30,8 @@
   }
 
   .counters__column__list {
-    margin-bottom: $padding-small;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .counters__column__title {
@@ -48,14 +49,6 @@
   }
 
   @include screen-md-up {
-
-    .counters__heading {
-      margin-bottom: $padding-medium;
-    }
-
-    .counters__column__list {
-      margin-bottom: $padding-medium;
-    }
 
     .counters__column__title {
       margin-top: $padding-medium;

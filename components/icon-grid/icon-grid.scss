@@ -9,7 +9,6 @@
 .ll-icon-grid {
   position: relative;
   @extend %section-padding;
-  background-color: $battleship;
 
   .icon-grid__heading {
     @extend %h3;
@@ -30,17 +29,18 @@
     list-style: none;
     width: calc( 100% + #{$grid-column-padding*2} );
     margin-left: $grid-column-padding * -1;
+    margin-bottom: $padding-xsmall;
   }
 
   .icon-grid__block {
     margin-top: $padding-medium;
 
     h1, h2, h3, h4, h5, h6 {
-      color: $white;
+      color: $coal;
     }
 
     p, time, li, dd {
-      color: $grey;
+      color: $battleship;
     }
 
     li {
@@ -53,13 +53,16 @@
 
     .icon {
       @extend %coin;
+      width: rem-calc(25);
+      height: rem-calc(25);
     }
 
   }
 
   .icon-grid__block__title {
     h2, h3, h4, h5, h6 {
-      @extend %h6;
+      @extend %label;
+      font-weight: $text-med;
       margin-bottom: rem-calc(10);
     }
   }
@@ -69,6 +72,7 @@
     p {
       @extend %small;
       margin-top: 0;
+      font-weight: $text-light;
 
       &:last-child {
         margin-bottom: 0;
@@ -80,36 +84,10 @@
 
   @include screen-lg-up {
 
-    .page-template-template-dark & {
-
-      .icon-bison {
-        width: rem-calc(60);
-        height: rem-calc(60);
-      }
-
-      .icon-grid__block__title {
-        margin-bottom: rem-calc(24);
-      }
-
-      .icon-grid__block__caption {
-
-        p {
-          font-size: rem-calc(16);
-          color: $white;
-        }
-
-      }
-
-    }
-
-    body:not(.page-template-template-dark) & {
-
-      .icon-grid__wrapper {
-        width: 83.3333333333%;
-        max-width: 83.3333333333%;
-        flex: .8333333333 1 auto;
-      }
-
+    .icon-grid__wrapper {
+      width: 83.3333333333%;
+      max-width: 83.3333333333%;
+      flex: .8333333333 1 auto;
     }
 
     .icon-grid__block {

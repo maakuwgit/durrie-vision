@@ -27,7 +27,8 @@ $component_args = ll_parse_args( $component_args, $args );
  * @var array
  * @see args['classes']
  */
-$classes  = $component_args['classes'] ?: array();
+$classes        = $component_args['classes'];
+if( $classes ) $classes = ' ' . implode( " ", $classes );
 
 /**
  * ID to apply to the main component container.
@@ -50,7 +51,7 @@ $layout = ' col-md-'.$layout.'of12 col-lg-'.$layout.'of12 col-xl-'.$layout.'of12
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
-<section class="ll-icon-grid<?php echo implode( " ", $classes ); ?>" <?php echo $id; ?> data-component="icon-grid">
+<section class="ll-icon-grid<?php echo $classes; ?>" <?php echo $id; ?> data-component="icon-grid">
 
   <div class="container column text-center">
 

@@ -11,7 +11,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33.33334",
                 "class": "",
                 "id": ""
             },
@@ -34,7 +34,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33.33334",
                 "class": "",
                 "id": ""
             },
@@ -43,6 +43,27 @@
             "ui": 1,
             "ui_on_text": "Yes",
             "ui_off_text": "No"
+        },
+        {
+            "key": "field_5b7d88ce81e16",
+            "label": "Background",
+            "name": "icon_grid_background",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5b7d87814d316"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
         },
         {
             "key": "field_5b4e310542c3d",
@@ -235,5 +256,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "A simple grid of icons with captions. Icons are all clones of the preset list All Icons component",
-    "modified": 1533842422
+    "modified": 1534953779
 }

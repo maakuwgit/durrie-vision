@@ -7,7 +7,7 @@
  */
 
 .ll-teaser {
-  @extend %section-padding;
+  @extend %section-margins;
 
   .teaser__icon {
     .icon {
@@ -29,9 +29,27 @@
     margin-bottom: rem-calc(10);
     margin-left: auto;
     font-weight: $text-med;
+
+    body.home & {
+      @extend %h2;
+      margin-bottom: $padding-small;
+    }
   }
 
   .teaser__description {
+    h2, .h2 {
+      margin-bottom: $padding-small;
+
+      sup {
+        @extend %small;
+        vertical-align: rem-calc(14);
+      }
+    }
+
+    h5, .h5 {
+      margin-bottom: $padding-xsmall;
+    }
+
     p {
       margin-top: 0;
       color: $battleship;

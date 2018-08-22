@@ -7,7 +7,7 @@
 */
 
 $defaults = [
-  'style'      => false,
+  'style'      => 'lefty',
   'image'      => false,
   'content'    => false,
   'has_bg'     => false
@@ -29,7 +29,7 @@ $component_args = ll_parse_args( $component_args, $args );
  * @var array
  * @see args['classes']
  */
-$classes        = $component_args['classes'] ?: array();
+$classes        = $component_args['classes'] ?: array($defaults['style']);
 
 /**
  * ID to apply to the main component container.
@@ -57,6 +57,7 @@ $content            = $component_data['content'];
   <?php if( $content ) : ?>
     <div class="lr-blocks__content col col-md-6of12 col-lg-6of12 col-xl-6of12 col-xxl-6of12">
       <?php echo $content; ?>
+      <a class="btn--coin" href="#next" data-next><svg class="icon icon-arrow-right"><use xlink:href="#icon-arrow-right"></use></svg></a>
     </div><!-- .lr-block__content -->
   <?php endif; ?>
 

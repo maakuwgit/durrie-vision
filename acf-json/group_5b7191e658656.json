@@ -108,7 +108,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "10",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -129,7 +129,23 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "40",
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5b7d860cca03d",
+            "label": "External Video",
+            "name": "hero_video_external",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -157,5 +173,5 @@
     ],
     "active": 1,
     "description": "The Homepage Hero. Fewer options and the ability to use an image for an H1",
-    "modified": 1534884761
+    "modified": 1534953084
 }
