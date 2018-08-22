@@ -9,7 +9,6 @@
 $defaults = [
   'layout'       => 4,
   'heading'      => false,
-  'content'      => false,
   'icons'        => false,
 ];
 
@@ -53,17 +52,14 @@ $layout = ' col-md-'.$layout.'of12 col-lg-'.$layout.'of12 col-xl-'.$layout.'of12
 <?php if ( ll_empty( $component_data ) ) return; ?>
 <section class="ll-icon-grid<?php echo $classes; ?>" <?php echo $id; ?> data-component="icon-grid">
 
-  <div class="container column text-center">
+  <div class="container row text-left">
 
   <?php if( $heading  ) : ?>
-    <<?php echo $heading['tag']; ?> class="col col-md-10of12 col-lg-8of12 col-xl-8of12 col-xxl-8of12 icon-grid__heading"><?php echo $heading['text']; ?></<?php echo $heading['tag']; ?>><!-- .col-md-10of12.col-lg-8of12.col-xl-8of12.col-xxl-8of12.icon-grid__heading -->
+    <<?php echo $heading['tag']; ?> class="icon-grid__heading col"><?php echo $heading['text']; ?></<?php echo $heading['tag']; ?>>
+    <!-- .icon-grid__heading.col -->
   <?php endif; ?>
 
-  <?php if( $content  ) : ?>
-    <div class="col col-md-10of12 col-lg-8of12 col-xl-8of12 col-xxl-8of12 icon-grid__content"><?php echo format_text($content); ?></div><!-- .col-md-10of12.col-lg-8of12.col-xl-8of12.col-xxl-8of12.icon-grid__content -->
-  <?php endif; ?>
-
-  </div><!-- .container.row.centered -->
+  </div><!-- .container.row -->
 
 <?php if( $icons ) : ?>
 

@@ -49,7 +49,7 @@ $links       = $component_data['links'];
 
   <div class="container">
 
-    <div class="synopsis__wrapper row">
+    <div class="synopsis__wrapper row between">
 
       <div class="synopsis__col col col-md-6of12 col-lg-5of12 col-xl-5of12">
 

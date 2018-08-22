@@ -11,17 +11,11 @@
   @extend %section-padding;
 
   .icon-grid__heading {
-    @extend %h3;
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: $text-reg;
-  }
-
-  .icon-grid__content {
-
-    p:last-child {
-      margin-bottom: 0;
-    }
+    @extend %h4;
+    @extend %raleway;
+    margin-bottom: $padding-xsmall;
+    padding-left: 0;
+    font-weight: $text-bold;
   }
 
   .icon-grid__icons {
@@ -83,11 +77,8 @@
   }
 
   @include screen-lg-up {
-
-    .icon-grid__wrapper {
-      width: 83.3333333333%;
-      max-width: 83.3333333333%;
-      flex: .8333333333 1 auto;
+    .icon-grid__heading {
+      margin-bottom: $padding-small;
     }
 
     .icon-grid__block {

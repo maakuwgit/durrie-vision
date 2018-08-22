@@ -360,12 +360,12 @@
                 "5b4601fc28c50": {
                     "key": "5b4601fc28c50",
                     "name": "lr-block",
-                    "label": "Left\/Right Image Blocks",
+                    "label": "Sticky Blocks",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b4601fc28c51",
-                            "label": "Left\/Right Blocks",
+                            "label": "Sticky Blocks",
                             "name": "lr-block",
                             "type": "clone",
                             "instructions": "",
@@ -699,6 +699,13 @@
                 "operator": "==",
                 "value": "templates\/template-form-template.php"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "procedure"
+            }
         ]
     ],
     "menu_order": 1,
@@ -712,5 +719,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534878505
+    "modified": 1534968939
 }
