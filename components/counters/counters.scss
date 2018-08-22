@@ -10,6 +10,9 @@
   @extend %section-margins;
 
   .counters__heading {
+    @extend %h2;
+    font-weight: $text-med;
+    margin-bottom: $padding-xsmall;
     color: $coal;
   }
 
@@ -49,6 +52,10 @@
   }
 
   @include screen-md-up {
+
+    .counters__heading {
+      margin-bottom: $padding-small;
+    }
 
     .counters__column__title {
       margin-top: $padding-medium;
