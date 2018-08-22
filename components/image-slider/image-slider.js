@@ -25,13 +25,13 @@
           prevArrow = '';
 
         prevArrow = '<button type="button" class="slick-prev">';
-        prevArrow += '<svg>';
-        prevArrow += '<use xlink:href="#icon-chevron-left"></use>';
+        prevArrow += '<svg class="icon icon-arrow-left">';
+        prevArrow += '<use xlink:href="#icon-arrow-left"></use>';
         prevArrow += '</svg></button>';
 
         nextArrow += '<button type="button" class="slick-next">';
-        nextArrow += '<svg>';
-        nextArrow += '<use xlink:href="#icon-chevron-right"></use>';
+        nextArrow += '<svg class="icon icon-arrow-right">';
+        nextArrow += '<use xlink:href="#icon-arrow-right"></use>';
         nextArrow += '</svg></button>';
 
         setProgress = function(e, slick, direction){

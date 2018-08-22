@@ -10,26 +10,24 @@
   position: relative;
   @extend %section-padding;
 
+  .image-slider__heading {
+    @extend %h1;
+    margin-bottom: $padding-medium;
+  }
+
   .image-slider__nav {
-    max-width: $container-width;
-    width: 100%;
-    > .wrapper {
-      width: inherit;
-    }
 
     progress {
-      min-width: 60%;
-      width: calc(100% - #{rem-calc(210)});
-      margin-right: rem-calc(16);
-      @include screen-xl-up {
-        width: 100%;
-      }
+      display: flex;
+      flex: 1 1 auto;
+      align-self: center;
+      margin-left: $padding-medium;
+      margin-right: $padding-medium;
     }
+
     [data-slick-details] {
-      margin-right: rem-calc(20);
-      @include screen-lg-up {
-        margin-right: rem-calc(50);
-      }
+      width: rem-calc(50);
+      color: $coal;
     }
   }
 
@@ -86,10 +84,12 @@
     -khtml-user-select: none;
     user-select: none;
     touch-action: pan-y;
+
     .slick-track,
     .slick-list {
       transform: translate3d(0, 0, 0);
     }
+
     .slick-list {
       position: relative;
       display: block;
@@ -104,6 +104,7 @@
         cursor: pointer;
       }
     }
+
     .slick-track {
       position: relative;
       top: 0;
@@ -132,10 +133,9 @@
     outline: none;
     height: auto;
     &.slick-active {
-      .feature {
-        display: block !important;
-        background-color: transparent !important;
-      }
+      display: block !important;
+      left: 0 !important;
+      background-color: transparent !important;
     }
     &.slick-loading img {
       display: none;
@@ -156,9 +156,9 @@
     }
     img {
       display: block;
+      width: 100%;
       margin-right: 0;
       margin-left: auto;
-      opacity: 0;
     }
   }
 
@@ -196,10 +196,15 @@
     }
     @include flexible(start);
     button, .button {
-      display: flex !important;
-      background: none;
+      display: inline-flex !important;
+      min-width: initial;
+      width: rem-calc(14);
+      height: rem-calc(14);
+      padding: 0;
+      margin-left: rem-calc(20);
       border: none;
       outline: none;
+      background: none;
       @include screen-lg-up {
         &:hover {
           color: $aqua;
@@ -216,9 +221,9 @@
         }
       }
       svg {
-        width: rem-calc(32);
-        height: rem-calc(32);
-        fill: $silver;
+        width: inherit;
+        height: inherit;
+        fill: $aluminum;
       }
       &:first-of-type {
         order: 3;
@@ -227,5 +232,13 @@
         order: 4;
       }
     }
+  }
+
+  @include screen-md-up {
+
+    .image-slider__heading {
+      margin-bottom: $padding-large;
+    }
+
   }
 }

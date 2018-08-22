@@ -184,6 +184,7 @@ if( have_rows( 'components' ) ) {
       case 'image-slider' :
         //Financing
         $slides = array(
+          'heading'     => get_sub_field('image_slider_heading'),
           'slides'      => get_sub_field('image_slider_slides')
         );
 

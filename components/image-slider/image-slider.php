@@ -7,6 +7,7 @@
 */
 
 $defaults = [
+  'heading'     => false,
   'slides'      => false
 ];
 
@@ -46,16 +47,29 @@ $nav_id  = $component_args['nav_id'];
  * ACF values pulled into the component from the components.php partial.
  */
 $slides     = $component_data['slides'];
-$supertitle = $component_data['supertitle'];
-$heading    = $component_data['heading'];
-$subheading = $component_data['subheading'];
+
+if( $component_data['heading'] ) {
+  $heading         = $component_data['heading']['text'];
+  $heading_tag     = $component_data['heading']['tag'];
+}else{
+  $heading = false;
+}
 
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>
 <section class="ll-image-slider slick-carousel<?php echo $classes; ?>"<?php echo $id; ?> data-component="image-slider">
 
-  <div class="container row">
+  <div class="container row center centered text-center">
+
+  <?php if( $heading ) : ?>
+
+    <<?php echo $heading_tag; ?> class="image-slider__heading col">
+      <?php echo $heading; ?>
+    </<?php echo $heading_tag; ?>>
+    <!-- .image-slider__heading -->
+
+  <?php endif; ?>
 
     <div class="image-slider__slides" data-slider-nav="<?php echo $nav_id; ?>">
     <?php foreach( $slides as $slide ) : ?>
@@ -72,14 +86,20 @@ $subheading = $component_data['subheading'];
 
   <?php if( sizeof($slides) > 1 ) : ?>
   <aside class="image-slider__nav">
+
     <div class="container row">
+
       <nav id="<?php echo $nav_id; ?>" class="slick-nav col" data-slick-nav>
-        <div>
-          <small class="aluminum flex" data-slick-details>01/01</small>
+
+        <div class="row between">
+          <small class="flex" data-slick-details>01/01</small>
           <progress value="1" max="2" data-slick-progress></progress>
         </div>
+
       </nav>
+
     </div>
+
   </aside>
   <!-- .image-slider__nav -->
   <?php endif; ?>
