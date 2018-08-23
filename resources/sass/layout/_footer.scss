@@ -14,10 +14,13 @@
   }
 
   .menu-item {
+    @extend %raleway;
+    display: flex;
+    flex: 1 0.33 auto;
     color: $white;
-    line-height: 32px;
-    line-height: 2;
-    font-weight: $text-black;
+    font-size: rem-calc(11);
+    line-height: line-calc(24,11);
+    font-weight: $text-bold;
 
     a[href*="#"] {
       font-size: rem-calc(18);
@@ -54,27 +57,32 @@
     margin-left: auto;
   }
 
+  .footer__address__title,
   .footer__hours__title,
-  .footer__social__title,
-  .location-grid__locations__header {
-    margin-bottom: $padding-small;
+  .footer__contact__title,
+  .footer__social__title {
+    @extend %h4;
+    color: $battleship;
+    margin-top: rem-calc(4);
+    margin-bottom: rem-calc(8);
   }
 
-  .location-grid__location__title,
-  .location-grid__location__description,
-  .location-grid__location__address {
-    font-size: rem-calc(12);
-    line-height: line-calc(21,12);
-    font-weight: $text-reg;
+  .footer__contact__phone,
+  .footer__contact__fax,
+  .footer__hours__days,
+  .footer__hours__time,
+  .footer__address {
+    @extend %label;
   }
 
-  .location-grid__location__title {
-    margin-bottom: $padding-xsmall*0.75;
+  .footer__additional_details__wrap {
+    margin-bottom: rem-calc(15);
   }
 
-  .location-grid__locations__header,
-  .location-grid__locations__list {
-    width: 100%;
+  .footer__hours__time {
+    @extend %raleway;
+    font-weight: $text-med;
+    margin-left: $grid-gutter-width;
   }
 
   .footer__bottom {
@@ -102,15 +110,15 @@
 
   @include screen-md-up {
 
-    .location-grid__location__title {
-      margin-bottom: $padding-xsmall;
-    }
-
     .nav {
 
       > .menu-item {
+        width: 33.333333333334%;
+        max-width: 33.333333333334%;
         padding-left: rem-calc(20);
         padding-right: rem-calc(20);
+        font-size: rem-calc(14);
+        line-height: line-calc(32,14);
       }
 
     }
@@ -142,21 +150,6 @@
         justify-content: flex-end;
       }
     }
-  }
-
-  @include screen-sm-up {
-
-    .location-grid__location__title,
-    .location-grid__location__description,
-    .location-grid__location__address {
-      font-size: rem-calc(16);
-      line-height: line-calc(28,16);
-    }
-
-    .nav {
-      margin-left: rem-calc(60);
-    }
-
   }
 
   @include screen-sm {

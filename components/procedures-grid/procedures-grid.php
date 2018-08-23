@@ -60,7 +60,7 @@ $num_procedures = $num_procedures->publish;
 <?php if ( $procedures->have_posts() ) : ?>
 <section class="ll-procedures-grid <?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="procedures-grid">
 
-  <div class="container row centered center">
+  <div class="container row centered stretch">
 
   <?php if( $heading ) : ?>
     <header class="procedure-grid__heading col text-center">
@@ -85,7 +85,7 @@ $num_procedures = $num_procedures->publish;
 
     ?>
 
-      <div class="procedure-grid__procedure_wrapper col col-sm-6of12 col-md-3of12 col-lg-4of12 col-xl-4of12">
+      <div class="procedure-grid__procedure_wrapper col col-sm-6of12 col-md-3of12 col-lg-3of12 col-xl-3of12">
 
         <div class="procedure-grid__procedure text-center" data-clickthrough>
           <a class="hide" href="<?php the_permalink(); ?>"></a>
@@ -97,7 +97,7 @@ $num_procedures = $num_procedures->publish;
               <use xlink:href="#<?php echo $icon['icon']; ?>">
             </svg>
 
-          </div><!-- .teaser__icon -->
+          </div><!-- .procedure-grid__procedure__icon -->
 
         <?php endif; ?>
 

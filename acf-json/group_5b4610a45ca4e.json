@@ -19,13 +19,16 @@
                 "icon-calendar": "Calendar",
                 "icon-coin": "Coin",
                 "icon-cataracts": "Cataracts",
+                "icon-checklist": "Checklist",
                 "icon-clock": "Clock",
                 "icon-clock-ticking": "Clock Ticking",
                 "icon-cross_linking": "Corneal Cross-Linking",
+                "icon-doc": "Document",
                 "icon-dv": "DV Logo",
                 "icon-kamra": "KAMRA",
                 "icon-lasik": "Lasik",
                 "icon-location": "Location",
+                "icon-lock": "Lock",
                 "icon-phone": "Phone",
                 "icon-phakic": "PHAKIC",
                 "icon-prk": "PRK",
@@ -33,8 +36,7 @@
                 "icon-search": "Search",
                 "icon-shield": "Shield w\/Checkmark",
                 "icon-smile": "SMILE",
-                "icon-user": "User",
-                "icon-wifi": "Wifi"
+                "icon-user": "User"
             },
             "default_value": [],
             "allow_null": 1,
@@ -62,5 +64,5 @@
     "hide_on_screen": "",
     "active": 0,
     "description": "This houses all the icon options. Other 'Icon' fields are clones of this",
-    "modified": 1534952959
+    "modified": 1535033370
 }

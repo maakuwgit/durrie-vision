@@ -66,6 +66,20 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'downloadable' :
+        //Patient Forms
+        $files = array(
+          'heading'     => get_sub_field('downloadable_heading'),
+          'files'       => get_sub_field('downloadable_file')
+        );
+
+        $components .= ll_include_component(
+          'downloadable',
+          $files,
+          array(),
+          true
+        );
+      break;
       case 'fullwidth-image' :
         //
         $image = array(

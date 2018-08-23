@@ -76,6 +76,8 @@ if( $image ) {
   $bg = '';
 }
 
+if( !$heading && !$supertitle && !$image ) return;
+
 ?>
 
 <?php if ( ll_empty( $component_data ) ) return; ?>

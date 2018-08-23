@@ -1,0 +1,76 @@
+/**
+ * downloadable Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-downloadable {
+  @extend %section-padding;
+
+  .downloadable__heading {
+    @extend %h4;
+    @extend %raleway;
+    color: $ebony;
+    margin-bottom: $padding-xsmall;
+    padding-left: 0;
+    font-weight: $text-bold;
+  }
+
+  .downloadable__files {
+    @extend %cards;
+  }
+
+  .downloadable__file__content {
+    @extend %card;
+    /*Dev Note: this can (maybe) be moved to replace %card values*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: none;
+  }
+
+  .downloadable__file__meta {
+    @extend %card__meta;
+    p {
+      width: 100%;
+    }
+
+    span {
+      font-weight: $text-light;
+    }
+
+    svg {
+      fill: $ebony;
+      width: rem-calc(25);
+      height: rem-calc(25);
+    }
+  }
+
+  .downloadable__file__title {
+    @extend %card__title;
+    margin-top: 0;
+    margin-bottom: auto;
+    font-size: rem-calc(16);
+    line-height: line-calc(26, 16);
+
+    @include screen-sm-up {
+      font-size: rem-calc(22);
+      line-height: line-calc(36, 22);
+    }
+  }
+
+  .downloadable__file__icon {
+    @extend %card__icon;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: $padding-medium auto $padding-small auto;
+
+    svg {
+      width: rem-calc(45);
+      height: rem-calc(45);
+      fill: $aluminum;
+    }
+  }
+}

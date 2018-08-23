@@ -132,6 +132,25 @@
             "maxlength": ""
         },
         {
+            "key": "field_5b7edcf03240e",
+            "label": "Fax Number",
+            "name": "contact_fax_number",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_59b2c035428bb",
             "label": "Email Address",
             "name": "contact_email_address",
@@ -140,7 +159,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -375,8 +394,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "g:i a",
-                    "return_format": "g:i a"
+                    "display_format": "ga",
+                    "return_format": "ga"
                 },
                 {
                     "key": "field_59b2b129947e8",
@@ -399,8 +418,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "display_format": "g:i a",
-                    "return_format": "g:i a"
+                    "display_format": "ga",
+                    "return_format": "ga"
                 },
                 {
                     "key": "field_59b2b09b2a693",
@@ -808,43 +827,6 @@
             "maxlength": ""
         },
         {
-            "key": "field_5b68b7c437674",
-            "label": "Newsletter",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "left",
-            "endpoint": 0
-        },
-        {
-            "key": "field_5b68b78537673",
-            "label": "Form ID",
-            "name": "newsletter_form_id",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": 2,
-            "placeholder": 2,
-            "prepend": "",
-            "append": "",
-            "min": 1,
-            "max": "",
-            "step": ""
-        },
-        {
             "key": "field_5b6aeb60ed5b1",
             "label": "Archives",
             "name": "",
@@ -922,5 +904,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1534608334
+    "modified": 1535040959
 }

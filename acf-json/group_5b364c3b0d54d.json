@@ -233,6 +233,37 @@
                     "min": "",
                     "max": ""
                 },
+                "5b7eac5a97472": {
+                    "key": "5b7eac5a97472",
+                    "name": "downloadable",
+                    "label": "Downloadable",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b7eac5a97473",
+                            "label": "Downloadable",
+                            "name": "downloadable",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b7eaada988b0"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "5b7c26eddebd6": {
                     "key": "5b7c26eddebd6",
                     "name": "fullwidth-image",
@@ -347,37 +378,6 @@
                             },
                             "clone": [
                                 "group_5b6ca34f05dd7"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                "5b4601fc28c50": {
-                    "key": "5b4601fc28c50",
-                    "name": "lr-block",
-                    "label": "Sticky Blocks",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b4601fc28c51",
-                            "label": "Sticky Blocks",
-                            "name": "lr-block",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5b29b32050293"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -605,6 +605,37 @@
                     "min": "",
                     "max": ""
                 },
+                "5b4601fc28c50": {
+                    "key": "5b4601fc28c50",
+                    "name": "lr-block",
+                    "label": "Sticky Blocks",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b4601fc28c51",
+                            "label": "Sticky Blocks",
+                            "name": "lr-block",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b29b32050293"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "5b57d2f98f4f9": {
                     "key": "5b57d2f98f4f9",
                     "name": "timeline",
@@ -719,5 +750,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1534968939
+    "modified": 1535028351
 }

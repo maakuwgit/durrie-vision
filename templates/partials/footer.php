@@ -1,6 +1,11 @@
 <?php
-  $form_id  = get_field('newsletter_form_id', 'options');
   $hours    = get_field('schema_openings', 'options');
+  $phone    = get_field('contact_phone_number', 'options');
+  $fax      = get_field('contact_fax_number', 'options');
+  $address  = get_field('contact_street_address', 'options');
+  $city     = get_field('contact_city', 'options');
+  $state    = get_field('contact_state', 'options');
+  $zip      = get_field('contact_zip', 'options');
 ?>
 <footer class="footer">
 
@@ -30,117 +35,101 @@
     </div>
     <!-- .row.container.centered.between -->
 
+  </div><!-- .footer__top -->
+
+  <div class="footer__middle">
+
     <div class="row container between">
-    <?php
-      $args    = array(
-                  'post_type'     => 'location',
-                  'post_status'   => 'publish',
-                  'order'         => 'ASC',
-                  'showposts'     => -1
-                );
 
-      $locations = new WP_Query( $args );
-    ?>
-    <?php if ( $locations->have_posts() ) : ?>
-      <div class="location-grid__locations">
-        <h6 class="location-grid__locations__header">Locations</h6>
-        <dl class="location-grid__locations__list">
+      <?php if( $hours || $phone || $fax) : ?>
+      <div class="footer__additional_details col col-md-3of12 col-lg-3of12 col-xl-3of12">
 
-      <?php while( $locations->have_posts() ) : ?>
-        <?php
-          $locations->the_post();
-          $details    = get_field('location_details');
-          $contacts   = get_field('location_contact');
-        ?>
+        <?php if( $address ) : ?>
+        <div class="footer__additional_details__wrap">
 
-          <dt class="location-grid__location__title">
-            <?php echo the_title(); ?>
-          </dt>
-          <!-- .location-grid__location__title -->
+          <h6 class="footer__address__title">Address</h6>
 
-          <?php if( $details || $contacts ) : ?>
-          <dd class="location-grid__location__description">
+          <address class="footer__address"><?php echo $address . ', <br>' . $city . ', ' . $state . $zip; ?></address>
+        </div>
+        <?php endif; ?>
 
-            <?php if( $details ) : ?>
-            <address class="location-grid__location__address"><?php echo $details['location_address']; ?></address>
-            <!-- .location-grid__location__address -->
-            <?php endif; ?>
+        <?php if( $phone || $fax ) : ?>
+        <div class="footer__additional_details__wrap">
 
-            <?php if( $contacts ) : ?>
-            <a class="location-grid__location__phone" href="tel:+1<?php echo $contacts[0]['phone']; ?>"><?php echo format_phone($contacts[0]['phone'], false, '-'); ?></a>
-            <!-- .location-grid__location__phone -->
-            <?php endif; ?>
+          <h6 class="footer__contact__title">Phone/Fax</h6>
 
-          </dd>
-          <!-- .location-grid__location__description -->
+          <?php if( $phone ) : ?>
+          <a class="footer__contact__phone block" href="tel:+1<?php echo $phone; ?>">phone:&nbsp;<?php echo format_phone($phone,false, '-'); ?></a>
           <?php endif; ?>
 
-      <?php endwhile; ?>
+          <?php if( $fax ) : ?>
+          <a class="footer__contact__fax block" href="#fax">fax:&nbsp;<?php echo format_phone($fax,false, '-'); ?></a>
+          <?php endif; ?>
+        </div>
 
-      <?php wp_reset_postdata(); ?>
-
-        </dl><!-- .location-grid__locations__list -->
-
-      </div>
-      <!-- .location-grid__locations -->
-    <?php endif; ?>
-
-      <div class="footer__navigation_wrap">
-
-        <div class="footer__navigation">
-        <?php if (has_nav_menu('footer_navigation')) : ?>
-          <?php wp_nav_menu(array('theme_location' => 'footer_navigation', 'menu_class' => 'nav navbar__nav')); ?>
-        <?php endif;?>
-        </div><!-- .footer__top__nav -->
-
-      </div><!-- .footer__navigation_wrap -->
-
-    <?php if( ll_get_social_list(false) || $hours ) : ?>
-      <div class="footer__additional_details">
-
+        <?php endif; ?>
         <?php if( $hours ) : ?>
-        <div class="footer__hours_wrap">
+        <div class="footer__additional_details__wrap">
 
           <h6 class="footer__hours__title">Hours</h6>
 
-          <?php
-          foreach( $hours as $opening ) {
-            $time = $opening['from'] . ' - ' . $opening['to'];
+          <?php foreach( $hours as $opening ) : ?>
+          <div class="row start">
 
+            <?php
+            if($opening['from'] && $opening['to']) {
+              $time = $opening['from'] . ' - ' . $opening['to'];
+            }else{
+              $time = 'Closed';
+            }
+            ?>
+
+            <p class="footer__hours__days">
+
+            <?php
             if( in_array('Mon', $opening['days']) &&
                 in_array('Tue', $opening['days']) &&
                 in_array('Wed', $opening['days']) &&
                 in_array('Thu', $opening['days']) &&
-                in_array('Fri', $opening['days']) ) {
+                in_array('Fri', $opening['days']) ) :
+            ?>Mon - Fri</p>
 
-              echo format_text( 'Mon- Fri: ' . $time);
+          <?php else : ?>
+            <?php echo implode(', ', $opening['days']); ?>
+          <?php endif; ?>
+            </p>
+            <p class="footer__hours__time"><?php echo $time; ?></p>
 
-            }elseif( sizeof($opening['days']) === 1 && $opening['days'][0] === 'Sat' ) {
+          </div><!-- .row -->
+          <?php endforeach; ?>
 
-              echo format_text( 'Saturday: ' . $time);
-
-            }elseif( sizeof($opening['days']) === 1 && 'Sun' === $opening['days'][0] ) {
-
-              echo format_text( 'Sunday: ' . $time);
-
-            }else{
-
-              echo format_text( implode(', ', $opening['days']) . ': ' . $time);
-
-            }
-          }
-          ?>
-
-        </div><!-- .footer__hours -->
+      </div><!-- .footer__hours__wrap -->
       <?php endif; ?>
 
       </div>
       <!-- .footer__additional_details -->
     <?php endif; ?>
 
+      <div class="footer__navigation_wrap col col-md-9of12 col-lg-9of12 col-xl-9of12">
+
+        <div class="footer__navigation">
+        <?php if (has_nav_menu('footer_navigation')) : ?>
+          <?php
+            wp_nav_menu(
+              array(
+                'theme_location' => 'footer_navigation',
+                'menu_class'     => 'nav navbar__nav'
+              )
+            );
+          ?>
+        <?php endif;?>
+        </div><!-- .footer__top__nav -->
+
+      </div><!-- .footer__navigation_wrap -->
+
     </div><!-- .container.row -->
 
-  </div><!-- .footer__top -->
+  </div><!-- .footer__middle -->
 
   <div class="footer__bottom">
 
