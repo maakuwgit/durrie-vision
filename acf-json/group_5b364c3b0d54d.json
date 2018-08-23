@@ -421,14 +421,14 @@
                 },
                 "5b43c684c590c": {
                     "key": "5b43c684c590c",
-                    "name": "location-grid",
-                    "label": "Location Grid",
+                    "name": "location-details",
+                    "label": "Location Details",
                     "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_5b43c684c590d",
-                            "label": "Location Grid",
-                            "name": "location-grid",
+                            "label": "Location Details",
+                            "name": "location-details",
                             "type": "clone",
                             "instructions": "",
                             "required": 0,
@@ -439,7 +439,7 @@
                                 "id": ""
                             },
                             "clone": [
-                                "group_5b4e31e31c404"
+                                "group_5b4e167b3d1a5"
                             ],
                             "display": "seamless",
                             "layout": "block",
@@ -750,5 +750,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1535028351
+    "modified": 1535047450
 }

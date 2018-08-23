@@ -8,7 +8,8 @@
 
 .ll-location-map {
   position: relative;
-  background-color: $aluminum;
+  height: 80vh;
+  max-height: rem-calc(616);
 
   .location-map__heading,
   .location-map__content {
@@ -35,10 +36,11 @@
     position: absolute;
     top: 0;
     right: 0;
-    height: 100vh;
-    max-height: 635px;
+    height: 100%;
+    max-height: rem-calc(616);
     padding-left: 0;
     padding-right: 0;
+    width: 100%;
   }
 
   .location-map__locations {

@@ -232,41 +232,21 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'location-grid' :
-        //Form Template, Services
-        $locations = array(
-          'heading'       => get_sub_field('location_grid_heading'),
-          'content'       => get_sub_field('location_grid_content'),
-          'num_locations' => get_sub_field('location_grid_number')
-        );
-
+      case 'location-details' :
+        //Form Template
         $components .= ll_include_component(
-          'location-grid',
-          $locations,
-          array(
-            'classes' => array(
-              get_sub_field('color')
-            )
-          ),
+          'location-details',
+          false,
+          array(),
           true
         );
       break;
       case 'location_map' :
         //Form Template
-        $locations = array(
-          'heading'       => get_sub_field('map_heading'),
-          'content'       => get_sub_field('map_content'),
-          'locations'     => get_sub_field('map_locations')
-        );
-
         $components .= ll_include_component(
           'location-map',
-          $locations,
-          array(
-            'classes' => array(
-              get_sub_field('color')
-            )
-          ),
+          false,
+          array(),
           true
         );
       break;
@@ -470,4 +450,3 @@ if( have_rows( 'components' ) ) {
   echo $components;
 }
 ?>
-<?php // wp_link_pages(array('before' => '<nav class='pagination'>', 'after' => '</nav>')); ?>
