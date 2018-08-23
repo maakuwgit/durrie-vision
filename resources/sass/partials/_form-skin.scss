@@ -73,8 +73,7 @@
   }
 
   .gform_fields {
-    @include flexible;
-    width: 100%;
+    @extend %row;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -83,8 +82,8 @@
       margin-bottom: rem-calc(15);
 
       @include screen-lg-up {
-        padding-left: $grid-column-padding;
-        padding-right: $grid-column-padding;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }
@@ -92,7 +91,8 @@
   .gform_heading {
     @extend %header;
     font-weight: $text-reg;
-    margin-bottom: rem-calc(28);
+    margin-left: 0;
+    margin-bottom: $padding-medium;
   }
 
   .gf_progressbar_wrapper {
@@ -101,8 +101,8 @@
 
   .gform_title {
     @extend %h3;
-    margin-bottom: rem-calc(9);
-    margin-left: auto;
+    margin-bottom: calc( #{$padding-small - rem-calc(9)} );
+    margin-left: 0;
     color: $ebony;
   }
 
@@ -151,6 +151,7 @@
 
       textarea {
         max-height: rem-calc(130);
+        font-weight: $text-light;
       }
     }
 

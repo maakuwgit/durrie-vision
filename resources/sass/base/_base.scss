@@ -138,8 +138,8 @@ input {
   }
 
   @include placeholder-text {
-    font-weight: $text-black;
-    color: $ebony;
+    font-weight: $text-light;
+    color: $battleship;
   }
 
   &:focus {
@@ -148,7 +148,9 @@ input {
 }
 
 label {
-  margin-top: rem-calc(30);
+  display: block;
+  margin-top: $padding-small;
+  margin-bottom: rem-calc(10);
   font-size: rem-calc(14);
   font-weight: $text-black;
   color: $ebony;

@@ -98,22 +98,16 @@
  * Input styles
  */
 @mixin input_base {
+  @extend %label;
   appearance: none;
   -webkit-appearance: none;
   display: inline-block;
   width: 100%;
-  padding: #{rem-calc(35)}
-           #{rem-calc(18)}
-           #{rem-calc(14)}
-           #{rem-calc(18)};
+  padding: #{rem-calc(9)} #{rem-calc(20)};
   border: #{rem-calc(1)} solid $grey;
   border-radius: 0;
-  font-size: rem-calc(15);
-  font-weight: $text-reg;
-  color: $grey;
-  line-height: line-calc(28,28);
+  color: $battleship;
   background-color: $white;
-  box-shadow: 0 #{rem-calc(2)} #{rem-calc(6)} 0 rgba($black, 0.12);
 
   @include screen-lg-up {
 

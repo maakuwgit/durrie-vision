@@ -28,7 +28,8 @@
   }
 }
 
-.row {
+%row {
+
   width: 100%;
   @include flexible;
   @include screen-md {
@@ -122,6 +123,10 @@
     }
 
   }
+}
+
+.row {
+  @extend %row;
 }
 
 .col {
