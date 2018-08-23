@@ -72,7 +72,7 @@ $files        = $component_data['files'];
 
       <?php if( $title || $file ) : ?>
         <div class="downloadable__file__content text-center" data-clickthrough>
-          <a class="downloadable__file__link" href="<?php echo $file; ?>"></a>
+          <a class="downloadable__file__link" href="<?php echo $file; ?>" target="_blank"></a>
 
         <?php if( $icon ) : ?>
           <div class="downloadable__file__icon">

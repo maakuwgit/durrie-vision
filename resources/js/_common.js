@@ -113,7 +113,11 @@
         var target = $(this).find('a:first-of-type');
         e.preventDefault();
         if(target && target.length > 0){
-          document.location.href = target.attr('href');
+          if( target.attr('target') ){
+            window.open(target.attr('href'), target.attr('target') );
+          }else{
+            document.location.href = target.attr('href');
+          }
         }else{
           document.location.href = $(this).attr('data-clickthrough');
         }
