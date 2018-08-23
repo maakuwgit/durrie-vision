@@ -7,5 +7,53 @@
  */
 
 .ll-location-details {
+  @extend %section-margins;
+
+  .location-details__list {
+    margin-bottom: rem-calc(15);
+  }
+
+  .location-details__title {
+    @extend %h4;
+    color: $battleship;
+    margin-top: rem-calc(4);
+    margin-bottom: rem-calc(8);
+  }
+
+  .location-details__description {
+  }
+
+  .location-details__description__address,
+  .location-details__description__phone,
+  .location-details__description__fax,
+  .location-details__description__hours__time,
+  .location-details__description__hours__days {
+    @extend %p;
+    font-weight: $text-light;
+    color: $battleship;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    br {
+      line-height: 2;
+    }
+  }
+
+  .location-details__description__phone,
+  .location-details__description__fax {
+    padding-bottom: rem-calc(4);
+  }
+
+  .location-details__description__hours {
+  }
+
+  .location-details__description__hours__time {
+    @extend %raleway;
+    font-weight: $text-med;
+    margin-left: $grid-gutter-width;
+  }
+
+  .location-details__description__hours__days {
+  }
 
 }

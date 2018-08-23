@@ -388,37 +388,6 @@
                     "min": "",
                     "max": ""
                 },
-                "5b4e572685a30": {
-                    "key": "5b4e572685a30",
-                    "name": "lr-w-background",
-                    "label": "Left\/Right Content w\/ Background",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_5b4e572685a31",
-                            "label": "Left\/Right Content w\/ Background",
-                            "name": "lr-w-background",
-                            "type": "clone",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "clone": [
-                                "group_5b4e1dd498b7d"
-                            ],
-                            "display": "seamless",
-                            "layout": "block",
-                            "prefix_label": 0,
-                            "prefix_name": 0
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
                 "5b43c684c590c": {
                     "key": "5b43c684c590c",
                     "name": "location-details",
@@ -536,6 +505,37 @@
                             ],
                             "display": "seamless",
                             "layout": "",
+                            "prefix_label": 0,
+                            "prefix_name": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "5b4e572685a30": {
+                    "key": "5b4e572685a30",
+                    "name": "photo_w_caption",
+                    "label": "Photo w\/Caption",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5b4e572685a31",
+                            "label": "Photo w\/Caption",
+                            "name": "photo_w_caption",
+                            "type": "clone",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "clone": [
+                                "group_5b4e1dd498b7d"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
                             "prefix_label": 0,
                             "prefix_name": 0
                         }
@@ -750,5 +750,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1535047450
+    "modified": 1535053026
 }

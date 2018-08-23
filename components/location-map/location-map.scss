@@ -11,27 +11,6 @@
   height: 80vh;
   max-height: rem-calc(616);
 
-  .location-map__heading,
-  .location-map__content {
-    max-width: 75%;
-  }
-
-  .location-map__heading {
-    @extend %h3;
-    margin-bottom: 0;
-    color: $ebony;
-  }
-
-  .location-map__body {
-    display: flex;
-    @extend %section-padding;
-    flex-direction: column;
-    padding-left: 0;
-    padding-right: 0;
-    height: 100vh;
-    max-height: 635px;
-  }
-
   .location-map__googlemap {
     position: absolute;
     top: 0;
@@ -41,21 +20,5 @@
     padding-left: 0;
     padding-right: 0;
     width: 100%;
-  }
-
-  .location-map__locations {
-
-    li {
-      font-weight: $text-bold;
-    }
-
-    a {
-      color: $aqua;
-
-      &:hover {
-        color: $battleship;
-      }
-
-    }
   }
 }

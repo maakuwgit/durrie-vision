@@ -1,5 +1,5 @@
 .form-skin {
-  @extend %section-padding;
+  @extend %section-margins;
 
   .gform_footer {
     display: flex;
@@ -15,17 +15,6 @@
     flex: 0 1 auto;
     margin-left: auto;
     margin-right: 13%;
-    margin-top: rem-calc(114);
-    margin-bottom: $padding-medium;
-
-    @include screen-lg-up {
-      margin-top: rem-calc(228);
-      margin-bottom: $padding-large;
-    }
-
-    textarea {
-      height: rem-calc(150);
-    }
 
     .gsection {
       border: none;

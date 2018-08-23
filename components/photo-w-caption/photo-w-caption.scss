@@ -1,0 +1,41 @@
+/**
+ * photo-w-caption Styles
+ * ----------------------------------------------------------------------------
+ *
+ * About the module
+ *
+ */
+
+.ll-photo-w-caption {
+  @extend %section-margins;
+  position: relative;
+  height: auto;
+  min-height: rem-calc(320);
+
+  .ll-photo-w-caption__image {
+    position: absolute;
+    width: 86.666667%;
+    height: 50vh;
+    min-height: inherit;
+  }
+
+  .ll-photo-w-caption__content {
+    margin-top: 20%;
+    margin-right: 8.666667%;
+    padding: #{rem-calc(120)} #{rem-calc(85)};
+    background-color: $black;
+
+    * {
+      color: $white;
+    }
+
+  }
+
+  @include screen-xl-up {
+    min-height: rem-calc(640);
+
+    .ll-photo-w-caption__content {
+      margin-top: 40%;
+    }
+  }
+}

@@ -66,6 +66,25 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
+      case 'doctor_grid' :
+        //About Us”
+        $members = array(
+          'heading'     => get_sub_field('doctors_grid_image'),
+          'content'  => get_sub_field('doctors_grid_content'),
+          'num_members' => get_sub_field('num_doctors')
+        );
+
+        $components .= ll_include_component(
+          'doctor-grid',
+          $doctors,
+          array(
+            'classes' => array(
+              get_sub_field('color')
+            )
+          ),
+          true
+        );
+      break;
       case 'downloadable' :
         //Patient Forms
         $files = array(
@@ -269,25 +288,6 @@ if( have_rows( 'components' ) ) {
           true
         );
       break;
-      case 'doctor_grid' :
-        //About Us”
-        $members = array(
-          'heading'     => get_sub_field('doctors_grid_image'),
-          'content'  => get_sub_field('doctors_grid_content'),
-          'num_members' => get_sub_field('num_doctors')
-        );
-
-        $components .= ll_include_component(
-          'doctor-grid',
-          $doctors,
-          array(
-            'classes' => array(
-              get_sub_field('color')
-            )
-          ),
-          true
-        );
-      break;
       case 'photo-stack-w-content' :
         //Home, About
         $stack = array(
@@ -307,6 +307,20 @@ if( have_rows( 'components' ) ) {
               get_sub_field('color')
             )
           ),
+          true
+        );
+      break;
+      case 'photo_w_caption' :
+        //Contact Page
+        $photo = array(
+          'caption'    => get_sub_field('photo_w_caption_content'),
+          'image'      => get_sub_field('photo_w_caption_image')
+        );
+
+        $components .= ll_include_component(
+          'photo-w-caption',
+          $photo,
+          array(),
           true
         );
       break;

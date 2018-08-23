@@ -31,6 +31,7 @@ $id               = ( $component_args['id'] ? $component_args['id'] : uniqid('lo
  */
 
 $mid              = uniqid('location-hero-map-');
+
 $lng = -94.6827847;
 $lat = 38.9285626;
 

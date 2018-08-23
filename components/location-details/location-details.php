@@ -41,66 +41,81 @@ $zip      = get_field('contact_zip', 'options');
 <?php if ( !$hours && !$phone && !$fax ) return; ?>
 <section class="ll-location-details <?php echo implode( " ", $classes ); ?>" <?php echo ( $component_id ? 'id="'.$component_id.'"' : '' ) ?> data-component="location-details">
 
-  <?php if( $address ) : ?>
-  <div class="footer__additional_details__wrap">
+  <dl class="container row start">
 
-    <h6 class="footer__address__title">Address</h6>
+    <?php if( $address ) : ?>
+    <div class="col col-sm-6of12 col-md-4of12 col-lg-3of12 col-xl-3of12">
 
-    <address class="footer__address"><?php echo $address . ', <br>' . $city . ', ' . $state . $zip; ?></address>
-  </div>
-  <?php endif; ?>
+      <dt class="location-details__title">Address</dt>
+      <!-- .location-details__title -->
 
-  <?php if( $phone || $fax ) : ?>
-  <div class="footer__additional_details__wrap">
+      <dd class="location-details__description">
+        <address class="location-details__description__address"><?php echo $address . ', <br>' . $city . ', ' . $state . $zip; ?></address>
+      </dd>
+      <!-- .location-details__description -->
 
-    <h6 class="footer__contact__title">Phone/Fax</h6>
-
-    <?php if( $phone ) : ?>
-    <a class="footer__contact__phone block" href="tel:+1<?php echo $phone; ?>">phone:&nbsp;<?php echo format_phone($phone,false, '-'); ?></a>
+    </div>
     <?php endif; ?>
 
-    <?php if( $fax ) : ?>
-    <a class="footer__contact__fax block" href="#fax">fax:&nbsp;<?php echo format_phone($fax,false, '-'); ?></a>
+    <?php if( $phone || $fax ) : ?>
+    <div class="col col-sm-6of12 col-md-4of12 col-lg-3of12 col-xl-3of12">
+
+      <dt class="location-details__title">Phone/Fax</dt>
+      <!-- .location-details__title -->
+
+      <dd class="location-details__description">
+        <?php if( $phone ) : ?>
+        <a class="location-details__description__phone block" href="tel:+1<?php echo $phone; ?>">phone:&nbsp;<?php echo format_phone($phone,false, '-'); ?></a>
+        <?php endif; ?>
+
+        <?php if( $fax ) : ?>
+        <a class="location-details__description__fax block" href="#fax">fax:&nbsp;<?php echo format_phone($fax,false, '-'); ?></a>
+        <?php endif; ?>
+      </dd>
+      <!-- .location-details__description -->
+
+    </div>
     <?php endif; ?>
-  </div>
 
-  <?php endif; ?>
-  <?php if( $hours ) : ?>
-  <div class="footer__additional_details__wrap">
+    <?php if( $hours ) : ?>
+    <div class="col col-sm-6of12 col-md-4of12 col-lg-3of12 col-xl-3of12">
+      <dt class="location-details__title">Hours</dt>
 
-    <h6 class="footer__hours__title">Hours</h6>
+      <dd class="location-details__description__hours">
+      <?php foreach( $hours as $opening ) : ?>
+        <div class="row start">
 
-    <?php foreach( $hours as $opening ) : ?>
-    <div class="row start">
+          <?php
+          if($opening['from'] && $opening['to']) {
+            $time = $opening['from'] . ' - ' . $opening['to'];
+          }else{
+            $time = 'Closed';
+          }
+          ?>
 
-      <?php
-      if($opening['from'] && $opening['to']) {
-        $time = $opening['from'] . ' - ' . $opening['to'];
-      }else{
-        $time = 'Closed';
-      }
-      ?>
+          <p class="location-details__description__hours__days">
 
-      <p class="footer__hours__days">
+          <?php
+          if( in_array('Mon', $opening['days']) &&
+              in_array('Tue', $opening['days']) &&
+              in_array('Wed', $opening['days']) &&
+              in_array('Thu', $opening['days']) &&
+              in_array('Fri', $opening['days']) ) :
+          ?>Mon - Fri</p>
 
-      <?php
-      if( in_array('Mon', $opening['days']) &&
-          in_array('Tue', $opening['days']) &&
-          in_array('Wed', $opening['days']) &&
-          in_array('Thu', $opening['days']) &&
-          in_array('Fri', $opening['days']) ) :
-      ?>Mon - Fri</p>
+        <?php else : ?>
+          <?php echo implode(', ', $opening['days']); ?>
+        <?php endif; ?>
+          </p>
+          <p class="location-details__description__hours__time"><?php echo $time; ?></p>
 
-    <?php else : ?>
-      <?php echo implode(', ', $opening['days']); ?>
+        </div><!-- .row -->
+      <?php endforeach; ?>
+
+      </dd><!-- .location-details__description -->
+    </div>
     <?php endif; ?>
-      </p>
-      <p class="footer__hours__time"><?php echo $time; ?></p>
 
-    </div><!-- .row -->
-    <?php endforeach; ?>
-
-  </div><!-- .footer__hours__wrap -->
-  <?php endif; ?>
+  </dl>
 
 </section>

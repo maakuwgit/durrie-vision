@@ -1,33 +1,11 @@
 {
     "key": "group_5b4e1dd498b7d",
-    "title": "Left \/ Right Content w\/ Background",
+    "title": "Photo w\/Caption",
     "fields": [
-        {
-            "key": "field_5b4e1dd4a02a5",
-            "label": "Style",
-            "name": "lr_w_background_style",
-            "type": "button_group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "20",
-                "class": "",
-                "id": ""
-            },
-            "choices": {
-                "righty": "Right Side Text",
-                "lefty": "Left Side Text"
-            },
-            "allow_null": 0,
-            "default_value": "righty",
-            "layout": "vertical",
-            "return_format": "value"
-        },
         {
             "key": "field_5b4e1dd4a02eb",
             "label": "Image",
-            "name": "lr_w_background_image",
+            "name": "photo_w_caption_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -49,30 +27,9 @@
             "mime_types": ""
         },
         {
-            "key": "field_5b4e1dd4a0369",
-            "label": "Overlay Strength",
-            "name": "lr_w_background_overlay_strength",
-            "type": "number",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "30",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "0.3",
-            "placeholder": "0.3",
-            "prepend": "",
-            "append": "",
-            "min": 0,
-            "max": 1,
-            "step": "0.1"
-        },
-        {
             "key": "field_5b4e1dd4a032b",
             "label": "Content",
-            "name": "lr_w_background_content",
+            "name": "photo_w_caption_content",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -85,7 +42,7 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1,
+            "media_upload": 0,
             "delay": 0
         }
     ],
@@ -105,6 +62,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": 0,
-    "description": "Similar to the Left\/Right Block, only with an image background instead of floating left\/right",
-    "modified": 1533845720
+    "description": "A near fullwidth image, absolutely positioned. A blurb of content in a field of black slightly overlaps the photo",
+    "modified": 1535053081
 }
